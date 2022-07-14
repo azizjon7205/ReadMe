@@ -1,4 +1,4 @@
-package me.ruyeo.kitobz.ui.profile
+package me.ruyeo.kitobz.ui.discussions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.ui.BaseFragment
 
 @AndroidEntryPoint
-class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
+class DiscussFragment : BaseFragment(R.layout.fragment_discuss) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

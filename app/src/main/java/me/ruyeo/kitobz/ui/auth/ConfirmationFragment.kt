@@ -1,4 +1,4 @@
-package me.ruyeo.kitobz.ui.profile
+package me.ruyeo.kitobz.ui.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,11 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.ui.BaseFragment
 
 @AndroidEntryPoint
-class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
+class ConfirmationFragment : BaseFragment(R.layout.fragment_confirmation) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
