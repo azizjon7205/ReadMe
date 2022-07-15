@@ -3,4 +3,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ok" />
+    <string name="login">Login</string>
+    <string name="skip">Skip</string>
+    <string name="smsConfirmation">Код подтверждения</string>
+    <string name="discussion">Обуждение</string>
+    <string name="sms_send_text">Введите код который мы вам\n отправили по СМС</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="resendTime">Отправить СМС повторно через 57 секунд</string>
+    <string name="change_image">Хотите сменить аватарку?</string>
+    <string name="hi">Ассалом, \nИмя</string>
+    <string name="choose_language">Выберите предпочитаемый язык\n приложения</string>
+    <string name="finish">Завершить</string>
+    <string name="follow">Подписаться</string>
 </resources>
