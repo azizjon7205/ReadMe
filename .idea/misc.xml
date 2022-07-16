@@ -30,6 +30,7 @@
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_list.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_lock.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_lock_2.xml" value="0.2155" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_logo.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_logout.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_more_bottom.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_more_top.xml" value="0.2155" />
@@ -46,6 +47,10 @@
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_version.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_write.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/w.xml" value="0.2155" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="0.17481884057971014" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_basket.xml" value="0.17481884057971014" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_first.xml" value="0.17481884057971014" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_login.xml" value="0.8800000000000001" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />
       </map>
     </option>
