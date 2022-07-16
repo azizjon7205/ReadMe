@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Kitobz"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.auth.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

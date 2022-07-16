@@ -1,6 +1,6 @@
 @file:Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION")
 
-package me.ruyeo.newcut.utils.extensions
+package me.ruyeo.kitobz.utils.utils.extensions
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment

@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-anydpi/ic_arrow_right.xml" value="0.1295" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/category_item.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.16" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/context_menu.xml" value="0.18125" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_message.xml" value="0.12760416666666666" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.253125" />
       </map>
     </option>
   </component>
@@ -16,5 +19,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.5" />
+      </ProjectState>
+    </option>
   </component>
 </project>

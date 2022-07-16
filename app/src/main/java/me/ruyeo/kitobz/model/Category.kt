@@ -1,10 +1,10 @@
 package me.ruyeo.kitobz.model
 
 data class Category(
-    val count: Int,
-    val id: Int,
-    val image: String,
-    val last_updated: String,
-    val name: String,
-    val children: List<Category>
+    val count: Int? = null,
+    val id: Int? = null,
+    val image: String? = null,
+    val last_updated: String? = null,
+    val name: String? = null,
+    val children: List<Category>? = null
 )
