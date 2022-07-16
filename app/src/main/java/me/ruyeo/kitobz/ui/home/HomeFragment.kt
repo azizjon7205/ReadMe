@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.CategoryAdapter
+import me.ruyeo.kitobz.data.repository.AuthRepository
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.utils.utils.UiStateList

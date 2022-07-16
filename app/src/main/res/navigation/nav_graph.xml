@@ -1,6 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="me.ruyeo.kitobz.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="me.ruyeo.kitobz.ui.basket.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/discussFragment"
+        android:name="me.ruyeo.kitobz.ui.discussions.DiscussFragment"
+        android:label="fragment_discuss"
+        tools:layout="@layout/fragment_discuss" />
+    <fragment
+        android:id="@+id/myLibraryFragment"
+        android:name="me.ruyeo.kitobz.ui.library.MyLibraryFragment"
+        android:label="fragment_my_library"
+        tools:layout="@layout/fragment_my_library" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="me.ruyeo.kitobz.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

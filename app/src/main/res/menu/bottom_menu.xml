@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:title="Home"
+        android:id="@+id/loginFragment"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="never" />
+    <item
+        android:title="Basket"
+        android:id="@+id/basketFragment"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="never" />
+    <item
+        android:title="Discuss"
+        android:id="@+id/discussFragment"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Library"
+        android:id="@+id/myLibraryFragment"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Profile"
+        android:id="@+id/profileFragment2"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="never"/>
+</menu>
+
