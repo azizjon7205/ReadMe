@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.auth.ChooseLanguageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+        />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/change_image"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        android:layout_marginTop="8dp"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hi"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_language"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="132dp"/>
+
+    <Button
+        android:id="@+id/finishBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp"
+        android:text="@string/finish"/>
+
+</LinearLayout>
