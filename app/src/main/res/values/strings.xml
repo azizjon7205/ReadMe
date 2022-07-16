@@ -14,7 +14,10 @@
     <string name="choose_language">Выберите предпочитаемый язык\n приложения</string>
     <string name="finish">Завершить</string>
     <string name="follow">Подписаться</string>
-    
+
     <string name="discover_books_you_i">Откройте для себя весь мир</string>
     <string name="find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
+    <string name="str_my_library">Моя библиотека</string>
+    <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
+    <string name="str_you_can_choose_here">Выбрать можете здесь.</string>
 </resources>
