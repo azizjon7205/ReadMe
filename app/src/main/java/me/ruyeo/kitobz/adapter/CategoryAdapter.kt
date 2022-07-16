@@ -1,6 +1,7 @@
 package me.ruyeo.kitobz.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -10,6 +11,9 @@ import me.ruyeo.kitobz.databinding.CategoryItemBinding
 import me.ruyeo.kitobz.model.Category
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+    init {
+        Log.d("@@@", "Adapter done")
+    }
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,10 +27,13 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: CategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        init {
+//            Log.d("@@@", "Adapter ${dif.currentList.size}")
+        }
         @SuppressLint("SetTextI18n")
         fun bind() {
             val d = dif.currentList[adapterPosition]
+//            Log.d("@@@", "Item ${d.name}")
             with(binding) {
 
             }
@@ -46,5 +53,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
                 oldItem == newItem
         }
     }
+
+
 
 }
