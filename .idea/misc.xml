@@ -6,7 +6,13 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-anydpi/ic_arrow_right.xml" value="0.1295" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_left.xml" value="0.1245" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_top.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_bin.xml" value="0.108" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_book.xml" value="0.108" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_book_online.xml" value="0.108" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_create_theme.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_font_size.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_headphones.xml" value="0.108" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_liblary.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_list.xml" value="0.1245" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_logo.xml" value="0.1245" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_more_bottom.xml" value="0.1245" />
@@ -23,7 +29,10 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category_header.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_authors.xml" value="0.18125" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_banner_main.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category.xml" value="0.33" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category_header.xml" value="0.25" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/context_menu.xml" value="0.18125" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />

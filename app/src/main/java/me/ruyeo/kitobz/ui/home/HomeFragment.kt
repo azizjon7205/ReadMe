@@ -1,6 +1,7 @@
 package me.ruyeo.kitobz.ui.home
 
 import android.os.Bundle
+import android.os.Handler
 import android.os.SystemClock
 import android.util.Log
 import android.view.MotionEvent
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
+import me.ruyeo.kitobz.adapter.AuthorsAdapter
+import me.ruyeo.kitobz.adapter.BannerAdapter
 import me.ruyeo.kitobz.adapter.CategoryAdapter
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
 import me.ruyeo.kitobz.model.Category
@@ -20,6 +23,7 @@ import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.customs.CenterZoomLayoutManager
 import me.ruyeo.kitobz.ui.home.customs.RecyclerCoverFlow
 import me.ruyeo.kitobz.utils.utils.UiStateList
+import me.ruyeo.kitobz.utils.utils.extensions.dpToPixel
 import viewBinding
 
 
@@ -28,13 +32,16 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private val binding by viewBinding { FragmentHomeBinding.bind(it) }
     private val viewModel by viewModels<HomeViewModel>()
-    private val adapter by lazy { CategoryAdapter() }
+    private val adapterCategory by lazy { CategoryAdapter() }
+    private val adapterBanner by lazy { BannerAdapter() }
+    private val adapterAuthors by lazy { AuthorsAdapter() }
 
     private lateinit var rvBanners: RecyclerCoverFlow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCategories()
+        viewModel.getBanners(12)
 
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,11 +55,13 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         binding.rvBanner.apply {
             layoutManager = CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = adapter
+//            adapter = adapterBanner
             canScrollHorizontally(1)
+            smoothScrollBy(5, 0)
+            Handler().postDelayed({ smoothScrollToPosition(3) }, 500)
+
             scrollBy(1, 2)
-            touchL(binding.rvBanner)
-            scrollToPosition(loadList().size/ 2 - 1)
+//            scrollToPosition(loadList().size/ 2 - 1)
         }
 
         binding.rvCats.apply {
@@ -60,6 +69,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 //            adapter = adapter
         }
 
+        binding.rvAuthors.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvAuthors.addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
 
 //        binding.rvMain.apply {
 //            set3DItem(true)
@@ -90,12 +101,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         view.dispatchTouchEvent(motionEvent)
     }
 
-    private fun refreshAdapter(){
-        adapter.submitList(loadList())
-        binding.rvCats.adapter = adapter
-        binding.rvBanner.adapter = adapter
-    }
-
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
@@ -107,10 +112,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                         is UiStateList.SUCCESS -> {
                             val items = it.data[0].children as MutableList<Category>
                             items.add(0, Category())
-                            adapter.submitList(items)
-//                            adapter.submitList(it.data[0].children!!)
-                            binding.rvCats.adapter = adapter
-                            Log.d("@@@", "Test ${it.data[0].children?.size}")
+                            adapterCategory.submitList(items)
+                            binding.rvCats.adapter = adapterCategory
+                            Log.d("@@@", "Categories ${it.data[0].children?.size}")
                         }
                         is UiStateList.ERROR -> {
                             showMessage(it.message)
@@ -120,6 +124,33 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.getBannerState.collect{
+                    when(it){
+                        is UiStateList.LOADING -> {
+
+                        }
+                        is UiStateList.SUCCESS -> {
+                            val items = it.data
+                            adapterBanner.submitList(items)
+                            adapterAuthors.submitList(items)
+//                            adapter.submitList(it.data[0].children!!)
+                            binding.rvBanner.adapter = adapterBanner
+                            binding.rvAuthors.adapter = adapterAuthors
+                            Log.d("@@@", "Banners ${it.data.size}")
+                        }
+                        is UiStateList.ERROR -> {
+                            showMessage(it.message)
+                        }
+                        else -> Unit
+                    }
+                }
+            }
+        }
+
+
     }
 
     fun loadList(): List<Category>{

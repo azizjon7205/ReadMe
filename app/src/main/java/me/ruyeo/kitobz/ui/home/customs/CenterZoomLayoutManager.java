@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CenterZoomLayoutManager extends LinearLayoutManager {
 
-    private final float mShrinkAmount = 0.3f;
-    private final float mShrinkDistance = 0.95f;
+    private final float mShrinkAmount = 0.25f;
+    private final float mShrinkDistance = 0.8f;
 
     public CenterZoomLayoutManager(Context context) {
         super(context);
@@ -70,7 +70,7 @@ public class CenterZoomLayoutManager extends LinearLayoutManager {
                 child.setScaleX(scale);
                 child.setScaleY(scale);
                 child.setElevation(14f);
-                child.setOutlineAmbientShadowColor(Color.BLUE);
+//                child.setOutlineAmbientShadowColor(Color.BLUE);
             }
             return scrolled;
         } else {

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_marginVertical="5dp"
+    android:layout_marginStart="10dp"
     app:strokeColor="@color/white_light_1"
     app:strokeWidth="1dp"
     app:cardCornerRadius="10dp"
@@ -13,7 +14,7 @@
     <LinearLayout
         android:background="@color/white_light_2"
         android:orientation="horizontal"
-        android:paddingVertical="18dp"
+        android:paddingVertical="8dp"
         android:gravity="center_vertical"
         android:paddingHorizontal="15dp"
         android:layout_width="wrap_content"
@@ -22,8 +23,8 @@
         <ImageView
             android:id="@+id/iv_cats"
             android:src="@drawable/ic_list"
-            android:layout_width="40dp"
-            android:layout_height="40dp"/>
+            android:layout_width="45dp"
+            android:layout_height="45dp"/>
 
         <me.ruyeo.kitobz.ui.home.customs.MyTextView
             android:id="@+id/tv_cats_name"
@@ -34,7 +35,7 @@
             android:singleLine="false"
             android:hyphenationFrequency="none"
             android:layout_marginStart="10dp"
-            android:maxLines="3"
+            android:maxLines="2"
             android:lines="2"
             android:breakStrategy="balanced"
             android:layout_width="wrap_content"

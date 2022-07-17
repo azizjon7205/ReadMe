@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemCategoryBinding
 import me.ruyeo.kitobz.databinding.ItemCategoryHeaderBinding
 import me.ruyeo.kitobz.model.Category
@@ -60,7 +61,8 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 tvCatsName.text = d.name ?: "All books"
                 Glide.with(itemView)
                     .load(d.image)
-                    .override(100, 100)
+//                    .override(100, 100)
+                    .error(R.drawable.ic_book)
                     .into(ivCats)
             }
         }

@@ -4,6 +4,7 @@ import me.ruyeo.kitobz.model.*
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -21,4 +22,8 @@ interface ApiService {
     //category
     @GET("cats")
     suspend fun getCategories(): BaseResponseList<Category>
+
+    //Banners
+    @GET("banners/{id}")
+    suspend fun getBanners(@Path("id") id: Int = 12): BaseResponseList<Banner>
 }

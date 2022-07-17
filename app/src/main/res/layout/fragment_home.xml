@@ -8,7 +8,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:elevation="0dp"
+        app:elevation="0dp"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -48,6 +48,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -61,11 +62,6 @@
                 android:id="@+id/rv_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
                 <LinearLayout
                     android:gravity="center_vertical"
@@ -121,8 +117,118 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="Authors"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_text_bold"
+                        android:textSize="17sp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_shaw_all_authors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_shaw_all_authors"
+                            app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_author"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="Shaw all"
+                            android:fontFamily="@font/sf_pro_text_semibold"
+                            android:textSize="11sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="13dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_arrow_right_author"
+                            android:src="@drawable/ic_arrow_right"
+                            app:layout_constraintTop_toTopOf="@id/tv_shaw_all_authors"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_shaw_all_authors"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintDimensionRatio="H, 1:1"
+                            android:layout_marginTop="1dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_authors"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_authors"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="AudioBooks"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_text_bold"
+                        android:textSize="17sp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_shaw_all_audio_books"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_shaw_all_audio_books"
+                            app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_audio_book"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="Shaw all"
+                            android:fontFamily="@font/sf_pro_text_semibold"
+                            android:textSize="11sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="13dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_arrow_right_audio_book"
+                            android:src="@drawable/ic_arrow_right"
+                            app:layout_constraintTop_toTopOf="@id/tv_shaw_all_audio_books"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_shaw_all_audio_books"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintDimensionRatio="H, 1:1"
+                            android:layout_marginTop="1dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_audio_books"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_authors"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
             </LinearLayout>
-        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

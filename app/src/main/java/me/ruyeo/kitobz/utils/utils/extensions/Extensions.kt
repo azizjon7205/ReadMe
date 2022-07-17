@@ -18,6 +18,7 @@ import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
+import android.util.DisplayMetrics
 import android.view.*
 import android.widget.*
 import androidx.annotation.ColorInt
@@ -34,6 +35,10 @@ import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
+
+fun Context.dpToPixel(dp: Float): Float {
+    return dp * (resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+}
 
 fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
 
