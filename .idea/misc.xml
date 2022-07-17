@@ -4,10 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-anydpi/ic_arrow_right.xml" value="0.1295" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_left.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_top.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_font_size.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_list.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_logo.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_more_bottom.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_rewind_left.xml" value="0.1245" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_version.xml" value="0.1245" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/category_item.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.16" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/category_item.xml" value="0.5" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_basket.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_choose_language.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_discuss.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category_header.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/context_menu.xml" value="0.18125" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />

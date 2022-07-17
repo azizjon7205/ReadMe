@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <me.ruyeo.kitobz.ui.home.customs.RecyclerCoverFlow
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -117,7 +117,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_cats"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/category_item"
+                    tools:listitem="@layout/item_category"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

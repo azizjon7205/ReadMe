@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import me.ruyeo.kitobz.databinding.CategoryItemBinding
+import me.ruyeo.kitobz.databinding.ItemCategoryBinding
 import me.ruyeo.kitobz.model.Discuss
 
 class DiscussAdapter : RecyclerView.Adapter<DiscussAdapter.ViewHolder>() {
@@ -14,14 +14,14 @@ class DiscussAdapter : RecyclerView.Adapter<DiscussAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = CategoryItemBinding.inflate(inflater, parent, false)
+        val binding = ItemCategoryBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind()
     override fun getItemCount() = dif.currentList.size
 
-    inner class ViewHolder(private val binding: CategoryItemBinding) :
+    inner class ViewHolder(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")

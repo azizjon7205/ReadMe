@@ -48,19 +48,26 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         binding.rvBanner.apply {
             layoutManager = CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = adapter
             canScrollHorizontally(1)
             scrollBy(1, 2)
             touchL(binding.rvBanner)
             scrollToPosition(loadList().size/ 2 - 1)
         }
 
-        binding.rvMain.apply {
-            set3DItem(true)
-            setAlpha(true)
-            setInfinite(true)
+        binding.rvCats.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//            adapter = adapter
         }
-        refreshAdapter()
-        Log.d("@@@", "List ${binding.rvMain.getCarouselLayoutManager().childCount}")
+
+
+//        binding.rvMain.apply {
+//            set3DItem(true)
+//            setAlpha(true)
+//            setInfinite(true)
+//        }
+//        refreshAdapter()
+//        Log.d("@@@", "List ${binding.rvMain.getCarouselLayoutManager().childCount}")
     }
 
     private fun touchL(view: View){
@@ -86,7 +93,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private fun refreshAdapter(){
         adapter.submitList(loadList())
         binding.rvCats.adapter = adapter
-        binding.rvMain.adapter = adapter
+        binding.rvBanner.adapter = adapter
     }
 
     private fun setupObservers() {
@@ -98,7 +105,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
                         }
                         is UiStateList.SUCCESS -> {
+                            val items = it.data[0].children as MutableList<Category>
+                            items.add(0, Category())
+                            adapter.submitList(items)
 //                            adapter.submitList(it.data[0].children!!)
+                            binding.rvCats.adapter = adapter
                             Log.d("@@@", "Test ${it.data[0].children?.size}")
                         }
                         is UiStateList.ERROR -> {
