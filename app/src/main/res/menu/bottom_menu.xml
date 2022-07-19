@@ -5,7 +5,7 @@
     <item
         android:title="Home"
         android:id="@+id/loginFragment"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_search"
         app:showAsAction="never" />
     <item
         android:title="Basket"
@@ -13,21 +13,21 @@
         android:icon="@drawable/ic_launcher_background"
         app:showAsAction="never" />
     <item
-        android:title="Discuss"
-        android:id="@+id/discussFragment"
-        android:icon="@drawable/ic_launcher_background"
+        android:title="Library"
+        android:id="@+id/myLibraryFragment"
+        android:icon="@drawable/ic_liblary"
         app:showAsAction="never"/>
 
     <item
-        android:title="Library"
-        android:id="@+id/myLibraryFragment"
-        android:icon="@drawable/ic_launcher_background"
+        android:title="Discuss"
+        android:id="@+id/discussFragment"
+        android:icon="@drawable/ic_chat"
         app:showAsAction="never"/>
 
     <item
         android:title="Profile"
         android:id="@+id/profileFragment2"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_account"
         app:showAsAction="never"/>
 </menu>
 

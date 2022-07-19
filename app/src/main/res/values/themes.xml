@@ -30,4 +30,17 @@
     <style name="circle">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="corner_radius_15">
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="corner_radius_9">
+        <item name="cornerSize">9dp</item>
+    </style>
+    <style name="corner_radius_8">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
 </resources>

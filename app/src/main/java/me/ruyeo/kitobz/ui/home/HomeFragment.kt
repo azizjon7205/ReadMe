@@ -10,15 +10,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.adapter.AuthorsAdapter
-import me.ruyeo.kitobz.adapter.BannerAdapter
-import me.ruyeo.kitobz.adapter.CategoryAdapter
+import me.ruyeo.kitobz.adapter.*
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
+import me.ruyeo.kitobz.model.AudioBook
 import me.ruyeo.kitobz.model.Category
+import me.ruyeo.kitobz.model.ElectronicBook
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.customs.CenterZoomLayoutManager
 import me.ruyeo.kitobz.ui.home.customs.RecyclerCoverFlow
@@ -35,6 +36,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val adapterCategory by lazy { CategoryAdapter() }
     private val adapterBanner by lazy { BannerAdapter() }
     private val adapterAuthors by lazy { AuthorsAdapter() }
+    private val adapterAudioBooks by lazy { AudioBookAdapter() }
+    private val adapterEBooks by lazy { EBookAdapter() }
+    private val adapterNewArrivals by lazy { NewArrivalsAdapter() }
+    private val adapterNews by lazy { NewsAdapter() }
 
     private lateinit var rvBanners: RecyclerCoverFlow
 
@@ -44,6 +49,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         viewModel.getBanners(12)
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -54,8 +60,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private fun setupUI() {
 
         binding.rvBanner.apply {
-            layoutManager = CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//            adapter = adapterBanner
+            layoutManager =
+                CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             canScrollHorizontally(1)
             smoothScrollBy(5, 0)
             Handler().postDelayed({ smoothScrollToPosition(3) }, 500)
@@ -65,47 +71,55 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
 
         binding.rvCats.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//            adapter = adapter
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
         }
 
-        binding.rvAuthors.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rvAuthors.addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+        binding.rvAuthors.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+        }
+        adapterAudioBooks.submitList(loadAudioBooks())
+        adapterEBooks.submitList(loadEBooks())
+        adapterNews.submitList(loadEBooks())
+        adapterNewArrivals.submitList(loadEBooks())
 
-//        binding.rvMain.apply {
-//            set3DItem(true)
-//            setAlpha(true)
-//            setInfinite(true)
-//        }
-//        refreshAdapter()
-//        Log.d("@@@", "List ${binding.rvMain.getCarouselLayoutManager().childCount}")
-    }
+        binding.rvAudioBooks.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+            adapter = adapterAudioBooks
+        }
 
-    private fun touchL(view: View){
-        val downTime = SystemClock.uptimeMillis()
-        val eventTime = SystemClock.uptimeMillis() + 100
-        val x = 1.0f
-        val y = 0.0f
-// List of meta states found here:     developer.android.com/reference/android/view/KeyEvent.html#getMetaState()
-        val metaState = 0
-        val motionEvent = MotionEvent.obtain(
-            downTime,
-            eventTime,
-            MotionEvent.ACTION_SCROLL,
-            x,
-            y,
-            metaState
-        )
+        binding.rvElectronicBooks.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+            adapter = adapterEBooks
+        }
 
-        // Dispatch touch event to view
-        view.dispatchTouchEvent(motionEvent)
+        binding.rvNewArrivals.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+            adapter = adapterNewArrivals
+        }
+
+        binding.rvNews.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+            adapter = adapterNews
+        }
+
+        binding.llSearch.setOnClickListener {
+            findNavController().navigate(R.id.searchFragment)
+        }
+
     }
 
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.getCategoryState.collect{
-                    when(it){
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.getCategoryState.collect {
+                    when (it) {
                         is UiStateList.LOADING -> {
 
                         }
@@ -126,9 +140,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.getBannerState.collect{
-                    when(it){
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.getBannerState.collect {
+                    when (it) {
                         is UiStateList.LOADING -> {
 
                         }
@@ -150,19 +164,38 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             }
         }
 
-
     }
 
-    fun loadList(): List<Category>{
-        val items = ArrayList<Category>()
+    private fun loadAudioBooks(): List<AudioBook> {
+        val items = ArrayList<AudioBook>()
 
-        items.add(Category())
-        items.add(Category())
-        items.add(Category())
-        items.add(Category())
-        items.add(Category())
-        items.add(Category())
+        items.add(AudioBook())
+        items.add(AudioBook())
+        items.add(AudioBook())
+        items.add(AudioBook())
+        items.add(AudioBook())
+        items.add(AudioBook())
+        items.add(AudioBook())
+        items.add(AudioBook())
 
         return items
     }
+
+    private fun loadEBooks(): List<ElectronicBook> {
+        val items = ArrayList<ElectronicBook>()
+
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+        items.add(ElectronicBook())
+
+        return items
+    }
+
+
 }
+
