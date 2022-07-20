@@ -12,6 +12,12 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shawAllFragment"
+            app:destination="@id/shawAllFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
@@ -38,5 +44,15 @@
         android:name="me.ruyeo.kitobz.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/shawAllFragment"
+        android:name="me.ruyeo.kitobz.ui.home.ShawAllFragment"
+        android:label="fragment_shaw_all"
+        tools:layout="@layout/fragment_shaw_all" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="me.ruyeo.kitobz.ui.home.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
 
 </navigation>

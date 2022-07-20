@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.ShawAllFragment">
+    tools:context=".ui.home.CategoriesFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:paddingBottom="8dp"
         app:elevation="0dp"
         android:background="@color/white"
         android:layout_width="match_parent"
@@ -18,6 +17,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:gravity="center_vertical"
                 android:layout_marginEnd="@dimen/side_16"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -28,10 +28,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <FrameLayout
+                <TextView
+                    android:id="@+id/tv_categs"
+                    android:layout_marginHorizontal="@dimen/side_16"
+                    android:textSize="20sp"
+                    android:text="Categories"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content"/>
 
                     <ImageView
                         android:id="@+id/iv_filter"
@@ -39,21 +46,20 @@
                         android:src="@drawable/ic_filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                </FrameLayout>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/tv_shaw_all_type"
-            android:layout_marginStart="@dimen/side_16"
-            android:text="Categories"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            android:includeFontPadding="false"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/sf_pro_display_bold"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"/>
+<!--        <TextView-->
+<!--            android:id="@+id/tv_shaw_all_type"-->
+<!--            android:layout_marginStart="@dimen/side_16"-->
+<!--            android:text="Categories"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="34sp"-->
+<!--            android:includeFontPadding="false"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:fontFamily="@font/sf_pro_display_bold"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="46dp"/>-->
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout

@@ -2,9 +2,7 @@ package me.ruyeo.kitobz.ui.home
 
 import android.os.Bundle
 import android.os.Handler
-import android.os.SystemClock
 import android.util.Log
-import android.view.MotionEvent
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -22,7 +20,6 @@ import me.ruyeo.kitobz.model.Category
 import me.ruyeo.kitobz.model.ElectronicBook
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.customs.CenterZoomLayoutManager
-import me.ruyeo.kitobz.ui.home.customs.RecyclerCoverFlow
 import me.ruyeo.kitobz.utils.utils.UiStateList
 import me.ruyeo.kitobz.utils.utils.extensions.dpToPixel
 import viewBinding
@@ -41,8 +38,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val adapterNewArrivals by lazy { NewArrivalsAdapter() }
     private val adapterNews by lazy { NewsAdapter() }
 
-    private lateinit var rvBanners: RecyclerCoverFlow
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCategories()
@@ -59,58 +54,75 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private fun setupUI() {
 
-        binding.rvBanner.apply {
-            layoutManager =
-                CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            canScrollHorizontally(1)
-            smoothScrollBy(5, 0)
-            Handler().postDelayed({ smoothScrollToPosition(3) }, 500)
-
-            scrollBy(1, 2)
-//            scrollToPosition(loadList().size/ 2 - 1)
-        }
-
-        binding.rvCats.apply {
-            layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
-        }
-
-        binding.rvAuthors.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
-        }
         adapterAudioBooks.submitList(loadAudioBooks())
         adapterEBooks.submitList(loadEBooks())
         adapterNews.submitList(loadEBooks())
         adapterNewArrivals.submitList(loadEBooks())
 
-        binding.rvAudioBooks.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
-            adapter = adapterAudioBooks
-        }
 
-        binding.rvElectronicBooks.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
-            adapter = adapterEBooks
-        }
+        with(binding) {
 
-        binding.rvNewArrivals.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
-            adapter = adapterNewArrivals
-        }
+            clShawAll.setOnClickListener {
+                findNavController().navigate(R.id.categoriesFragment)
+            }
 
-        binding.rvNews.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
-            adapter = adapterNews
-        }
+            clShawAllAuthors.setOnClickListener {
 
-        binding.llSearch.setOnClickListener {
-            findNavController().navigate(R.id.searchFragment)
+            }
+
+            rvBanner.apply {
+                layoutManager =
+                    CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                canScrollHorizontally(1)
+                smoothScrollBy(5, 0)
+                Handler().postDelayed({ smoothScrollToPosition(3) }, 500)
+
+                scrollBy(1, 2)
+            }
+
+            rvCats.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+            }
+            rvAuthors.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+            }
+
+            rvAudioBooks.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+                adapter = adapterAudioBooks
+            }
+
+            rvElectronicBooks.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+                adapter = adapterEBooks
+            }
+
+            rvNewArrivals.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+                adapter = adapterNewArrivals
+            }
+
+            rvNews.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
+                adapter = adapterNews
+            }
+
+            llSearch.setOnClickListener {
+                findNavController().navigate(R.id.searchFragment)
+            }
+
         }
 
     }
