@@ -79,4 +79,5 @@ dependencies {
 
     // recycler
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5'
+
 }

@@ -23,4 +23,13 @@
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
     <string name="str_you_can_choose_here">Выбрать можете здесь.</string>
+    <string name="str_files">Файлов:</string>
+    <string name="str_duration">Длительность:</string>
+    <string name="str_voice_language">Язык озвучки:</string>
+    <string name="str_audio_books">Аудиокниги</string>
+    <string name="str_electronic_books">Электронные книги</string>
+    <string name="str_pin">Закрепить</string>
+    <string name="str_unpin">Открепить</string>
+    <string name="str_delete">Удалить</string>
+
 </resources>
