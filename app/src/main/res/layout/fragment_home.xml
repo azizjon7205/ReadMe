@@ -87,14 +87,16 @@
                     android:textSize="17sp" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:paddingStart="5dp"
                     android:id="@+id/cl_shaw_all"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tv_shaw_all"
                         android:layout_width="wrap_content"
                         android:layout_height="13dp"
+                        android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
                         android:text="Shaw all"
                         android:textSize="11sp"
@@ -143,14 +145,16 @@
                     android:textSize="17sp" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:paddingStart="5dp"
                     android:id="@+id/cl_shaw_all_authors"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tv_shaw_all_authors"
                         android:layout_width="wrap_content"
                         android:layout_height="13dp"
+                        android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
                         android:text="Shaw all"
                         android:textSize="11sp"
@@ -200,13 +204,15 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_shaw_all_audio_books"
+                    android:paddingStart="5dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tv_shaw_all_audio_books"
                         android:layout_width="wrap_content"
                         android:layout_height="13dp"
+                        android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
                         android:text="Shaw all"
                         android:textSize="11sp"
@@ -256,13 +262,15 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_shaw_all_electronic_books"
+                    android:paddingStart="5dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tv_shaw_all_electronic_books"
                         android:layout_width="wrap_content"
                         android:layout_height="13dp"
+                        android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
                         android:text="Shaw all"
                         android:textSize="11sp"
@@ -319,8 +327,9 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_shaw_all_new_arrivals"
+                    android:paddingStart="5dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tv_shaw_all_new_arrivals"
@@ -328,6 +337,7 @@
                         android:layout_height="13dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
                         android:text="Shaw all"
+                        android:layout_marginEnd="3dp"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_new_arrival"

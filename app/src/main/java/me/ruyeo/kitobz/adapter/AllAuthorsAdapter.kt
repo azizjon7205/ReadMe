@@ -9,19 +9,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.databinding.ItemAllCategoryBinding
-import me.ruyeo.kitobz.model.Category
+import me.ruyeo.kitobz.databinding.ItemAllAuthorsBinding
+import me.ruyeo.kitobz.databinding.ItemAuthorsBinding
+import me.ruyeo.kitobz.model.Banner
 
-class ShawAllCategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AllAuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
-
-    var onClick: ((Category) -> Unit)? = null
+    var onClick:((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-
-        val binding = ItemAllCategoryBinding.inflate(inflater, parent, false)
+        val binding = ItemAllAuthorsBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -31,41 +30,37 @@ class ShawAllCategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
+
     override fun getItemCount() = dif.currentList.size
 
-    inner class ViewHolder(private val binding: ItemAllCategoryBinding) :
+    inner class ViewHolder(private val binding: ItemAllAuthorsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind() {
-            val category = dif.currentList[adapterPosition]
+            val banner = dif.currentList[adapterPosition]
+
             with(binding) {
-                tvCategName.text = category.name ?: "All books"
-                tvCategCount.text = category.count.toString()
+                tvAuthorName.text = banner.title
 
-                Glide.with(itemView)
-                    .load(category.image)
-//                    .override(100, 100)
-                    .error(R.drawable.ic_book)
-                    .into(ivCategory)
-
-                root.setOnClickListener{
-                    onClick?.invoke(category)
+                root.setOnClickListener {
+                    onClick?.invoke(banner.title)
                 }
             }
         }
     }
 
-    fun submitList(list: List<Category>) {
+
+    fun submitList(list: List<Banner>) {
         dif.submitList(list)
     }
 
     companion object {
-        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Category>() {
-            override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean =
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Banner>() {
+            override fun areItemsTheSame(oldItem: Banner, newItem: Banner): Boolean =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean =
+            override fun areContentsTheSame(oldItem: Banner, newItem: Banner): Boolean =
                 oldItem == newItem
         }
     }

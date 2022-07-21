@@ -16,6 +16,8 @@ class AuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
+    var onClick: ((String) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemAuthorsBinding.inflate(inflater, parent, false)
@@ -39,6 +41,10 @@ class AuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             val banner = dif.currentList[adapterPosition]
             with(binding) {
                 tvAuthorName.text = banner.title
+
+                root.setOnClickListener{
+                    onClick?.invoke(banner.title)
+                }
             }
         }
     }

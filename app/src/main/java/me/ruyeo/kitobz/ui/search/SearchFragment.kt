@@ -1,37 +1,107 @@
 package me.ruyeo.kitobz.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
+import me.ruyeo.kitobz.adapter.AllAuthorsAdapter
 import me.ruyeo.kitobz.adapter.SearchAdapter
 import me.ruyeo.kitobz.databinding.FragmentSearchBinding
 import me.ruyeo.kitobz.model.Book
+import me.ruyeo.kitobz.ui.home.HomeViewModel
+import me.ruyeo.kitobz.utils.utils.UiStateList
+import me.ruyeo.kitobz.utils.utils.extensions.showMessage
+import me.ruyeo.kitobz.utils.utils.extensions.visible
 import viewBinding
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private val binding by viewBinding { FragmentSearchBinding.bind(it) }
-    private val adapter by lazy { SearchAdapter() }
+    private val viewModel by viewModels<HomeViewModel>()
+    private val adapterSeach by lazy { SearchAdapter() }
+    private val adapterAuthors by lazy { AllAuthorsAdapter() }
+
+    private var key: String = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        key = arguments?.getString("to").toString()
+        when(key){
+//            "search" -> viewModel.getBanners(12)
+            "authors" -> viewModel.getBanners(12)
+        }
+        Log.d("@@@", "OnCreate $key")
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.d("@@@", "OnViewCreated $key")
         initViews()
     }
 
     private fun initViews() {
-        adapter.submitData(loadBooks())
+
         with(binding){
+
             rvSearch.layoutManager = LinearLayoutManager(requireContext())
-            rvSearch.adapter = adapter
+
+            when(key){
+                "books" -> {
+                    tvSearchResults.visible(false)
+                    adapterSeach.submitData(loadBooks())
+                    rvSearch.adapter = adapterSeach
+                }
+                "search" -> {
+                    tvSearchResults.visible(true)
+                    adapterSeach.submitData(loadBooks())
+                    rvSearch.adapter = adapterSeach
+                }
+                "authors" -> {
+                    tvSearchResults.visible(false)
+                    setupObserves()
+                    adapterAuthors.onClick = {
+                        findNavController().navigate(R.id.authorBooksFragment)
+                    }
+                }
+            }
 
             tvCancel.setOnClickListener {
                 findNavController().navigateUp()
+            }
+        }
+    }
+
+    private fun setupObserves(){
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.getBannerState.collect {
+                    when (it) {
+                        is UiStateList.LOADING -> {
+
+                        }
+                        is UiStateList.SUCCESS -> {
+                            val items = it.data
+                            adapterAuthors.submitList(items)
+//                            adapter.submitList(it.data[0].children!!)
+                            binding.rvSearch.adapter = adapterAuthors
+                            Log.d("@@@", "Banners ${it.data.size}")
+                        }
+                        is UiStateList.ERROR -> {
+                            showMessage(it.message)
+                        }
+                        else -> Unit
+                    }
+                }
             }
         }
     }

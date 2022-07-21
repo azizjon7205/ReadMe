@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
@@ -38,6 +40,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val adapterNewArrivals by lazy { NewArrivalsAdapter() }
     private val adapterNews by lazy { NewsAdapter() }
 
+    private var category: Category? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCategories()
@@ -62,14 +66,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         with(binding) {
 
-            clShawAll.setOnClickListener {
-                findNavController().navigate(R.id.categoriesFragment)
-            }
-
-            clShawAllAuthors.setOnClickListener {
-
-            }
-
             rvBanner.apply {
                 layoutManager =
                     CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -85,6 +81,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
             }
+
             rvAuthors.apply {
                 layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -120,9 +117,56 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             }
 
             llSearch.setOnClickListener {
-                findNavController().navigate(R.id.searchFragment)
+                findNavController().navigate(R.id.searchFragment, bundleOf("to" to "search"))
             }
 
+            clShawAll.setOnClickListener {
+                findNavController().navigate(R.id.categoriesFragment)
+            }
+
+            clShawAllAuthors.setOnClickListener {
+                findNavController().navigate(R.id.searchFragment, bundleOf("to" to "authors"))
+            }
+
+            clShawAllAudioBooks.setOnClickListener {
+                if (category != null)
+                    findNavController().navigate(
+                        R.id.shawAllFragment,
+                        bundleOf("category" to Gson().toJson(category), "isAudioBook" to "true")
+                    )
+            }
+
+            clShawAllElectronicBooks.setOnClickListener {
+                if (category != null)
+                    findNavController().navigate(
+                        R.id.shawAllFragment,
+                        bundleOf("category" to Gson().toJson(category), "isElectronicBook" to "true")
+                    )
+            }
+
+            clShawAllNewArrivals.setOnClickListener {
+                if (category != null)
+                    findNavController().navigate(
+                        R.id.shawAllFragment,
+                        bundleOf("category" to Gson().toJson(category))
+                    )
+            }
+
+        }
+
+        adapterCategory.onClick = { position, category ->
+            when(position){
+                0 -> findNavController().navigate(R.id.searchFragment, bundleOf("to" to "books"))
+                else -> findNavController().navigate(
+                    R.id.shawAllFragment,
+                    bundleOf("category" to Gson().toJson(category))
+                )
+            }
+
+        }
+
+        adapterAuthors.onClick = {
+            findNavController().navigate(R.id.authorBooksFragment)
         }
 
     }
@@ -136,8 +180,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
                         }
                         is UiStateList.SUCCESS -> {
-                            val items = it.data[0].children as MutableList<Category>
+                            val items = ArrayList<Category>()
                             items.add(0, Category())
+                            items.addAll(it.data[0].children!!)
+                            category = items[1]
                             adapterCategory.submitList(items)
                             binding.rvCats.adapter = adapterCategory
                             Log.d("@@@", "Categories ${it.data[0].children?.size}")

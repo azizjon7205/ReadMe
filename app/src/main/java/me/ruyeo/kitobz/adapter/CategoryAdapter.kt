@@ -18,6 +18,8 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         Log.d("@@@", "Adapter done")
     }
 
+    var onClick: ((Int,Category) -> Unit)? = null
+
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
     private val ITEM_HEADER = 0
     private val ITEM_VIEW = 1
@@ -34,6 +36,9 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
+            holder.bind()
+        }
+        if (holder is HeaderViewHolder){
             holder.bind()
         }
     }
@@ -56,7 +61,7 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         @SuppressLint("SetTextI18n")
         fun bind() {
             val d = dif.currentList[adapterPosition]
-//            Log.d("@@@", "Item ${d.name}")
+
             with(binding) {
                 tvCatsName.text = d.name ?: "All books"
                 Glide.with(itemView)
@@ -64,7 +69,12 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 //                    .override(100, 100)
                     .error(R.drawable.ic_book)
                     .into(ivCats)
+
+                root.setOnClickListener{
+                    onClick?.invoke(adapterPosition,d)
+                }
             }
+
         }
     }
 
@@ -75,7 +85,9 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind() {
             val d = dif.currentList[adapterPosition]
             with(binding) {
-
+                root.setOnClickListener{
+                    onClick?.invoke(adapterPosition,d)
+                }
             }
         }
     }

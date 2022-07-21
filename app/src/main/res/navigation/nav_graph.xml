@@ -43,7 +43,11 @@
         android:id="@+id/searchFragment"
         android:name="me.ruyeo.kitobz.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_authorBooksFragment"
+            app:destination="@id/authorBooksFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shawAllFragment"
         android:name="me.ruyeo.kitobz.ui.home.ShawAllFragment"
@@ -54,5 +58,10 @@
         android:name="me.ruyeo.kitobz.ui.home.CategoriesFragment"
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/authorBooksFragment"
+        android:name="me.ruyeo.kitobz.ui.home.AuthorBooksFragment"
+        android:label="fragment_author_books"
+        tools:layout="@layout/fragment_author_books" />
 
 </navigation>
