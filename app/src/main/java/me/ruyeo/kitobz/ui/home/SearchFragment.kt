@@ -1,4 +1,4 @@
-package me.ruyeo.kitobz.ui.search
+package me.ruyeo.kitobz.ui.home
 
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +17,6 @@ import me.ruyeo.kitobz.adapter.AllAuthorsAdapter
 import me.ruyeo.kitobz.adapter.SearchAdapter
 import me.ruyeo.kitobz.databinding.FragmentSearchBinding
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.ui.home.HomeViewModel
 import me.ruyeo.kitobz.utils.utils.UiStateList
 import me.ruyeo.kitobz.utils.utils.extensions.showMessage
 import me.ruyeo.kitobz.utils.utils.extensions.visible
@@ -28,7 +27,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private val binding by viewBinding { FragmentSearchBinding.bind(it) }
     private val viewModel by viewModels<HomeViewModel>()
-    private val adapterSeach by lazy { SearchAdapter() }
+    private val adapterSearch by lazy { SearchAdapter() }
     private val adapterAuthors by lazy { AllAuthorsAdapter() }
 
     private var key: String = ""
@@ -58,13 +57,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             when(key){
                 "books" -> {
                     tvSearchResults.visible(false)
-                    adapterSeach.submitData(loadBooks())
-                    rvSearch.adapter = adapterSeach
+                    adapterSearch.submitData(loadBooks())
+                    rvSearch.adapter = adapterSearch
                 }
                 "search" -> {
                     tvSearchResults.visible(true)
-                    adapterSeach.submitData(loadBooks())
-                    rvSearch.adapter = adapterSeach
+                    adapterSearch.submitData(loadBooks())
+                    rvSearch.adapter = adapterSearch
                 }
                 "authors" -> {
                     tvSearchResults.visible(false)

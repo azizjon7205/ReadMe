@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item
         android:title="Home"
-        android:id="@+id/loginFragment"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_search"
         app:showAsAction="never" />
     <item

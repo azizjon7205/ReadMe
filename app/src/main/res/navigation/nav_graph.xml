@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="me.ruyeo.kitobz.ui.search.SearchFragment"
+        android:name="me.ruyeo.kitobz.ui.home.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
