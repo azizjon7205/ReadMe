@@ -22,6 +22,9 @@
     <color name="black_light_1">#666666</color>
     <color name="black_light_2">#00000080</color>
 
+    <color name="orange_light">#FF9500</color>
+    <color name="red">#E94B35</color>
 
+    <color name="green">#5AC53A</color>
 
 </resources>

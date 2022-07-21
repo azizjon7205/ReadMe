@@ -43,4 +43,8 @@
     </style>
 
 
+    <style name="rounded_8">
+        <item name="cornerSize">8dp</item>
+    </style>
+
 </resources>
