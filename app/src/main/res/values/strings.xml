@@ -22,6 +22,7 @@
     <string name="all_books">All books</string>
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
+    <string name="str_your_audiobook_library_empty">Ваша библиотека аудиокниг пока пуста.</string>
     <string name="str_you_can_choose_here">Выбрать можете здесь.</string>
     <string name="str_files">Файлов:</string>
     <string name="str_duration">Длительность:</string>
@@ -31,5 +32,9 @@
     <string name="str_pin">Закрепить</string>
     <string name="str_unpin">Открепить</string>
     <string name="str_delete">Удалить</string>
+    <string name="str_proceed">Продолжить</string>
+    <string name="str_begin">Начать</string>
+    <string name="str_completed">Завершено</string>
+    <string name="str_number_of_pages">Количество страниц:</string>
 
 </resources>

@@ -36,7 +36,7 @@
             android:textSize="@dimen/text_type_16"
             android:layout_marginTop="20dp"
             android:textColor="@color/black_light_1"
-            android:text="@string/str_your_ebook_library_empty"
+            android:text="@string/str_your_audiobook_library_empty"
             android:gravity="center"
             android:layout_marginHorizontal="@dimen/side_16" />
 
@@ -52,6 +52,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_no_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

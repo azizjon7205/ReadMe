@@ -27,9 +27,10 @@ class MyLibraryFragment : BaseFragment(R.layout.fragment_my_library) {
         vpAdapter.addFragmentAndTitle(MyLAudioFragment(), getString(R.string.str_audio_books))
         vpAdapter.addFragmentAndTitle(MyLElectronFragment(), getString(R.string.str_electronic_books))
 
-
         binding.viewPager.adapter = vpAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
+
+        binding.viewPager.currentItem = 0
 
     }
 
