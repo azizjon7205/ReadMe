@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_author_name"
+        android:text="Djodjo Moyes"
+        android:textSize="17sp"
+        android:layout_marginEnd="15dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="13dp"
+        android:background="@color/white_light_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>

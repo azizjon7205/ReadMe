@@ -40,6 +40,16 @@ fun Context.dpToPixel(dp: Float): Float {
     return dp * (resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
 }
 
+fun TextView.typeClicked(){
+    if (this.isActivated){
+        this.setTextColor(Color.BLACK)
+        this.isActivated = false
+    } else{
+        this.setTextColor(Color.WHITE)
+        this.isActivated = true
+    }
+}
+
 fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
 
 fun Fragment.isLocationEnabled(): Boolean {

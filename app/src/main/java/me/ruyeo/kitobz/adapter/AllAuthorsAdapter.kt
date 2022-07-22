@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
+import me.ruyeo.kitobz.databinding.ItemAllAuthorsBinding
 import me.ruyeo.kitobz.databinding.ItemAuthorsBinding
 import me.ruyeo.kitobz.model.Banner
 
-class AuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AllAuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
-
-    var onClick: ((String) -> Unit)? = null
+    var onClick:((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemAuthorsBinding.inflate(inflater, parent, false)
+        val binding = ItemAllAuthorsBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -33,16 +33,17 @@ class AuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount() = dif.currentList.size
 
-    inner class ViewHolder(private val binding: ItemAuthorsBinding) :
+    inner class ViewHolder(private val binding: ItemAllAuthorsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind() {
             val banner = dif.currentList[adapterPosition]
+
             with(binding) {
                 tvAuthorName.text = banner.title
 
-                root.setOnClickListener{
+                root.setOnClickListener {
                     onClick?.invoke(banner.title)
                 }
             }

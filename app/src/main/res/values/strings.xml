@@ -37,4 +37,6 @@
     <string name="str_completed">Завершено</string>
     <string name="str_number_of_pages">Количество страниц:</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

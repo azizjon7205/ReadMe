@@ -9,28 +9,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.databinding.ItemCategoryBinding
-import me.ruyeo.kitobz.databinding.ItemCategoryHeaderBinding
+import me.ruyeo.kitobz.databinding.ItemAllCategoryBinding
 import me.ruyeo.kitobz.model.Category
 
-class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    init {
-        Log.d("@@@", "Adapter done")
-    }
-
-    var onClick: ((Int,Category) -> Unit)? = null
+class ShawAllCategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
-    private val ITEM_HEADER = 0
-    private val ITEM_VIEW = 1
+
+    var onClick: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        if (viewType == ITEM_HEADER) {
-            val bindingHeader = ItemCategoryHeaderBinding.inflate(inflater, parent, false)
-            return HeaderViewHolder(bindingHeader)
-        }
-        val binding = ItemCategoryBinding.inflate(inflater, parent, false)
+
+        val binding = ItemAllCategoryBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -38,55 +29,28 @@ class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         if (holder is ViewHolder) {
             holder.bind()
         }
-        if (holder is HeaderViewHolder){
-            holder.bind()
-        }
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        if (position == 0) {
-            return ITEM_HEADER
-        }
-        return ITEM_VIEW
     }
 
     override fun getItemCount() = dif.currentList.size
 
-    inner class ViewHolder(private val binding: ItemCategoryBinding) :
+    inner class ViewHolder(private val binding: ItemAllCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        init {
-//            Log.d("@@@", "Adapter ${dif.currentList.size}")
-        }
 
         @SuppressLint("SetTextI18n")
         fun bind() {
-            val d = dif.currentList[adapterPosition]
-
+            val category = dif.currentList[adapterPosition]
             with(binding) {
-                tvCatsName.text = d.name ?: "All books"
+                tvCategName.text = category.name ?: "All books"
+                tvCategCount.text = category.count.toString()
+
                 Glide.with(itemView)
-                    .load(d.image)
+                    .load(category.image)
 //                    .override(100, 100)
                     .error(R.drawable.ic_book)
-                    .into(ivCats)
+                    .into(ivCategory)
 
                 root.setOnClickListener{
-                    onClick?.invoke(adapterPosition,d)
-                }
-            }
-
-        }
-    }
-
-    inner class HeaderViewHolder(private val binding: ItemCategoryHeaderBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        @SuppressLint("SetTextI18n")
-        fun bind() {
-            val d = dif.currentList[adapterPosition]
-            with(binding) {
-                root.setOnClickListener{
-                    onClick?.invoke(adapterPosition,d)
+                    onClick?.invoke(category)
                 }
             }
         }

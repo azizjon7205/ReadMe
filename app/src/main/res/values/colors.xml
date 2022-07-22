@@ -7,6 +7,7 @@
     <color name="black_transparent">#31000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="red">#FF0000</color>
     <color name="red_light">#FF2D55</color>
     <color name="blue_light">#6575A1</color>
 
@@ -22,7 +23,6 @@
     <color name="black_light_2">#00000080</color>
 
     <color name="orange_light">#FF9500</color>
-    <color name="red">#E94B35</color>
 
     <color name="green">#5AC53A</color>
 
