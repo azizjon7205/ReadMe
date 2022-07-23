@@ -71,8 +71,9 @@ abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
     }
 
     fun callActivityMain() {
-        Intent(requireActivity(), MainActivity::class.java).also {
-            startActivity(it)
-        }
+      var intent = Intent(requireActivity(),MainActivity::class.java)
+        startActivity(intent)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        requireActivity().finish()
     }
 }

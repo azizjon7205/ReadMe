@@ -36,6 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/sms_send_txt"
         android:layout_marginHorizontal="32dp"
+        android:imeOptions="actionDone"
+        android:inputType="text"
         android:layout_marginTop="32dp"
         android:hint="@string/str_code_example"
         tools:ignore="TouchTargetSizeCheck" />

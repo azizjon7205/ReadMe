@@ -85,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:hint="@string/str_name"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
