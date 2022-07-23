@@ -2,7 +2,6 @@
 <resources>
     <dimen name="text_type_16">16sp</dimen>
     <dimen name="text_type_20">20sp</dimen>
-
     <dimen name="side_16">16dp</dimen>
 
 </resources>

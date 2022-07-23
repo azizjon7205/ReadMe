@@ -3,20 +3,22 @@ package me.ruyeo.kitobz.ui.auth
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.MainActivity
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.databinding.FragmentFirstBinding
+import me.ruyeo.kitobz.databinding.FragmentIntroBinding
 import me.ruyeo.kitobz.ui.BaseFragment
 import viewBinding
 
 @AndroidEntryPoint
-class FirstFragment : BaseFragment(R.layout.fragment_first) {
-
-    private val binding by viewBinding { FragmentFirstBinding.bind(it) }
+class IntroFragment : BaseFragment(R.layout.fragment_intro) {
+    private val binding by viewBinding { FragmentIntroBinding.bind(it) }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         setupUI()
     }
@@ -24,13 +26,11 @@ class FirstFragment : BaseFragment(R.layout.fragment_first) {
     private fun setupUI() {
         binding.apply {
             loginBtn.setOnClickListener {
-                findNavController().navigate(R.id.action_firstFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_introFragment_to_logInFragment)
             }
 
             skipBtn.setOnClickListener {
-                Intent(requireActivity(),MainActivity::class.java).also {
-                    startActivity(it)
-                }
+                callActivityMain()
             }
         }
     }

@@ -1,23 +1,38 @@
 <resources>
     <string name="app_name">Kitobz</string>
 
-    <string name="ok" />
-    <string name="login">Войти</string>
-    <string name="skip">Пропустить</string>
-    <string name="smsConfirmation">Код подтверждения</string>
-    <string name="discussion">Обуждение</string>
-    <string name="sms_send_text">Введите код который мы вам\n отправили по СМС</string>
-    <string name="confirm">Подтвердить</string>
-    <string name="resendTime">Отправить СМС повторно через 57 секунд</string>
-    <string name="change_image">Хотите сменить аватарку?</string>
-    <string name="hi">Ассалом, \nИмя</string>
-    <string name="choose_language">Выберите предпочитаемый язык\n приложения</string>
-    <string name="finish">Завершить</string>
-    <string name="follow">Подписаться</string>
-
-    <string name="discover_books_you_i">Откройте для себя весь мир</string>
-    <string name="find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
+    <string name="str_ok" />
+    <string name="str_login">Войти</string>
+    <string name="str_skip">Пропустить</string>
+    <string name="str_smsConfirmation">Код подтверждения</string>
+    <string name="str_discussion">Обуждение</string>
+    <string name="str_sms_send_text">Введите код который мы вам\n отправили по СМС</string>
+    <string name="str_confirm">Подтвердить</string>
+    <string name="str_resendTime">Отправить СМС повторно через 57 секунд</string>
+    <string name="str_change_image">Хотите сменить аватарку?</string>
+    <string name="str_hi">Ассалом, \nИмя</string>
+    <string name="str_choose_language">Выберите предпочитаемый язык\n приложения</string>
+    <string name="str_finish">Завершить</string>
+    <string name="str_follow">Подписаться</string>
+    <string name="str_discover_books_you_i">Откройте для себя весь мир</string>
+    <string name="str_find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
     <string name="str_you_can_choose_here">Выбрать можете здесь.</string>
+    <string name="str_welcome_back">Здравствуйте!</string>
+    <string name="str_sign_in_to_continue">Войдите в свой аккаунт!</string>
+    <string name="str_phone_number">Номер телефона</string>
+    <string name="str_password">Пароль</string>
+    <string name="str_forgot_password">Забыли пароль?</string>
+    <string name="str_dont_have_an_account">Хотите зарегистрироваться?</string>
+    <string name="str_enter_your_email_and">Введите свой номер телефона, и мы отправим вам код для сброса пароля</string>
+    <string name="str_phone">Телефон:</string>
+    <string name="str_registration">Регистрация</string>
+    <string name="str_registration_text">Заполните всего 3 поля,и вы китобзик!</string>
+    <string name="str_name">Имя</string>
+    <string name="str_have_an_account_sig">У Вас уже есть аккаунт? Войдите</string>
+    <string name="str_enter_your_phonenumber_for_send_sms_code">Введите свой номер телефона, и мы отправим вам код для сброса пароля.</string>
+    <string name="str_code_example">пример: 1234</string>
+    <string name="str_russian">Русский</string>
+    <string name="str_tajik">Тоҷики</string>
 </resources>

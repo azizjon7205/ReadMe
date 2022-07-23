@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.auth.ConfirmationFragment">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/smsConfirmation" />
+            android:text="@string/str_smsConfirmation" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -27,7 +28,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="52dp"
         android:gravity="center"
-        android:text="@string/sms_send_text" />
+        android:text="@string/str_sms_send_text" />
 
     <EditText
         android:id="@+id/sms_code_et"
@@ -36,24 +37,27 @@
         android:layout_below="@id/sms_send_txt"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="32dp"
-        android:hint="@string/smsConfirmation" />
+        android:hint="@string/str_code_example"
+        tools:ignore="TouchTargetSizeCheck" />
+
 
     <Button
-        android:id="@+id/confirm_btn"
+        android:id="@+id/bn_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/sms_code_et"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="24dp"
-        android:text="@string/confirm" />
+        android:text="@string/str_confirm" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/confirm_btn"
-        android:layout_marginHorizontal="12dp"
+        android:layout_below="@id/bn_confirm"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/sf_pro_text_regular"
         android:gravity="center"
-        android:text="@string/resendTime"
+        android:text="@string/str_resendTime"
         android:textColor="@color/gray" />
 </RelativeLayout>
