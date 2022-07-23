@@ -40,6 +40,7 @@
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/button_default_bg.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/button_false_bg.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_back.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_electronic_book.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_logo.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/tv_rounded.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
@@ -49,8 +50,10 @@
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_my_library.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_library_audio.xml" value="0.203125" />
-        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_my_library_audio.xml" value="0.1962962962962963" />
-        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_my_library_electron.xml" value="0.203125" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_my_library_audio.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_my_library_electron.xml" value="0.2620519159456119" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/item_my_library_audio.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/item_my_library_electronic.xml" value="1.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />
@@ -64,5 +67,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="1.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -64,7 +63,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
 
     // SquareUp
-
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
@@ -76,7 +74,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
 
-
+    //BlurImageView
+    implementation 'com.revosleap.layout:blurrylayout:2.0.0'
 
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5'
 }

@@ -7,35 +7,87 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import me.ruyeo.kitobz.databinding.CategoryItemBinding
+import com.bumptech.glide.Glide
+import me.ruyeo.kitobz.R
+import me.ruyeo.kitobz.databinding.ItemCategoryBinding
+import me.ruyeo.kitobz.databinding.ItemCategoryHeaderBinding
 import me.ruyeo.kitobz.model.Category
 
-class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     init {
         Log.d("@@@", "Adapter done")
     }
-    private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    var onClick: ((Int,Category) -> Unit)? = null
+
+    private val dif = AsyncListDiffer(this, ITEM_DIFF)
+    private val ITEM_HEADER = 0
+    private val ITEM_VIEW = 1
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = CategoryItemBinding.inflate(inflater, parent, false)
+        if (viewType == ITEM_HEADER) {
+            val bindingHeader = ItemCategoryHeaderBinding.inflate(inflater, parent, false)
+            return HeaderViewHolder(bindingHeader)
+        }
+        val binding = ItemCategoryBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind()
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ViewHolder) {
+            holder.bind()
+        }
+        if (holder is HeaderViewHolder){
+            holder.bind()
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        if (position == 0) {
+            return ITEM_HEADER
+        }
+        return ITEM_VIEW
+    }
+
     override fun getItemCount() = dif.currentList.size
 
-    inner class ViewHolder(private val binding: CategoryItemBinding) :
+    inner class ViewHolder(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
 //            Log.d("@@@", "Adapter ${dif.currentList.size}")
         }
+
         @SuppressLint("SetTextI18n")
         fun bind() {
             val d = dif.currentList[adapterPosition]
-//            Log.d("@@@", "Item ${d.name}")
-            with(binding) {
 
+            with(binding) {
+                tvCatsName.text = d.name ?: "All books"
+                Glide.with(itemView)
+                    .load(d.image)
+//                    .override(100, 100)
+                    .error(R.drawable.ic_book)
+                    .into(ivCats)
+
+                root.setOnClickListener{
+                    onClick?.invoke(adapterPosition,d)
+                }
+            }
+
+        }
+    }
+
+    inner class HeaderViewHolder(private val binding: ItemCategoryHeaderBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        @SuppressLint("SetTextI18n")
+        fun bind() {
+            val d = dif.currentList[adapterPosition]
+            with(binding) {
+                root.setOnClickListener{
+                    onClick?.invoke(adapterPosition,d)
+                }
             }
         }
     }
@@ -53,7 +105,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
                 oldItem == newItem
         }
     }
-
 
 
 }

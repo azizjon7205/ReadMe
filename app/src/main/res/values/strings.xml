@@ -16,8 +16,13 @@
     <string name="str_follow">Подписаться</string>
     <string name="str_discover_books_you_i">Откройте для себя весь мир</string>
     <string name="str_find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
+
+    <string name="discover_books_you_i">Откройте для себя весь мир</string>
+    <string name="find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
+    <string name="all_books">All books</string>
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
+    <string name="str_your_audiobook_library_empty">Ваша библиотека аудиокниг пока пуста.</string>
     <string name="str_you_can_choose_here">Выбрать можете здесь.</string>
     <string name="str_welcome_back">Здравствуйте!</string>
     <string name="str_sign_in_to_continue">Войдите в свой аккаунт!</string>
@@ -35,4 +40,19 @@
     <string name="str_code_example">пример: 1234</string>
     <string name="str_russian">Русский</string>
     <string name="str_tajik">Тоҷики</string>
+    <string name="str_files">Файлов:</string>
+    <string name="str_duration">Длительность:</string>
+    <string name="str_voice_language">Язык озвучки:</string>
+    <string name="str_audio_books">Аудиокниги</string>
+    <string name="str_electronic_books">Электронные книги</string>
+    <string name="str_pin">Закрепить</string>
+    <string name="str_unpin">Открепить</string>
+    <string name="str_delete">Удалить</string>
+    <string name="str_proceed">Продолжить</string>
+    <string name="str_begin">Начать</string>
+    <string name="str_completed">Завершено</string>
+    <string name="str_number_of_pages">Количество страниц:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
