@@ -26,7 +26,7 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registtration) {
     private fun setupUI() {
         binding.apply {
             bnLogin.setOnClickListener {
-                callActivityMain()
+                findNavController().navigate(R.id.action_registrationFragment_to_chooseLanguageFragment)
             }
             tvLogin.setOnClickListener {
                 findNavController().popBackStack()

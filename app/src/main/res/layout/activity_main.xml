@@ -31,6 +31,7 @@
             app:elevation="0dp"
             app:itemBackground="@color/white"
             app:itemIconSize="30dp"
+            app:itemIconTint="@xml/bottom_navigation_selector"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_menu"
             tools:ignore="UnusedAttribute" />
