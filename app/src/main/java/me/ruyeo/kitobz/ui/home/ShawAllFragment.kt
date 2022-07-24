@@ -60,6 +60,8 @@ class ShawAllFragment : Fragment(R.layout.fragment_shaw_all) {
     }
 
     private fun initViews() {
+
+
         with(binding) {
 
             ivBack.setOnClickListener {
@@ -127,7 +129,6 @@ class ShawAllFragment : Fragment(R.layout.fragment_shaw_all) {
                 }
             }
         }
-
 
     }
 
