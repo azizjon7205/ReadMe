@@ -2,6 +2,7 @@ package me.ruyeo.kitobz.utils.utils.mylibrary
 
 import android.content.Context
 import android.graphics.Canvas
+import android.os.Handler
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
@@ -76,10 +77,7 @@ class RecyclerItemTouchHelper(val context: Context, val widthSize: Float) {
                     }
 
                     if (viewHolder.itemView.scrollX < limitScrollX) {
-                        viewHolder.itemView.scrollTo(
-                            (currentScrollWhenInActive * dX / initWhenInActive).toInt(),
-                            0
-                        )
+                        viewHolder.itemView.scrollTo((currentScrollWhenInActive * dX / initWhenInActive).toInt(), 0)
                     }
                 }
             }

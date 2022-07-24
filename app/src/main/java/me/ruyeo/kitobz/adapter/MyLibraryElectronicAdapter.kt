@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import me.ruyeo.kitobz.databinding.ItemMyLibraryAudioBinding
+import me.ruyeo.kitobz.databinding.ItemMyLibraryElectronicBinding
 import java.lang.ref.WeakReference
 
-class MyLibraryAudioAdapter : RecyclerView.Adapter<MyLibraryAudioAdapter.ViewHolder>(){
+class MyLibraryElectronicAdapter : RecyclerView.Adapter<MyLibraryElectronicAdapter.ViewHolder>(){
 
     private val diff = AsyncListDiffer(this, ITEM_DIFF)
     lateinit var onDeleteClick: (() -> Unit)
     lateinit var onPinClick: (() -> Unit)
 
-    inner class ViewHolder(private val binding:ItemMyLibraryAudioBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private val binding:ItemMyLibraryElectronicBinding) : RecyclerView.ViewHolder(binding.root){
         private val view =WeakReference(binding.root)
         fun bind(){
             val item = diff.currentList[adapterPosition]
@@ -40,7 +40,7 @@ class MyLibraryAudioAdapter : RecyclerView.Adapter<MyLibraryAudioAdapter.ViewHol
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemMyLibraryAudioBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(ItemMyLibraryElectronicBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

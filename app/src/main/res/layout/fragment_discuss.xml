@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="28sp"
-            android:text="@string/discussion" />
+            android:text="@string/str_discussion" />
     </androidx.appcompat.widget.Toolbar>
 
 
