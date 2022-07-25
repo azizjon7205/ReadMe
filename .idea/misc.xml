@@ -17,9 +17,12 @@
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_back.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_basket.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_book_online.xml" value="0.2315" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_bookmark_plus.xml" value="0.174" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_chat.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_check.xml" value="0.2315" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_circle.xml" value="0.2315" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_close.xml" value="0.174" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_electronic_book.xml" value="0.174" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_fafyuwyeh.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_favorite.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_filter.xml" value="0.231" />
@@ -38,6 +41,7 @@
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_minimize.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_more_bottom.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_more_top.xml" value="0.231" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_more_vertikal.xml" value="0.174" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_next_right.xml" value="0.231" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_notification.xml" value="0.2155" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/drawable/ic_phone.xml" value="0.231" />
@@ -56,7 +60,7 @@
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout-v28/fragment_login.xml" value="0.17481884057971014" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.17481884057971014" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.18840579710144928" />
-        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="0.1743659420289855" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="0.264" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_basket.xml" value="0.1" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_choose_language.xml" value="0.264" />
         <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_confirmation.xml" value="0.1" />
@@ -100,5 +104,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

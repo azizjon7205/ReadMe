@@ -1,17 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_background"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/im_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/im_audio_book"
+            android:tint="@color/black_transparent"
+            tools:ignore="UseAppTint" />
+
+
+    </FrameLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ic_close"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_close"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_bookmark"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ic_bookmark"
+                    app:tint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/ic_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_bookmark_plus"
+                    app:layout_constraintRight_toLeftOf="@id/ic_more"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:tint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/ic_more"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_more"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_bookmark"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ic_bookmark"
+                    app:tint="@color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:tint="@color/black_transparent"
-        android:src="@drawable/im_audio_book"
-        tools:ignore="UseAppTint" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/im_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/im_audio_book"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/corners_rounded" />
+
+            <TextView
+                android:id="@+id/tv_book_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_book_name"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/im_book" />
+
+            <TextView
+                android:id="@+id/tv_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_step"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_book_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint_1">
+
+            <TextView
+                android:id="@+id/tv_heard_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="center"
+                android:text="@string/str_percentage"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv_heard_str" />
+
+            <TextView
+                android:id="@+id/tv_heard_str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_heard"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_heard_percentage"
+                app:layout_constraintLeft_toRightOf="@id/tv_heard_percentage"
+                app:layout_constraintTop_toTopOf="@id/tv_heard_percentage" />
+
+            <TextView
+                android:id="@+id/tv_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/str_dot"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/tv_heard_str"
+                app:layout_constraintLeft_toRightOf="@id/tv_heard_str"
+                app:layout_constraintTop_toTopOf="@id/tv_heard_str" />
+
+            <TextView
+                android:id="@+id/tv_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="13"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_dot"
+                app:layout_constraintLeft_toRightOf="@id/tv_dot"
+                app:layout_constraintTop_toTopOf="@id/tv_dot" />
+
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_hour"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_hour"
+                app:layout_constraintTop_toTopOf="@id/tv_hour" />
+
+
+            <TextView
+                android:id="@+id/tv_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="42"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/hour"
+                app:layout_constraintTop_toTopOf="@id/hour" />
+
+            <TextView
+                android:id="@+id/min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_min"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_min"
+                app:layout_constraintTop_toTopOf="@id/tv_min" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginVertical="30dp"
+            android:background="@color/white_transparent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint_2" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view">
+
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="16:27"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seek_bar" />
+
+            <TextView
+                android:id="@+id/tv_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="10:34"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seek_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint_3">
+
+
+            <ImageView
+                android:id="@+id/ic_next_left"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_next_left"
+                app:layout_constraintBottom_toBottomOf="@id/ic_play"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ic_play"
+                app:tint="@color/white" />
+
+
+            <ImageView
+                android:id="@+id/ic_rewind_left"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_rewind_left"
+                app:layout_constraintBottom_toBottomOf="@id/ic_play"
+                app:layout_constraintLeft_toRightOf="@id/ic_next_left"
+                app:layout_constraintTop_toTopOf="@id/ic_play"
+                app:tint="@color/white" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_play"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/blue_light"
+                android:cropToPadding="true"
+                android:src="@drawable/ic_play"
+                app:contentPaddingLeft="18dp"
+                app:contentPaddingRight="15dp"
+                app:contentPaddingBottom="15dp"
+                app:contentPaddingTop="15dp"
+                app:layout_constraintLeft_toRightOf="@id/ic_rewind_left"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/circle"/>
+
+            <ImageView
+                android:id="@+id/ic_rewind_right"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_forwind_right"
+                app:layout_constraintBottom_toBottomOf="@id/ic_play"
+                app:layout_constraintLeft_toRightOf="@id/ic_play"
+                app:layout_constraintTop_toTopOf="@id/ic_play"
+                app:tint="@color/white" />
+
+
+            <ImageView
+                android:id="@+id/ic_next_right"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_next_right"
+                app:layout_constraintBottom_toBottomOf="@id/ic_play"
+                app:layout_constraintLeft_toRightOf="@id/ic_rewind_right"
+                app:layout_constraintTop_toTopOf="@id/ic_play"
+                app:tint="@color/white" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
