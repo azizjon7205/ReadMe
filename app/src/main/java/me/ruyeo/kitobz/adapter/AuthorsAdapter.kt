@@ -43,7 +43,7 @@ class AuthorsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 tvAuthorName.text = banner.title
 
                 root.setOnClickListener{
-                    onClick?.invoke(banner.title)
+                    onClick?.invoke(banner.title!!)
                 }
             }
         }

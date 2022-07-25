@@ -18,6 +18,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.*
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
 import me.ruyeo.kitobz.model.AudioBook
+import me.ruyeo.kitobz.model.Banner
 import me.ruyeo.kitobz.model.Category
 import me.ruyeo.kitobz.model.ElectronicBook
 import me.ruyeo.kitobz.ui.BaseFragment
@@ -62,6 +63,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         adapterEBooks.submitList(loadEBooks())
         adapterNews.submitList(loadEBooks())
         adapterNewArrivals.submitList(loadEBooks())
+        adapterBanner.submitList(loadBanners())
 
 
         with(binding) {
@@ -71,9 +73,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 canScrollHorizontally(1)
                 smoothScrollBy(5, 0)
-                Handler().postDelayed({ smoothScrollToPosition(3) }, 500)
+                Handler().postDelayed({ smoothScrollToPosition(2) }, 500)
 
-                scrollBy(1, 2)
+//                scrollBy(1, 2)
+
+                adapter = adapterBanner
             }
 
             rvCats.apply {
@@ -206,10 +210,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                         }
                         is UiStateList.SUCCESS -> {
                             val items = it.data
-                            adapterBanner.submitList(items)
+//                            adapterBanner.submitList(items)
                             adapterAuthors.submitList(items)
 //                            adapter.submitList(it.data[0].children!!)
-                            binding.rvBanner.adapter = adapterBanner
+//                            binding.rvBanner.adapter = adapterBanner
                             binding.rvAuthors.adapter = adapterAuthors
                             Log.d("@@@", "Banners ${it.data.size}")
                         }
@@ -250,6 +254,21 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         items.add(ElectronicBook())
         items.add(ElectronicBook())
         items.add(ElectronicBook())
+
+        return items
+    }
+
+    private fun loadBanners(): List<Banner> {
+        val items = ArrayList<Banner>()
+
+        items.add(Banner())
+        items.add(Banner())
+        items.add(Banner())
+        items.add(Banner())
+        items.add(Banner())
+        items.add(Banner())
+        items.add(Banner())
+        items.add(Banner())
 
         return items
     }
