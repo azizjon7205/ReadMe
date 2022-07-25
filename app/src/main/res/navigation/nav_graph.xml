@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
@@ -63,5 +66,10 @@
         android:name="me.ruyeo.kitobz.ui.home.AuthorBooksFragment"
         android:label="fragment_author_books"
         tools:layout="@layout/fragment_author_books" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="me.ruyeo.kitobz.ui.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 
 </navigation>

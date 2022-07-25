@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.details.DetailsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:alpha="0.7"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@id/ll_costs"
+                    android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_book"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_marginTop="64dp"
+                    app:layout_constraintDimensionRatio="W, 3:2"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.3"
+                    app:layout_constraintWidth_percent="0.35" />
+
+                <LinearLayout
+                    android:id="@+id/ll_costs"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical"
+                    android:paddingVertical="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/iv_book">
+
+                    <FrameLayout
+                        android:id="@+id/fl_status"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:background="@drawable/bg_rounded_corner_8"
+                        android:backgroundTint="@color/green_1"
+                        android:paddingHorizontal="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/arial_regular"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="In Cash"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_book_price_old"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/arial_regular"
+                            android:gravity="end|center_vertical"
+                            android:includeFontPadding="false"
+                            android:text="125 somoni"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_type_12"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tv_book_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/arial_bold"
+                            android:gravity="start|center_vertical"
+                            android:includeFontPadding="false"
+                            android:text="125 somoni"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/sf_pro_text_semibold"
+                            android:gravity="center"
+                            android:text="All nights with you"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_type_20" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingHorizontal="@dimen/side_16"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_left"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_author_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/sf_pro_text_semibold"
+                        android:gravity="center"
+                        android:text="Djodjo Moyes"
+                        android:textColor="@color/white"
+                        android:textSize="17sp" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_more_bottom"
+                        app:tint="@color/white" />
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_marginTop="13dp"
+                android:paddingHorizontal="@dimen/side_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_border_corner_lefts_8"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_marginVertical="8dp"
+                        android:id="@+id/iv_paper_book"
+                        android:src="@drawable/ic_book"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"/>
+
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_paper_book_price"
+                            android:text="25 somoni"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textSize="@dimen/text_type_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="Paper Book"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textSize="9sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_border_corner"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/f_ebook"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/blue_light"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_book_online"
+                            app:tint="@color/white" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_ebook_price"
+                            android:text="25 somoni"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textSize="@dimen/text_type_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="Electronic Book"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textSize="9sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_border_corner_rights_8"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/f_audio_book"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_circular_borderless"
+                        android:backgroundTint="@color/blue_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_headphones"
+                            app:tint="@color/white"
+                            app:shapeAppearanceOverlay="@style/circle" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_audio_book_price"
+                            android:text="25 somoni"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textSize="@dimen/text_type_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="Audio Book"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textSize="9sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:paddingVertical="7dp">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_year"
+                        android:text="2010"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:text="Год издания"
+                        android:textSize="@dimen/text_type_10"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:textColor="@color/black_light_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_paper_type"
+                        android:text="Твёрдый"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:text="Переплёт"
+                        android:textSize="@dimen/text_type_10"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:textColor="@color/black_light_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_pages"
+                        android:text="214"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:text="Страниц"
+                        android:textSize="@dimen/text_type_10"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:textColor="@color/black_light_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_language"
+                        android:text="Русский"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:text="Язык издания"
+                        android:textSize="@dimen/text_type_10"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:textColor="@color/black_light_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="@dimen/side_16">
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:textSize="15sp"
+                    android:text="Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … показать больше"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="Жанры"
+                android:layout_marginStart="@dimen/side_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:text="Книги Джоджо Мойес"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_shaw_all_author_books"
+                    android:paddingStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_shaw_all_audio_books"
+                        android:layout_width="wrap_content"
+                        android:layout_height="13dp"
+                        android:layout_marginEnd="3dp"
+                        android:fontFamily="@font/sf_pro_text_semibold"
+                        android:text="Shaw all"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_audio_book"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_arrow_right_audio_book"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="1dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_shaw_all_audio_books"
+                        app:layout_constraintDimensionRatio="H, 1:1"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_shaw_all_audio_books" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_author_books"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_ebook" />
+
+            <LinearLayout
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_light_1"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        app:elevation="0dp"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginEnd="@dimen/side_16"-->
+<!--                android:gravity="center_vertical">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_arrow_left"-->
+<!--                    app:tint="@color/white" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_author_name"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/sf_pro_text_semibold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Djodjo Moyes"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="17sp" />-->
+
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_more_bottom"-->
+<!--                    app:tint="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+<!--        </androidx.appcompat.widget.Toolbar>-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
