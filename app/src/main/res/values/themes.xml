@@ -28,9 +28,16 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:background">@drawable/btn_bgn</item>
     </style>
-//s
+
     <style name="circle">
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="corners_rounded">
+        <item name="cornerSizeBottomLeft">8%</item>
+        <item name="cornerSizeBottomRight">8%</item>
+        <item name="cornerSizeTopLeft">8%</item>
+        <item name="cornerSizeTopRight">8%</item>
     </style>
 
     <style name="corner_radius_15">
@@ -40,6 +47,7 @@
     <style name="corner_radius_9">
         <item name="cornerSize">9dp</item>
     </style>
+
     <style name="corner_radius_8">
         <item name="cornerSize">8dp</item>
     </style>
@@ -48,7 +56,6 @@
     <style name="rounded_8">
         <item name="cornerSize">8dp</item>
     </style>
-
 
 
     <style name="AppTheme" parent="Theme.AppCompat.Light">

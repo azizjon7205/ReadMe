@@ -4,8 +4,9 @@
     <color name="colorSecondary">#7B637E</color>
     <color name="colorAccent">#FF3700B3</color>
     <color name="black">#FF000000</color>
-    <color name="black_transparent">#31000000</color>
+    <color name="black_transparent">#5E000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_transparent">#2FFFFFFF</color>
     <color name="transparent">#36FFFFFF</color>
     <color name="lightBlue">#6575A1</color>
 
