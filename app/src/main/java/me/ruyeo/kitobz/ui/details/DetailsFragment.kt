@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.chip.Chip
 import jp.wasabeef.glide.transformations.BlurTransformation
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.AuthorBooksAdapter
@@ -147,7 +148,17 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 showKeyboard(etComment)
             }
 
-            chipGroup
+
+            for (i in loadGenres()){
+                val chip = Chip(requireContext())
+                chip.setTextColor(Color.parseColor("#6575A1"))
+                chip.setChipBackgroundColorResource(R.color.white)
+                chip.setChipStrokeColorResource(R.color.blue_light)
+                chip.chipStrokeWidth = requireContext().dpToPixel(1f)
+                chip.text = i
+                binding.chipGroup.addView(chip)
+            }
+
 
         }
         authorBooksAdapter.submitList(loadBooks())
@@ -288,6 +299,17 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         return items
     }
 
+    private fun loadGenres(): ArrayList<String>{
+        val items = ArrayList<String>()
+
+        items.add("Художественная литература")
+        items.add("Проза")
+        items.add("Романы")
+        items.add("Рассказы")
+        items.add("Фантастика")
+
+        return items
+    }
 
     fun makeTextViewResizable(tv: TextView, maxLine: Int, expandText: String, viewMore: Boolean) {
         if (tv.tag == null) {
