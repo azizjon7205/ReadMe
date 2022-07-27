@@ -65,7 +65,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         adapterNewArrivals.submitList(loadEBooks())
         adapterBanner.submitList(loadBanners())
 
-
         with(binding) {
 
             rvBanner.apply {

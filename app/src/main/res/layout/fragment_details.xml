@@ -5,6 +5,7 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.details.DetailsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -14,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,26 +26,25 @@
                     android:id="@+id/iv_background"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:alpha="0.7"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="@id/ll_costs"
+                    android:scaleType="fitXY"
                     android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintBottom_toBottomOf="@id/ll_costs"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_book"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginTop="64dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_launcher_background"
-                    android:layout_marginTop="64dp"
                     app:layout_constraintDimensionRatio="W, 3:2"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.3"
-                    app:layout_constraintWidth_percent="0.35" />
+                    app:layout_constraintWidth_percent="0.4"
+                    app:shapeAppearanceOverlay="@style/corner_radius_8" />
 
                 <LinearLayout
                     android:id="@+id/ll_costs"
@@ -56,12 +57,12 @@
 
                     <FrameLayout
                         android:id="@+id/fl_status"
-                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="16dp"
                         android:background="@drawable/bg_rounded_corner_8"
                         android:backgroundTint="@color/green_1"
-                        android:paddingHorizontal="10dp">
+                        android:paddingHorizontal="10dp"
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/tv_status"
@@ -131,11 +132,11 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:gravity="center_vertical"
                     android:paddingHorizontal="@dimen/side_16"
-                    android:gravity="center_vertical">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -168,64 +169,68 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:layout_marginTop="13dp"
-                android:paddingHorizontal="@dimen/side_16"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:paddingHorizontal="@dimen/side_16">
 
                 <LinearLayout
+                    android:id="@+id/ll_paper_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/bg_rounded_border_corner_lefts_8"
-                    android:paddingHorizontal="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:paddingHorizontal="10dp">
 
                     <ImageView
-                        android:layout_marginVertical="8dp"
                         android:id="@+id/iv_paper_book"
-                        android:src="@drawable/ic_book"
                         android:layout_width="23dp"
-                        android:layout_height="23dp"/>
+                        android:layout_height="23dp"
+                        android:layout_marginVertical="8dp"
+                        android:src="@drawable/ic_book" />
 
                     <LinearLayout
-                        android:layout_marginStart="10dp"
-                        android:gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_paper_book_price"
-                            android:text="25 somoni"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:textSize="@dimen/text_type_10"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="25 somoni"
+                            android:textSize="@dimen/text_type_10" />
 
                         <TextView
-                            android:text="Paper Book"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:textSize="9sp"
+                            android:id="@+id/tv_paper_book"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="Paper Book"
+                            android:textSize="9sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_ebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/bg_rounded_border_corner"
-                    android:paddingHorizontal="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:paddingHorizontal="10dp">
 
                     <FrameLayout
                         android:id="@+id/f_ebook"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/blue_light"
                         android:layout_width="23dp"
-                        android:layout_height="23dp">
+                        android:layout_height="23dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/blue_light">
 
                         <ImageView
+                            android:id="@+id/iv_ebook"
                             android:layout_width="12dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -235,35 +240,37 @@
                     </FrameLayout>
 
                     <LinearLayout
-                        android:layout_marginStart="10dp"
-                        android:gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_ebook_price"
-                            android:text="25 somoni"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:textSize="@dimen/text_type_10"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="25 somoni"
+                            android:textSize="@dimen/text_type_10" />
 
                         <TextView
-                            android:text="Electronic Book"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:textSize="9sp"
+                            android:id="@+id/tv_ebook"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="Electronic Book"
+                            android:textSize="9sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_audio_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/bg_rounded_border_corner_rights_8"
-                    android:paddingHorizontal="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:paddingHorizontal="10dp">
 
                     <FrameLayout
                         android:id="@+id/f_audio_book"
@@ -276,35 +283,37 @@
                         app:layout_constraintLeft_toLeftOf="parent">
 
                         <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_headphone"
                             android:layout_width="14dp"
                             android:layout_height="14dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_headphones"
-                            app:tint="@color/white"
-                            app:shapeAppearanceOverlay="@style/circle" />
+                            app:shapeAppearanceOverlay="@style/circle"
+                            app:tint="@color/white" />
                     </FrameLayout>
 
                     <LinearLayout
-                        android:layout_marginStart="10dp"
-                        android:gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_audio_book_price"
-                            android:text="25 somoni"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:textSize="@dimen/text_type_10"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="25 somoni"
+                            android:textSize="@dimen/text_type_10" />
 
                         <TextView
-                            android:text="Audio Book"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:textSize="9sp"
+                            android:id="@+id/tv_audio_book"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="Audio Book"
+                            android:textSize="9sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -318,110 +327,114 @@
                 android:paddingVertical="7dp">
 
                 <LinearLayout
-                    android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_year"
-                        android:text="2010"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_text_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"/>
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="2010"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
-                        android:text="Год издания"
-                        android:textSize="@dimen/text_type_10"
+                        android:id="@+id/tv_year_published"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Год издания"
                         android:textColor="@color/black_light_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="@dimen/text_type_10" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:gravity="center"
+                    android:id="@+id/ll_paper_type"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_paper_type"
-                        android:text="Твёрдый"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_text_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"/>
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Твёрдый"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
-                        android:text="Переплёт"
-                        android:textSize="@dimen/text_type_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Переплёт"
                         android:textColor="@color/black_light_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="@dimen/text_type_10" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_pages"
-                        android:text="214"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_text_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"/>
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="214"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
-                        android:text="Страниц"
-                        android:textSize="@dimen/text_type_10"
+                        android:id="@+id/tv_page_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Страниц"
                         android:textColor="@color/black_light_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="@dimen/text_type_10" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_language"
-                        android:text="Русский"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_text_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"/>
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Русский"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
-                        android:text="Язык издания"
-                        android:textSize="@dimen/text_type_10"
+                        android:id="@+id/tv_lang_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Язык издания"
                         android:textColor="@color/black_light_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="@dimen/text_type_10" />
 
                 </LinearLayout>
 
@@ -435,20 +448,29 @@
 
                 <TextView
                     android:id="@+id/tv_description"
-                    android:textSize="15sp"
-                    android:text="Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … показать больше"
-                    android:fontFamily="@font/sf_pro_text_regular"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … показать больше"
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <TextView
-                android:text="Жанры"
-                android:layout_marginStart="@dimen/side_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/side_16"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical"
-                android:layout_marginTop="20dp"/>
+                android:text="Жанры" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+
+            </com.google.android.material.chip.ChipGroup>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -470,12 +492,12 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_shaw_all_author_books"
-                    android:paddingStart="5dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp">
 
                     <TextView
-                        android:id="@+id/tv_shaw_all_audio_books"
+                        android:id="@+id/tv_shaw_all_author_books"
                         android:layout_width="wrap_content"
                         android:layout_height="13dp"
                         android:layout_marginEnd="3dp"
@@ -483,19 +505,19 @@
                         android:text="Shaw all"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_audio_book"
+                        app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_author_book"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/iv_arrow_right_audio_book"
+                        android:id="@+id/iv_arrow_right_author_book"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginTop="1dp"
                         android:src="@drawable/ic_arrow_right"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_shaw_all_audio_books"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_shaw_all_author_books"
                         app:layout_constraintDimensionRatio="H, 1:1"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/tv_shaw_all_audio_books" />
+                        app:layout_constraintTop_toTopOf="@id/tv_shaw_all_author_books" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
@@ -506,76 +528,226 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_ebook" />
+                tools:listitem="@layout/item_author_book" />
 
             <LinearLayout
-                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/white_light_1"/>
+                android:layout_marginVertical="10dp"
+                android:background="@color/white_light_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:text="Отзывы (1)"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp">
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/rating_all"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressTint="@color/orange_light"
+                        android:rating="3.5"
+                        android:secondaryProgressTint="@color/orange_light"
+                        android:stepSize="0.5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/side_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_comments" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/side_16"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_border_corner_8"
+                android:paddingHorizontal="10dp">
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_owner_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_launcher_background"
+                        app:shapeAppearanceOverlay="@style/circle" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_comment_owner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="Дарья Иванова"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_comment_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="07.03.2020"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/b_write_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/button_default_bg"
+                        android:drawableStart="@drawable/ic_write"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:paddingHorizontal="10dp"
+                        android:text="Написать отзыв"
+                        android:textSize="@dimen/text_type_12"
+                        android:visibility="visible"
+                        app:background="@null" />
+
+                    <Button
+                        android:id="@+id/b_publish_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:visibility="gone"
+                        android:background="@drawable/button_default_bg"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:paddingHorizontal="15dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Опубликовать"
+                        app:background="@null" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/ll_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/et_comment"
+                        android:background="@null"
+                        android:scrollbars="vertical"
+                        android:overScrollMode="always"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"
+                        android:minHeight="48dp"
+                        android:gravity="top|start"
+                        android:layout_marginStart="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/rating"
+                        android:rating="3.5"
+                        android:stepSize="0.5"
+                        android:numStars="5"
+                        android:scaleX="0.65"
+                        android:scaleY="0.65"
+                        android:layout_gravity="center_horizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:secondaryProgressTint="@color/orange_light"
+                        android:progressTint="@color/orange_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/b_add_to_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/side_16"
+                    android:layout_marginVertical="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_default_bg"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:text="Добавить в корзину"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/b_action"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginEnd="@dimen/side_16"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_default_bg"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:text="Слушать фрагмент"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-<!--    <com.google.android.material.appbar.AppBarLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        android:fitsSystemWindows="true"-->
-<!--        app:elevation="0dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginEnd="@dimen/side_16"-->
-<!--                android:gravity="center_vertical">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_arrow_left"-->
-<!--                    app:tint="@color/white" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/tv_author_name"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:fontFamily="@font/sf_pro_text_semibold"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Djodjo Moyes"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="17sp" />-->
-
-
-<!--                <ImageView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_more_bottom"-->
-<!--                    app:tint="@color/white" />-->
-
-
-<!--            </LinearLayout>-->
-<!--        </androidx.appcompat.widget.Toolbar>-->
-<!--    </com.google.android.material.appbar.AppBarLayout>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-
-<!--        </LinearLayout>-->
-<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
