@@ -72,7 +72,7 @@
                             android:fontFamily="@font/arial_regular"
                             android:gravity="center"
                             android:includeFontPadding="false"
-                            android:text="In Cash"
+                            android:text="В наличии"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
                     </FrameLayout>
@@ -139,6 +139,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:id="@+id/iv_back"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_arrow_left"
@@ -155,16 +156,14 @@
                         android:textColor="@color/white"
                         android:textSize="17sp" />
 
-
                     <ImageView
+                        android:id="@+id/iv_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_more_bottom"
                         app:tint="@color/white" />
 
-
                 </LinearLayout>
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -363,7 +362,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_paper_type"
+                        android:id="@+id/tv_paper"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_text_medium"
@@ -372,6 +371,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/tv_paper_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -730,7 +730,7 @@
                     android:fontFamily="@font/sf_pro_text_semibold"
                     android:text="Добавить в корзину"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
 
                 <Button
                     android:id="@+id/b_action"
@@ -743,7 +743,7 @@
                     android:fontFamily="@font/sf_pro_text_semibold"
                     android:text="Слушать фрагмент"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
 
             </LinearLayout>
 

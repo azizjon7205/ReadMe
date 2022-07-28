@@ -69,6 +69,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         super.onViewCreated(view, savedInstanceState)
 
         initViews()
+        // there will be something
     }
 
     private fun initViews() {
@@ -172,6 +173,20 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 tvPaperBookPrice.setTextColor(Color.WHITE)
                 tvPaperBook.setTextColor(Color.WHITE)
                 llPaperBook.clicked()
+
+                llPaperType.visible(true)
+                bAction.visible(false)
+                flStatus.visible(true)
+                bAction.text = "Слушать фрагмент"
+                tvYearPublished.text = "Год издания"
+                tvPaperType.text = "Переплёт"
+                tvPageType.text = "Страниц"
+                tvLangType.text = "Язык издания"
+
+                tvYear.text = "2010"
+                tvPaper.text = "Твёрдый"
+                tvPages.text = "274"
+                tvLanguage.text = "Русский"
             }else{
                 ivPaperBook.tint(R.color.blue_light)
                 tvPaperBookPrice.setTextColor(Color.BLACK)
@@ -189,12 +204,25 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 tvEbookPrice.setTextColor(Color.WHITE)
                 tvEbook.setTextColor(Color.WHITE)
                 llEbook.clicked()
+
+                llPaperType.visible(false)
+                bAction.visible(true)
+                flStatus.visible(false)
+                bAction.text = "Читать фрагмент"
+                tvYearPublished.text = "Год издания"
+                tvPageType.text = "Страниц"
+                tvLangType.text = "Язык издания"
+
+                tvYear.text = "2010"
+                tvPages.text = "274"
+                tvLanguage.text = "Русский"
             }else{
                 fEbook.setBackgroundColor(Color.parseColor("#6575A1"))
                 ivEbook.tint(R.color.white)
                 tvEbookPrice.setTextColor(Color.BLACK)
                 tvEbook.setTextColor(Color.BLACK)
                 llEbook.clicked()
+
             }
         }
     }
@@ -207,6 +235,18 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 tvAudioBookPrice.setTextColor(Color.WHITE)
                 tvAudioBook.setTextColor(Color.WHITE)
                 llAudioBook.clicked()
+
+                llPaperType.visible(false)
+                bAction.visible(true)
+                flStatus.visible(false)
+                bAction.text = "Слушать фрагмент"
+                tvYearPublished.text = "Год издания"
+                tvPageType.text = "Длительность"
+                tvLangType.text = "Язык озвучки"
+
+                tvYear.text = "2010"
+                tvPages.text = "13 час. 42 мин."
+                tvLanguage.text = "Русский"
             }else{
                 fAudioBook.setBackgroundTintByColor(Color.parseColor("#6575A1"))
                 ivHeadphone.tint(R.color.white)

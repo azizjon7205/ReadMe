@@ -15,6 +15,7 @@ import me.ruyeo.kitobz.model.ElectronicBook
 class NewArrivalsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
+    var onClick: (() -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -38,6 +39,9 @@ class NewArrivalsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             val banner = dif.currentList[adapterPosition]
             with(binding) {
 
+                root.setOnClickListener {
+                    onClick?.invoke()
+                }
             }
         }
     }

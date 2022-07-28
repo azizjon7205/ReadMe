@@ -172,6 +172,27 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             findNavController().navigate(R.id.authorBooksFragment)
         }
 
+        adapterAudioBooks.onClick = {
+            findNavController().navigate(
+                R.id.detailsFragment,
+                bundleOf( "isAudioBook" to "true")
+            )
+        }
+
+        adapterEBooks.onClick = {
+            findNavController().navigate(
+                R.id.detailsFragment,
+                bundleOf( "isElectronicBook" to "true")
+            )
+        }
+
+        adapterNewArrivals.onClick = {
+            findNavController().navigate(
+                R.id.detailsFragment,
+                bundleOf( "isPaperBook" to "true")
+            )
+        }
+
     }
 
     private fun setupObservers() {
