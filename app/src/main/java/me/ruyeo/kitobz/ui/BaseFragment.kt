@@ -2,6 +2,7 @@ package me.ruyeo.kitobz.ui
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +11,14 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import me.ruyeo.kitobz.MainActivity
 import me.ruyeo.kitobz.utils.utils.dialogs.MessageDialog
 import me.ruyeo.kitobz.utils.utils.dialogs.ProgressBarDialog
 
 
 abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
 
-    lateinit var loadingDialog : Dialog
+    lateinit var loadingDialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,12 +62,18 @@ abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
     }
 
-    fun showProgress(){
+    fun showProgress() {
         loadingDialog.show()
     }
 
-    fun hideProgress(){
+    fun hideProgress() {
         loadingDialog.dismiss()
     }
 
+    fun callActivityMain() {
+      var intent = Intent(requireActivity(),MainActivity::class.java)
+        startActivity(intent)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        requireActivity().finish()
+    }
 }

@@ -25,7 +25,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="30sp"
+                    android:fontFamily="@font/bold"
+                    android:textSize="@dimen/text_type_32"
                     android:textColor="@color/black"
                     android:text="@string/str_my_library"/>
 
@@ -33,7 +34,9 @@
                     android:id="@+id/iv_search"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/side_16" />
+                    android:layout_marginEnd="@dimen/side_16"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/black"/>
 
             </LinearLayout>
 
@@ -51,13 +54,16 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:background="@color/white"/>
+            app:tabTextColor="@color/gray"
+            app:tabSelectedTextColor="@color/black"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/blue_light"/>
 
-        <androidx.viewpager.widget.ViewPager
+        <me.ruyeo.kitobz.utils.utils.mylibrary.NoSwipePager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"/>
+            android:background="@color/white" />
 
     </LinearLayout>
 

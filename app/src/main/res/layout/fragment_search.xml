@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.SearchFragment">
+
+   <com.google.android.material.appbar.AppBarLayout
+       android:background="@color/white"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:elevation="0dp">
+
+       <androidx.appcompat.widget.Toolbar
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <LinearLayout
+               android:gravity="end|center_vertical"
+               android:paddingVertical="8dp"
+               android:paddingEnd="@dimen/side_16"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <com.google.android.material.card.MaterialCardView
+                   app:cardCornerRadius="10dp"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="36dp">
+
+                   <LinearLayout
+                       android:gravity="center_vertical"
+                       android:paddingHorizontal="8dp"
+                       android:background="@color/white_light_1"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                       <ImageView
+                           android:src="@drawable/ic_search"
+                           android:layout_width="14dp"
+                           android:layout_height="14dp"
+                           app:tint="@color/gray" />
+
+                       <EditText
+                           android:background="@null"
+                           android:layout_marginStart="7dp"
+                           android:hint="Search"
+                           android:fontFamily="@font/sf_pro_text_regular"
+                           android:textSize="15sp"
+                           android:textColorHint="@color/gray"
+                           android:textColor="@color/gray"
+                           android:layout_weight="1"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"/>
+
+                       <ImageView
+                           android:layout_marginStart="8dp"
+                           android:src="@drawable/ic_uncheck"
+                           android:layout_width="10dp"
+                           android:layout_height="10dp"
+                           app:tint="@color/gray_light_2" />
+
+                   </LinearLayout>
+               </com.google.android.material.card.MaterialCardView>
+
+               <TextView
+                   android:id="@+id/tv_cancel"
+                   android:paddingStart="8dp"
+                   android:text="Cancel"
+                   android:fontFamily="@font/sf_pro_text_regular"
+                   android:textSize="17sp"
+                   android:textColor="@color/black"
+                   android:layout_width="wrap_content"
+                   android:layout_height="22dp"/>
+
+           </LinearLayout>
+       </androidx.appcompat.widget.Toolbar>
+   </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/side_16"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <TextView
+            android:id="@+id/tv_search_results"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/sf_pro_text_bold"
+            android:text="Search results"
+            android:textSize="17sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_search" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

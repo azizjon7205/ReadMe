@@ -3,4 +3,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/ll_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_electronic_book" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_type_16"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black_light_1"
+            android:text="@string/str_your_ebook_library_empty"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/side_16" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_type_16"
+            android:textColor="@color/black"
+            android:text="@string/str_you_can_choose_here"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/side_16" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_no_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_count_files"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="@dimen/text_type_14"
+            android:text="@string/str_files"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_electron"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

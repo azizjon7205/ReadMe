@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="111dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="6dp">
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/side_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="9dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_image"
+                android:layout_width="101dp"
+                android:layout_height="101dp"
+                android:background="@color/white"
+                android:src="@drawable/img"
+                app:shapeAppearanceOverlay="@style/rounded_8"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginStart="19dp"
+                android:layout_marginBottom="7dp">
+
+                <TextView
+                    android:id="@+id/tv_book_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_type_16"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:text="До встречи с тобой"/>
+
+                <TextView
+                    android:id="@+id/tv_book_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_book_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:singleLine="true"
+                    android:textColor="@color/black_light_1"
+                    android:textSize="@dimen/text_type_14"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="Джоджо Мойес"/>
+
+                <TextView
+                    android:id="@+id/tv_duration_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_voice_language"
+                    android:textSize="@dimen/text_type_12"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="@string/str_duration"/>
+
+                <TextView
+                    android:id="@+id/tv_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_type_12"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    app:layout_constraintStart_toEndOf="@id/tv_duration_name"
+                    app:layout_constraintBottom_toTopOf="@id/tv_voice_language"
+                    android:layout_marginStart="3dp"
+                    android:text="13 час. 42 мин."/>
+
+                <TextView
+                    android:id="@+id/tv_voice_language_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="@dimen/text_type_12"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="@string/str_voice_language"/>
+
+                <TextView
+                    android:id="@+id/tv_voice_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_type_12"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    app:layout_constraintStart_toEndOf="@id/tv_voice_language_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="3dp"
+                    android:text="Русский"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/side_16"
+                        app:tint="@color/orange_light"
+                        android:backgroundTint="@color/orange_light"
+                        android:progressTint="@color/orange_light"/>
+
+                    <TextView
+                        android:id="@+id/tv_percent"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_type_10"
+                        android:fontFamily="@font/sf_pro_text_semibold"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/iv_pin"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="7dp"
+                android:src="@drawable/ic_pin"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_light_1"
+            android:layout_marginStart="114dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@id/ll_main">
+
+        <LinearLayout
+            android:id="@+id/ll_pin"
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/green">
+
+            <ImageView
+                android:id="@+id/iv_pin_state"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/ic_pin"
+                app:tint="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_pin_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textSize="@dimen/text_type_14"
+                android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_pin"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_delete"
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/red">
+
+            <ImageView
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:src="@drawable/ic_delete"
+                app:tint="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textSize="@dimen/text_type_14"
+                android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_delete"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
