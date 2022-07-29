@@ -60,7 +60,7 @@
                         android:id="@+id/ivMore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_more_top" />
+                        android:src="@drawable/ic_more" />
 
                 </LinearLayout>
 
@@ -117,7 +117,7 @@
                         android:id="@+id/tvBack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/back" />
+                        android:text="Back" />
 
                 </LinearLayout>
 
@@ -140,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/of" />
+                        android:text="Of" />
 
                     <TextView
                         android:id="@+id/tvAllPages"
@@ -160,7 +160,7 @@
                         android:id="@+id/tvForward"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/forward"
+                        android:text="Forward"
                         android:textColor="@color/blue_light" />
 
                 </LinearLayout>
