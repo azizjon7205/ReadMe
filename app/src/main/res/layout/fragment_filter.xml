@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.FilterFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:background="@color/white"
+        app:elevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingEnd="@dimen/side_16">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Фильтр"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_reset_filter"
+                    android:text="Сброс"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textColor="@color/black_light_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/sf_pro_text_bold"
+                android:text="Тип"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_shaw_all_author_books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp">
+
+                <TextView
+                    android:id="@+id/tv_shaw_all_author_books"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_marginEnd="3dp"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:text="Shaw all"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_author_book"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_right_author_book"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_shaw_all_author_books"
+                    app:layout_constraintDimensionRatio="H, 1:1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_shaw_all_author_books" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/side_16">
+
+            <LinearLayout
+                android:paddingVertical="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Бумажные книги"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+
+                <FrameLayout
+                    android:id="@+id/fl_check_paper"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bg_circular_border">
+
+                    <ImageView
+                        android:id="@+id/iv_check_paper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_check" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingVertical="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Электронные книги"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_circular_border">
+
+                    <ImageView
+                        android:id="@+id/iv_check_electronic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_check" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingVertical="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Аудиокниги"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bg_circular_border">
+
+                    <ImageView
+                        android:id="@+id/iv_check_audio"
+                        android:src="@drawable/ic_check"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_text_bold"
+            android:text="Сортировка"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

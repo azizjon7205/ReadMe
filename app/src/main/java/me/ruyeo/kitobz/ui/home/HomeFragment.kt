@@ -192,7 +192,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 bundleOf( "isPaperBook" to "true")
             )
         }
-
     }
 
     private fun setupObservers() {
