@@ -5,7 +5,7 @@
     <string name="login">Войти</string>
     <string name="skip">Пропустить</string>
     <string name="smsConfirmation">Код подтверждения</string>
-    <string name="discussion">Обуждение</string>
+    <string name="discussion">Обсуждение</string>
     <string name="sms_send_text">Введите код который мы вам\n отправили по СМС</string>
     <string name="confirm">Подтвердить</string>
     <string name="resendTime">Отправить СМС повторно через 57 секунд</string>
@@ -23,4 +23,10 @@
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
     <string name="str_you_can_choose_here">Выбрать можете здесь.</string>
+
+    <string name="back">Назад</string>
+    <string name="forward">Далее</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="of">of</string>
 </resources>

@@ -79,4 +79,7 @@ dependencies {
 
     // recycler
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5'
+
+    // pdf
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 }
