@@ -75,6 +75,10 @@ dependencies {
 
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5'
 
+<<<<<<< HEAD
+    // pdf
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+=======
     //Glide for load image
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
@@ -82,4 +86,5 @@ dependencies {
 //
     implementation 'jp.wasabeef:blurry:4.0.1'
 
+>>>>>>> 9d6c8a641253a283ff3a4103d67da363b154635f
 }

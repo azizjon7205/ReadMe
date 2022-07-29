@@ -29,10 +29,13 @@
 
     <color name="orange_light">#FF9500</color>
 
+<<<<<<< HEAD
+=======
     <color name="green">#5AC53A</color>
     <color name="green_1">#549D01</color>
     <color name="green_2">#4CD964</color>
 
 
 
+>>>>>>> 9d6c8a641253a283ff3a4103d67da363b154635f
 </resources>

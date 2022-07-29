@@ -3,6 +3,9 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
     }
     ext {
         kotlin_version = "1.5.20"
@@ -13,7 +16,11 @@ buildscript {
 
     }
     dependencies {
+
+        classpath 'com.android.tools.build:gradle:3.5.4'
+
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
        /* classpath 'com.google.gms:google-services:4.3.10'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'*/
