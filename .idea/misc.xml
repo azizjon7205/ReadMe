@@ -4,17 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-anydpi/ic_arrow_right.xml" value="0.1295" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-v24/bg_text_color_selector.xml" value="0.1205" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-xxhdpi/bg_rounded_boreder_corner_8.xml" value="0.116" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/back_gradient.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_circler_borderless.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_circular_border.xml" value="0.1435" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_circular_borderless.xml" value="0.1045" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_color_selector.xml" value="0.1205" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner.xml" value="0.121" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner_8.xml" value="0.116" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner_lefts_8.xml" value="0.116" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner_rights_8.xml" value="0.116" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_boreder_corner_8.xml" value="0.116" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_corner_8.xml" value="0.108" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_text_color_selector.xml" value="0.1205" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/btn_bgn.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/button_default_bg.xml" value="0.131" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_add.xml" value="0.108" />
@@ -26,6 +29,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_book_online.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_chat.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_check.xml" value="0.108" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_circle.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_circle_done.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_create_theme.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_download.xml" value="0.108" />
@@ -60,7 +64,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.15" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details_demo.xml" value="0.25" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_discuss.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_filter.xml" value="0.25" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_filter.xml" value="0.1141552511415525" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_intro.xml" value="0.1" />
@@ -104,7 +108,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.67" />
+        <option name="scale" value="0.33" />
       </ProjectState>
     </option>
   </component>

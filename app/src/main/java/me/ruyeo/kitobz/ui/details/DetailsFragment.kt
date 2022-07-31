@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -149,7 +150,6 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 showKeyboard(etComment)
             }
 
-
             for (i in loadGenres()){
                 val chip = Chip(requireContext())
                 chip.setTextColor(Color.parseColor("#6575A1"))
@@ -160,10 +160,19 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 binding.chipGroup.addView(chip)
             }
 
-
+            bAction.setOnClickListener {
+                if (isAudioBook){
+                    findNavController().navigate(R.id.audioPlayerFragment)
+                }
+                if (isElectronicBook){
+                    findNavController().navigate(R.id.pdfViewFragment)
+                }
+            }
         }
         authorBooksAdapter.submitList(loadBooks())
         commentAdapter.submitList(loadComments())
+
+
     }
 
     private fun llPaperClicked(){

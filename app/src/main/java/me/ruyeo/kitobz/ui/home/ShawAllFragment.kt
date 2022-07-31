@@ -72,6 +72,10 @@ class ShawAllFragment : Fragment(R.layout.fragment_shaw_all) {
                 findNavController().navigateUp()
             }
 
+            ivFilter.setOnClickListener {
+                findNavController().navigate(R.id.filterFragment)
+            }
+
             tvCategoryName.text = category?.name
 
             tabGenres.addTab(tabGenres.newTab().setText("All genres"))
