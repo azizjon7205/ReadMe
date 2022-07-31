@@ -16,6 +16,8 @@ class BookAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
+    var onClick: (() -> Unit)? = null
+
     var isPaperBook = true
     var isElectronicBook = true
     var isAudioBook = true
@@ -62,6 +64,10 @@ class BookAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 fEbook.visible(isElectronicBook && book.hasEVersion)
                 fPaperBook.visible(isPaperBook && book.hasPaperVersion)
                 fAudioBook.visible(isAudioBook && book.hasAudio)
+
+                root.setOnClickListener{
+                    onClick?.invoke()
+                }
 
             }
         }

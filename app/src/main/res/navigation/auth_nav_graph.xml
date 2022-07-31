@@ -3,50 +3,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="me.ruyeo.kitobz.ui.auth.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:id="@+id/splashFragment"
+        android:name="me.ruyeo.kitobz.ui.auth.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
         <action
-            android:id="@+id/action_loginFragment_to_confirmationFragment"
+            android:id="@+id/action_splashFragment_to_introFragment"
+            app:destination="@id/introFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="me.ruyeo.kitobz.ui.auth.IntroFragment"
+        android:label="IntroFragment"
+        tools:layout="@layout/fragment_intro">
+        <action
+            android:id="@+id/action_introFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="me.ruyeo.kitobz.ui.auth.LogInFragment"
+        android:label="LogInFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_logInFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            android:id="@+id/action_logInFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/confirmationFragment"
         android:name="me.ruyeo.kitobz.ui.auth.ConfirmationFragment"
         android:label="fragment_confirmation"
-        tools:layout="@layout/fragment_confirmation" >
-        <action
-            android:id="@+id/action_confirmationFragment_to_chooseLanguageFragment"
-            app:destination="@id/chooseLanguageFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_confirmation" />
+
+
     <fragment
         android:id="@+id/registrationFragment"
         android:name="me.ruyeo.kitobz.ui.auth.RegistrationFragment"
-        android:label="fragment_registtration"
-        tools:layout="@layout/fragment_registtration" >
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registtration">
         <action
-            android:id="@+id/action_registrationFragment_to_confirmationFragment"
-            app:destination="@id/confirmationFragment" />
+            android:id="@+id/action_registrationFragment_to_chooseLanguageFragment"
+            app:destination="@id/chooseLanguageFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/chooseLanguageFragment"
         android:name="me.ruyeo.kitobz.ui.auth.ChooseLanguageFragment"
         android:label="fragment_choose_language"
         tools:layout="@layout/fragment_choose_language" />
+
     <fragment
-        android:id="@+id/firstFragment"
-        android:name="me.ruyeo.kitobz.ui.auth.FirstFragment"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        android:id="@+id/forgetPasswordFragment"
+        android:name="me.ruyeo.kitobz.ui.auth.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment"
+        tools:layout="@layout/fragment_forgetpassword">
         <action
-            android:id="@+id/action_firstFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_forgetPasswordFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
     </fragment>
+
 </navigation>

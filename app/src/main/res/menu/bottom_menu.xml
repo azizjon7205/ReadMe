@@ -5,12 +5,12 @@
     <item
         android:title="Home"
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_home"
         app:showAsAction="never" />
     <item
         android:title="Basket"
         android:id="@+id/basketFragment"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_basket"
         app:showAsAction="never" />
     <item
         android:title="Library"

@@ -2,6 +2,9 @@ package me.ruyeo.kitobz.ui
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +12,18 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import me.ruyeo.kitobz.MainActivity
+import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.utils.utils.dialogs.MessageDialog
 import me.ruyeo.kitobz.utils.utils.dialogs.ProgressBarDialog
 
 
 abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
 
-    lateinit var loadingDialog : Dialog
+    lateinit var loadingDialog: Dialog
+    private var isLightStatusBar: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,12 +67,44 @@ abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
     }
 
-    fun showProgress(){
+    fun showProgress() {
         loadingDialog.show()
     }
 
-    fun hideProgress(){
+    fun hideProgress() {
         loadingDialog.dismiss()
     }
 
+    fun callActivityMain() {
+      var intent = Intent(requireActivity(),MainActivity::class.java)
+        startActivity(intent)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        requireActivity().finish()
+    }
+
+    fun clearLightStatusBar() {
+        if (!isLightStatusBar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requireActivity().window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            requireActivity().window.statusBarColor = Color.TRANSPARENT
+            isLightStatusBar = true
+        }
+
+    }
+
+    fun setLightStatusBar() {
+        if (isLightStatusBar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            requireActivity().window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            requireActivity().window.statusBarColor = Color.WHITE
+
+            var flags: Int = requireActivity().window.decorView.systemUiVisibility
+            flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR // add LIGHT_STATUS_BAR to flag
+            requireActivity().window.decorView.systemUiVisibility = flags
+            requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+            isLightStatusBar = false
+
+        }
+    }
 }

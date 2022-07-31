@@ -4,8 +4,11 @@
     <color name="colorSecondary">#7B637E</color>
     <color name="colorAccent">#FF3700B3</color>
     <color name="black">#FF000000</color>
-    <color name="black_transparent">#31000000</color>
+    <color name="black_transparent">#5E000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_transparent">#2FFFFFFF</color>
+    <color name="transparent">#36FFFFFF</color>
+    <color name="lightBlue">#6575A1</color>
 
     <color name="red">#FF0000</color>
     <color name="red_light">#FF2D55</color>
@@ -16,9 +19,11 @@
     <color name="gray_light_1">#0000004D</color>
     <color name="gray_light_2">#C8C7CC</color>
     <color name="gray_light_3">#00000029</color>
+    <color name="iconColor">#c8c7cc</color>
 
     <color name="white_light_1">#EFEFF4</color>
     <color name="white_light_2">#F9F9F9</color>
+
 
     <color name="black_light_1">#666666</color>
     <color name="black_light_2">#00000080</color>
@@ -26,5 +31,10 @@
     <color name="orange_light">#FF9500</color>
 
     <color name="green">#5AC53A</color>
+    <color name="green_1">#549D01</color>
+    <color name="green_2">#4CD964</color>
 
+
+
+>>>>>>> 9d6c8a641253a283ff3a4103d67da363b154635f
 </resources>

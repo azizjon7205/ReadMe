@@ -39,8 +39,7 @@ class BannerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             with(binding) {
                 Glide.with(itemView)
                     .load(banner.image)
-                    .override(100, 100)
-                    .error(R.drawable.ic_book)
+                    .error(R.drawable.ic_launcher_background)
                     .into(ivBanner)
             }
         }

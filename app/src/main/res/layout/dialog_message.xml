@@ -34,7 +34,7 @@
             android:backgroundTint="@color/colorAccent"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="@string/ok"
+            android:text="@string/str_ok"
             android:textColor="@color/white"
             android:textAllCaps="false"
             app:cornerRadius="24dp" />

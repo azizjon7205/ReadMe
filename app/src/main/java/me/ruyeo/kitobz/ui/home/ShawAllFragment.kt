@@ -60,6 +60,12 @@ class ShawAllFragment : Fragment(R.layout.fragment_shaw_all) {
     }
 
     private fun initViews() {
+
+        adapterBook.onClick = {
+            findNavController().navigate(R.id.detailsFragment)
+        }
+
+
         with(binding) {
 
             ivBack.setOnClickListener {
@@ -127,7 +133,6 @@ class ShawAllFragment : Fragment(R.layout.fragment_shaw_all) {
                 }
             }
         }
-
 
     }
 
