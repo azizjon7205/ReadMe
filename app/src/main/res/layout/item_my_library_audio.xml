@@ -25,6 +25,8 @@
                 android:layout_width="101dp"
                 android:layout_height="101dp"
                 android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
                 android:src="@drawable/img"
                 app:shapeAppearanceOverlay="@style/rounded_8"/>
 
@@ -34,29 +36,32 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_marginStart="19dp"
-                android:layout_marginBottom="7dp">
+                android:layout_marginBottom="7dp"
+                tools:ignore="NestedWeights">
 
                 <TextView
                     android:id="@+id/tv_book_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:singleLine="true"
+                    android:layout_marginEnd="34dp"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_type_16"
+                    android:textSize="@dimen/text_type_15"
                     android:fontFamily="@font/sf_pro_text_medium"
                     android:text="До встречи с тобой"/>
 
                 <TextView
                     android:id="@+id/tv_book_author"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tv_book_name"
                     app:layout_constraintStart_toStartOf="parent"
                     android:singleLine="true"
+                    android:layout_marginEnd="34dp"
                     android:textColor="@color/black_light_1"
-                    android:textSize="@dimen/text_type_14"
+                    android:textSize="@dimen/text_type_13"
                     android:fontFamily="@font/sf_pro_text_regular"
                     android:text="Джоджо Мойес"/>
 
@@ -66,7 +71,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/tv_voice_language"
-                    android:textSize="@dimen/text_type_12"
+                    android:textSize="@dimen/text_type_10"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_text_regular"
                     android:text="@string/str_duration"/>
@@ -75,7 +80,7 @@
                     android:id="@+id/tv_duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_type_12"
+                    android:textSize="@dimen/text_type_10"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_text_regular"
                     app:layout_constraintStart_toEndOf="@id/tv_duration_name"
@@ -89,7 +94,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:textSize="@dimen/text_type_12"
+                    android:textSize="@dimen/text_type_10"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_text_regular"
                     android:text="@string/str_voice_language"/>
@@ -98,7 +103,7 @@
                     android:id="@+id/tv_voice_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_type_12"
+                    android:textSize="@dimen/text_type_10"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_text_regular"
                     app:layout_constraintStart_toEndOf="@id/tv_voice_language_name"
@@ -133,9 +138,68 @@
                         android:gravity="end"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/text_type_10"
+                        android:layout_marginEnd="7dp"
                         android:fontFamily="@font/sf_pro_text_semibold"/>
 
                 </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_state_audio"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="1dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/blue_light"
+                        app:shapeAppearanceOverlay="@style/circle"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="6dp"
+                        app:tint="@color/white"
+                        android:src="@drawable/ic_headphones"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_state_download"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="1dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shape_imv_state_download"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/blue_light"
+                        app:shapeAppearanceOverlay="@style/circle"/>
+
+                    <ImageView
+                        android:id="@+id/iv_download_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="6dp"
+                        app:tint="@color/white"
+                        android:src="@drawable/ic_download"/>
+
+                    <ProgressBar
+                        android:id="@+id/pb_state_download"
+                        android:layout_width="29.5dp"
+                        android:layout_height="29.5dp"
+                        app:tint="@color/white"
+                        android:indeterminateTint="@color/white"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -145,7 +209,7 @@
                 android:layout_height="12dp"
                 android:layout_marginEnd="6dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginStart="7dp"
+                android:visibility="invisible"
                 android:src="@drawable/ic_pin"/>
 
         </LinearLayout>
@@ -184,7 +248,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:textSize="@dimen/text_type_14"
+                android:textSize="@dimen/text_type_13"
                 android:textColor="@color/white"
                 android:fontFamily="@font/sf_pro_text_regular"
                 android:text="@string/str_pin"/>
@@ -209,7 +273,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:textSize="@dimen/text_type_14"
+                android:textSize="@dimen/text_type_13"
                 android:textColor="@color/white"
                 android:fontFamily="@font/sf_pro_text_regular"
                 android:text="@string/str_delete"/>

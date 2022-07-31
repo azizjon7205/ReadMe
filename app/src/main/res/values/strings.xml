@@ -20,6 +20,7 @@
 
 
     <string name="all_books">All books</string>
+    <string name="str_book">Книга</string>
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
     <string name="str_your_audiobook_library_empty">Ваша библиотека аудиокниг пока пуста.</string>
@@ -39,4 +40,22 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_find_book_in_library">Найти книгу в библиотеке</string>
+    <string name="str_cancel">Отменить</string>
+    <string name="str_not_found_when_search_my_library">Если не нашли то что искали,\nвоспользуйтесь поиском в каталоге</string>
+    <string name="str_basket">Корзина</string>
+    <string name="str_you_dont_have_books_in_shopping_cart">У вас пока нет книг в корзине покупок</string>
+    <string name="str_qty">Кол-во</string>
+    <string name="str_price">Цена:</string>
+    <string name="str_somoni">сомони</string>
+    <string name="str_stock">Склад: В наличии</string>
+    <string name="str_type">Тип:</string>
+    <string name="str_paper">Бумажный</string>
+    <string name="str_e_book">Электронная книга</string>
+    <string name="str_audio_book">Аудиокнига</string>
+    <string name="str_total_books">Всего книг:</string>
+    <string name="str_delivery">Доставка:</string>
+    <string name="str_sum">Сумма:</string>
+
+
 </resources>
