@@ -80,4 +80,20 @@
         <item name="displayOptions">showHome|useLogo</item>
     </style>
 
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/dialog_corner_rounded</item>
+    </style>
+
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="Seekbar" parent="Widget.AppCompat.SeekBar">
+        <item name="colorAccent">@color/orange_light</item>
+    </style>
+
 </resources>
