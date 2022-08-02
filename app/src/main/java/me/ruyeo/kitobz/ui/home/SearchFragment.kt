@@ -17,13 +17,14 @@ import me.ruyeo.kitobz.adapter.AllAuthorsAdapter
 import me.ruyeo.kitobz.adapter.SearchAdapter
 import me.ruyeo.kitobz.databinding.FragmentSearchBinding
 import me.ruyeo.kitobz.model.Book
+import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.utils.utils.UiStateList
 import me.ruyeo.kitobz.utils.utils.extensions.showMessage
 import me.ruyeo.kitobz.utils.utils.extensions.visible
 import viewBinding
 
 @AndroidEntryPoint
-class SearchFragment : Fragment(R.layout.fragment_search) {
+class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
     private val binding by viewBinding { FragmentSearchBinding.bind(it) }
     private val viewModel by viewModels<HomeViewModel>()

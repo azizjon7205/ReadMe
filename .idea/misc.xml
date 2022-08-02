@@ -20,6 +20,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_text_color_selector.xml" value="0.1205" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/btn_bgn.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/button_default_bg.xml" value="0.131" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/custom_popup_background.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_add.xml" value="0.108" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_left.xml" value="0.1245" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_top.xml" value="0.1245" />
@@ -62,11 +63,13 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_categories.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_choose_language.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.15" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details_1.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details_demo.xml" value="0.25" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_discuss.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_filter.xml" value="0.1141552511415525" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_first.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_forgetpassword.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_intro.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library.xml" value="0.1" />
@@ -82,7 +85,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_audio_book.xml" value="0.3645833333333333" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_author_book.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_authors.xml" value="0.18125" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_banner_main.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_banner_main.xml" value="0.15" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_book.xml" value="0.15" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_books.xml" value="0.33" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category.xml" value="0.33" />
@@ -95,6 +98,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_shaw_all.xml" value="0.25" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/context_menu.xml" value="0.18125" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/popup_menu.xml" value="0.18125" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />
       </map>
     </option>

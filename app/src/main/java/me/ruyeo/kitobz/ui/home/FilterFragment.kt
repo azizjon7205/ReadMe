@@ -11,9 +11,10 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.slider.RangeSlider
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentFilterBinding
+import me.ruyeo.kitobz.ui.BaseFragment
 import viewBinding
 
-class FilterFragment : Fragment(R.layout.fragment_filter) {
+class FilterFragment : BaseFragment(R.layout.fragment_filter) {
 
     private val binding by viewBinding { FragmentFilterBinding.bind(it) }
 

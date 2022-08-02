@@ -13,7 +13,7 @@ buildscript {
         hilt_version = "2.42"
         nav_version = "2.5.0"
         corountine_version = "1.6.1"
-        roomVersion = "2.4.2"
+        roomVersion = "2.4.3"
 
     }
     dependencies {

@@ -12,12 +12,13 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.BookAdapter
 import me.ruyeo.kitobz.databinding.FragmentAuthorBooksBinding
 import me.ruyeo.kitobz.model.Book
+import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.utils.utils.extensions.typeClicked
 import viewBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
-class AuthorBooksFragment : Fragment(R.layout.fragment_author_books), View.OnClickListener {
+class AuthorBooksFragment : BaseFragment(R.layout.fragment_author_books), View.OnClickListener {
 
     private val binding by viewBinding { FragmentAuthorBooksBinding.bind(it) }
     private val adapterBook by lazy { BookAdapter() }

@@ -20,12 +20,13 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.ShawAllCategoryAdapter
 import me.ruyeo.kitobz.databinding.FragmentCategoriesBinding
 import me.ruyeo.kitobz.model.Category
+import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.utils.utils.UiStateList
 import me.ruyeo.kitobz.utils.utils.extensions.showMessage
 import viewBinding
 
 @AndroidEntryPoint
-class CategoriesFragment : Fragment(R.layout.fragment_categories) {
+class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
 
     private val binding by viewBinding { FragmentCategoriesBinding.bind(it) }
     private val viewModel by viewModels<HomeViewModel>()

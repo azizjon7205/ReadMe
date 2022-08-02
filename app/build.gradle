@@ -76,6 +76,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5'
+    implementation 'com.mig35:carousellayoutmanager:1.4.6'
+    implementation 'com.azoft.carousellayoutmanager:carousel:1.2.1'
 
 
     // pdf

@@ -18,13 +18,14 @@ import me.ruyeo.kitobz.adapter.BookAdapter
 import me.ruyeo.kitobz.databinding.FragmentShawAllBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Category
+import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.utils.utils.UiStateList
 import me.ruyeo.kitobz.utils.utils.extensions.showMessage
 import me.ruyeo.kitobz.utils.utils.extensions.typeClicked
 import viewBinding
 
 @AndroidEntryPoint
-class ShawAllFragment : Fragment(R.layout.fragment_shaw_all) {
+class ShawAllFragment : BaseFragment(R.layout.fragment_shaw_all) {
 
     private val binding by viewBinding { FragmentShawAllBinding.bind(it) }
     private val viewModel by viewModels<HomeViewModel>()
