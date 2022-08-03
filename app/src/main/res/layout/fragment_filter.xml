@@ -7,6 +7,7 @@
     tools:context=".ui.home.FilterFragment">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -29,21 +30,20 @@
                     android:src="@drawable/ic_arrow_left" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Фильтр" />
+                    android:text="@string/str_filter" />
 
                 <TextView
                     android:id="@+id/tv_reset_filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_text_regular"
-                    android:text="Сброс"
+                    android:text="@string/str_reset"
                     android:textColor="@color/black_light_1"
                     android:textSize="17sp" />
-
 
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
@@ -74,7 +74,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="Тип"
+                    android:text="@string/str_type"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -87,10 +87,10 @@
                     <TextView
                         android:id="@+id/tv_shaw_all_author_books"
                         android:layout_width="wrap_content"
-                        android:layout_height="13dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
-                        android:text="Shaw all"
+                        android:text="@string/str_show_all"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_author_book"
@@ -127,7 +127,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="Бумажные книги"
+                        android:text="@string/str_paper_book"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -162,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="Электронные книги"
+                        android:text="@string/str_electronic_books"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="Аудиокниги"
+                        android:text="@string/str_audio_books"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -229,7 +229,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/sf_pro_text_bold"
-                android:text="Сортировка"
+                android:text="@string/str_sorting"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
@@ -252,7 +252,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="По умолчанию"
+                        android:text="@string/str_default"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -267,7 +267,7 @@
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="Популярные"
+                        android:text="@string/str_popular"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -289,7 +289,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="Новинки"
+                        android:text="@string/str_new"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -304,7 +304,7 @@
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="Сначала дешевые"
+                        android:text="@string/str_cheap_first"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -327,7 +327,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="Сначала дорогие"
+                        android:text="@string/str_dear_ones_first"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -342,7 +342,7 @@
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="По размеру скидки"
+                        android:text="@string/str_by_discount_amount"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -366,7 +366,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="Высокий рейтинг"
+                        android:text="@string/str_high_rating"
                         android:textAlignment="center"
                         android:textColor="@color/bg_text_color_selector"
                         android:textSize="15sp"
@@ -385,7 +385,7 @@
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/sf_pro_text_bold"
-                android:text="Цена"
+                android:text="@string/str_cost"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
@@ -421,7 +421,7 @@
                     android:layout_marginStart="27dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="Склад"
+                    android:text="@string/str_composition"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -431,7 +431,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="(Только для бумажных книг)"
+                    android:text="@string/str_only_for_paper_books"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
@@ -456,7 +456,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="В наличии"
+                        android:text="@string/str_status_in_cash"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -492,7 +492,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="Доставим завтра"
+                        android:text="@string/str_deliver_tomorrow"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -518,11 +518,6 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/white_light_1" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/side_16"
                     android:gravity="center_vertical"
@@ -533,7 +528,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="Нет в наличии"
+                        android:text="@string/str_not_in_cash"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -569,7 +564,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="Предзаказ 7-18 дней"
+                        android:text="@string/str_pre_order_7_18_days"
                         android:textSize="17sp" />
 
                     <FrameLayout
@@ -599,7 +594,7 @@
                 android:fontFamily="@font/sf_pro_text_semibold"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Применить"
+                android:text="@string/str_apply"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="17sp"

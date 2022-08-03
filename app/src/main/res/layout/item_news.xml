@@ -32,7 +32,7 @@
         android:hyphenationFrequency="none"
         android:lines="2"
         android:singleLine="false"
-        android:text="@string/all_books"
+        android:text="@string/str_all_books"
         android:textColor="@color/black"
         android:textSize="13sp" />
 </androidx.appcompat.widget.LinearLayoutCompat>

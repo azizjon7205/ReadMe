@@ -25,7 +25,7 @@
                 android:background="@drawable/bg_rounded_border_corner_lefts_8"
                 android:fontFamily="@font/sf_pro_text_semibold"
                 android:gravity="center"
-                android:text="Paper Books"
+                android:text="@string/str_paper_book"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -37,7 +37,7 @@
                 android:background="@drawable/bg_rounded_border_corner"
                 android:fontFamily="@font/sf_pro_text_semibold"
                 android:gravity="center"
-                android:text="Electronic Books"
+                android:text="@string/str_electronic_books"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -51,7 +51,7 @@
                 android:background="@drawable/bg_rounded_border_corner_rights_8"
                 android:fontFamily="@font/sf_pro_text_semibold"
                 android:gravity="center"
-                android:text="AudioBooks"
+                android:text="@string/str_audio_books"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:focusable="true" />

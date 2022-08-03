@@ -24,7 +24,6 @@ import jp.wasabeef.glide.transformations.BlurTransformation
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.AuthorBooksAdapter
 import me.ruyeo.kitobz.adapter.CommentAdapter
-import me.ruyeo.kitobz.databinding.FragmentDetails1Binding
 import me.ruyeo.kitobz.databinding.FragmentDetailsBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Comment

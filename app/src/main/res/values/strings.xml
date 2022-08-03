@@ -19,7 +19,8 @@
 
     <string name="discover_books_you_i">Откройте для себя весь мир</string>
     <string name="find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
-    <string name="all_books">All books</string>
+    <string name="str_all_books">Все книги</string>
+    <string name="str_books">книги</string>
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
     <string name="str_your_audiobook_library_empty">Ваша библиотека аудиокниг пока пуста.</string>
@@ -70,4 +71,47 @@
     <string name="str_sleep_timer">Таймер сна</string>
     <string name="str_search">Найти</string>
     <string name="str_speed">Скорость</string>
+
+    <!--    -->
+    <string name="str_paper_book">Бумажные книги</string>
+    <string name="str_categories">Категории</string>
+    <string name="str_show_all">Смотреть все</string>
+    <string name="str_authors">Авторы</string>
+    <string name="str_new_arrivals">Новые поступления</string>
+    <string name="str_news">Новости</string>
+    <string name="str_cancel">Отменить</string>
+    <string name="str_search_results">Результаты поиска</string>
+    <string name="str_status_in_cash">В наличии</string>
+    <string name="str_not_in_cash">Нет в наличии</string>
+    <string name="str_year_published">Год издания</string>
+    <string name="str_language_published">Язык издания</string>
+    <string name="str_pages">Страниц</string>
+    <string name="str_paper_type">Переплёт</string>
+    <string name="str_genres">Жанры</string>
+    <string name="str_feedbacks">Отзывы</string>
+    <string name="str_write_feedbacks">Написать отзыв</string>
+    <string name="str_add_cart">Добавить в корзину</string>
+    <string name="str_read_fragment">Читать фрагмент</string>
+    <string name="str_listen_fragment">Слушать фрагмент</string>
+    <string name="str_publish">Опубликовать</string>
+    <string name="str_filter">Фильтр</string>
+    <string name="str_reset">Сброс</string>
+    <string name="str_type">Тип</string>
+    <string name="str_sorting">Сортировка</string>
+    <string name="str_default">По умолчанию</string>
+    <string name="str_popular">Популярные</string>
+    <string name="str_new">Новинки</string>
+    <string name="str_cheap_first">Сначала дешевые</string>
+    <string name="str_dear_ones_first">Сначала дорогие</string>
+    <string name="str_by_discount_amount">По размеру скидки</string>
+    <string name="str_high_rating">Высокий рейтинг</string>
+    <string name="str_cost">Цена</string>
+    <string name="str_composition">Склад</string>
+    <string name="str_only_for_paper_books">(Только для бумажных книг)</string>
+    <string name="str_deliver_tomorrow">Доставим завтра</string>
+    <string name="str_pre_order_7_18_days">Предзаказ 7–18 дней</string>
+    <string name="str_apply">Применить</string>
+
+    <string name="str_somoni">сомони</string>
+
 </resources>
