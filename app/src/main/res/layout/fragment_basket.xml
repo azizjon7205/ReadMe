@@ -286,37 +286,262 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="@string/str_add_comment"
                         android:textColor="@color/black"
                         android:textSize="17sp" />
+
+                    <FrameLayout
+                        android:id="@+id/iv_add_comment"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/blue_light"
+                            app:shapeAppearanceOverlay="@style/circle" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_add"
+                            app:tint="@color/white" />
+
+                    </FrameLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_clear_and_checked"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:visibility="gone">
 
                         <FrameLayout
-                            android:id="@+id/iv_clear"
+                            android:id="@+id/iv_clear_comment"
                             android:layout_width="20dp"
                             android:layout_height="20dp">
 
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                app:shapeAppearanceOverlay="@style/circle"
-                                android:background="@color/red"/>
+                                android:background="@color/red"
+                                app:shapeAppearanceOverlay="@style/circle" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:padding="2dp" />
+                                android:padding="5dp"
+                                android:src="@drawable/ic_close"
+                                app:tint="@color/white" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/iv_checked_comment"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="22dp">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/green_2"
+                                app:shapeAppearanceOverlay="@style/circle" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="5dp"
+                                android:src="@drawable/ic_check"
+                                app:tint="@color/white" />
 
                         </FrameLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edt_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/tv_rounded"
+                    android:gravity="start|top"
+                    android:hint="@string/str_white"
+                    android:minHeight="110dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:textColor="@color/black_light_3"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/ll_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="6dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="42dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:textColor="@color/black_light_3"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="@dimen/side_16"
+                        android:background="@color/white_light_1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="18dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:gravity="center_horizontal"
+                        android:text="@string/str_select_payment_method"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_type_13" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="82dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/tv_rounded"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/im_mask_logo" />
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/iv_pay_capital_card"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="@dimen/side_16"
+                                android:background="@color/white"
+                                android:src="@drawable/ic_circle" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/side_16"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="82dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/tv_rounded"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/im_visa_logo" />
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/iv_pay_visa_card"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="@dimen/side_16"
+                                android:background="@color/white"
+                                android:src="@drawable/ic_circle" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/side_16"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="82dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/tv_rounded"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_cash" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/sf_pro_text_regular"
+                                    android:text="@string/str_cash"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_type_12" />
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/iv_pay_cash"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="@dimen/side_16"
+                                android:background="@color/white"
+                                android:src="@drawable/ic_circle" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/b_check_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginBottom="@dimen/side_16"
+                    android:background="@drawable/tv_rounded"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:text="@string/str_checkout"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_type_17" />
 
             </LinearLayout>
 

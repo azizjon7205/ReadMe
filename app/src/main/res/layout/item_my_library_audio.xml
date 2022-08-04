@@ -27,7 +27,7 @@
                 android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
-                android:src="@drawable/img"
+                android:src="@drawable/img_1"
                 app:shapeAppearanceOverlay="@style/rounded_8"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
