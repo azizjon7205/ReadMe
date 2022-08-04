@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 
 class MyLibraryVPAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-    private var fragments: ArrayList<Fragment> = ArrayList()
+    var fragments: ArrayList<Fragment> = ArrayList()
     private var titles: ArrayList<String> = ArrayList()
 
     fun addFragmentAndTitle(fragment: Fragment, title: String){

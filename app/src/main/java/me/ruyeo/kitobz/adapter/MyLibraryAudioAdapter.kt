@@ -1,7 +1,9 @@
 package me.ruyeo.kitobz.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.marginStart
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +28,8 @@ class MyLibraryAudioAdapter : RecyclerView.Adapter<MyLibraryAudioAdapter.ViewHol
                 }
             }
             binding.apply {
+                pbStateDownload.visibility = View.GONE
+                flStateAudio.visibility = View.INVISIBLE
                 tvBookName.text = item
                 tvPercent.text = "67%"
                 progressBar.progress = 67

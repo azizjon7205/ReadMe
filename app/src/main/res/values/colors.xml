@@ -12,6 +12,7 @@
 
     <color name="red">#FF0000</color>
     <color name="red_light">#FF2D55</color>
+    <color name="red_light_2">#FF2D2D</color>
     <color name="blue_light">#6575A1</color>
 
     <color name="gray">#8A8A8F</color>
@@ -27,6 +28,7 @@
 
     <color name="black_light_1">#666666</color>
     <color name="black_light_2">#00000080</color>
+    <color name="black_light_3">#575757</color>
 
     <color name="orange_light">#FF9500</color>
 

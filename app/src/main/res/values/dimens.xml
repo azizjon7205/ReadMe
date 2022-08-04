@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_type_10">10sp</dimen>
+    <dimen name="text_type_11">11sp</dimen>
     <dimen name="text_type_12">12sp</dimen>
+    <dimen name="text_type_13">13sp</dimen>
     <dimen name="text_type_14">14sp</dimen>
+    <dimen name="text_type_15">15sp</dimen>
     <dimen name="text_type_16">16sp</dimen>
+    <dimen name="text_type_17">17sp</dimen>
     <dimen name="text_type_20">20sp</dimen>
     <dimen name="text_type_32">32sp</dimen>
+    <dimen name="text_type_34">34sp</dimen>
 
     <dimen name="side_16">16dp</dimen>
     <dimen name="carousel_spacing">16dp</dimen>

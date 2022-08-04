@@ -26,7 +26,14 @@
         android:id="@+id/basketFragment"
         android:name="me.ruyeo.kitobz.ui.basket.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_basketFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_basketFragment_to_basketOrderFragment"
+            app:destination="@id/basketOrderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/discussFragment"
         android:name="me.ruyeo.kitobz.ui.discussions.DiscussFragment"
@@ -36,7 +43,11 @@
         android:id="@+id/myLibraryFragment"
         android:name="me.ruyeo.kitobz.ui.library.MyLibraryFragment"
         android:label="fragment_my_library"
-        tools:layout="@layout/fragment_my_library" />
+        tools:layout="@layout/fragment_my_library" >
+        <action
+            android:id="@+id/action_myLibraryFragment_to_myLSearchFragment"
+            app:destination="@id/myLSearchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment2"
         android:name="me.ruyeo.kitobz.ui.profile.ProfileFragment"
@@ -100,5 +111,21 @@
         android:name="me.ruyeo.kitobz.ui.pdfview.PdfViewFragment"
         android:label="fragment_pdf_view"
         tools:layout="@layout/fragment_pdf_view" />
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/myLSearchFragment"
+        android:name="me.ruyeo.kitobz.ui.library.search.MyLSearchFragment"
+        android:label="MyLSearchFragment"
+        tools:layout="@layout/fragment_my_library_search"/>
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="me.ruyeo.kitobz.ui.basket.information.InformationFragment"
+        android:label="InformationFragment"
+        tools:layout="@layout/fragment_basket_information"/>
+    <fragment
+        android:id="@+id/basketOrderFragment"
+        android:name="me.ruyeo.kitobz.ui.basket.orders.BasketOrderFragment"
+        android:label="BasketOrderFragment"
+        tools:layout="@layout/fragment_basket_orders"/>
 
 </navigation>

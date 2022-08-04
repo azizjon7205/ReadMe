@@ -21,6 +21,8 @@
     <string name="find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
     <string name="str_all_books">Все книги</string>
     <string name="str_books">книги</string>
+    <string name="all_books">All books</string>
+    <string name="str_book">Книга</string>
     <string name="str_my_library">Моя библиотека</string>
     <string name="str_your_ebook_library_empty">Ваша библиотека электронных книг пуста.</string>
     <string name="str_your_audiobook_library_empty">Ваша библиотека аудиокниг пока пуста.</string>
@@ -63,6 +65,35 @@
     <string name="str_hour">час.</string>
     <string name="str_min">мин</string>
     <string name="str_dot">•</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_find_book_in_library">Найти книгу в библиотеке</string>
+    <string name="str_cancel">Отменить</string>
+    <string name="str_not_found_when_search_my_library">Если не нашли то что искали,\nвоспользуйтесь поиском в каталоге</string>
+    <string name="str_basket">Корзина</string>
+    <string name="str_you_dont_have_books_in_shopping_cart">У вас пока нет книг в корзине покупок</string>
+    <string name="str_qty">Кол-во</string>
+    <string name="str_price">Цена:</string>
+    <string name="str_somoni">сомони</string>
+    <string name="str_stock">Склад: В наличии</string>
+    <string name="str_type_of">Тип:</string>
+    <string name="str_paper">Бумажный</string>
+    <string name="str_e_book">Электронная книга</string>
+    <string name="str_audio_book">Аудиокнига</string>
+    <string name="str_total_books">Всего книг:</string>
+    <string name="str_delivery">Доставка:</string>
+    <string name="str_sum">Сумма:</string>
+    <string name="str_add_comment">Добавить комментарий</string>
+    <string name="str_comment">Комментарий</string>
+    <string name="str_white">Напишите</string>
+    <string name="str_select_payment_method">Выберите метод оплаты</string>
+    <string name="str_cash">Наличными</string>
+    <string name="str_checkout">Оформить заказ</string>
+    <string name="str_information">Информация</string>
+    <string name="str_information_about_basket_page">Копирайтерам, специалистам по СЕО и контекстной рекламе часто требуется посчитать количество символов в тексте. Такая функция есть в текстовых редакторах, но не всегда удобно создавать новый документ и копировать туда нужный фрагмент. Компания Involta вывела подсчет количества слов и символов в отдельный инструмент, которым можно пользоваться даже со смартфона.
+\n\nПрограмма в режиме онлайн анализирует исследуемый фрагмент и считает в нем общее количество: слов, символов (с пробелами и без), букв кириллического и латинского алфавита, цифр, пробелов и остальных знаков. Эти данные помогают понять, соблюдены ли технические требования к тексту, нет ли замены символов или повтора пробелов.
+\n\nТекст можно проверить сразу полностью или вводить по строке, если нужен более качественный анализ. В любом случае онлайн-подсчет количества символов будет точным и быстрым, ведь скорость работы программы зависит только от возможности вашего подключения к интернету. Сько от возможности вашего подключения к интернету.</string>
+
 
 
     <!--Popup Menu Strings-->
@@ -79,7 +110,6 @@
     <string name="str_authors">Авторы</string>
     <string name="str_new_arrivals">Новые поступления</string>
     <string name="str_news">Новости</string>
-    <string name="str_cancel">Отменить</string>
     <string name="str_search_results">Результаты поиска</string>
     <string name="str_status_in_cash">В наличии</string>
     <string name="str_not_in_cash">Нет в наличии</string>
@@ -111,7 +141,5 @@
     <string name="str_deliver_tomorrow">Доставим завтра</string>
     <string name="str_pre_order_7_18_days">Предзаказ 7–18 дней</string>
     <string name="str_apply">Применить</string>
-
-    <string name="str_somoni">сомони</string>
 
 </resources>

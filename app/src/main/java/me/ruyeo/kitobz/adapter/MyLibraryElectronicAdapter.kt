@@ -1,6 +1,7 @@
 package me.ruyeo.kitobz.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -26,6 +27,10 @@ class MyLibraryElectronicAdapter : RecyclerView.Adapter<MyLibraryElectronicAdapt
                 }
             }
             binding.apply {
+                ivStateElectron.visibility = View.GONE
+                bStartContinue.visibility = View.GONE
+                llStateDownload.visibility = View.VISIBLE
+                pbStateDownload.visibility = View.GONE
                 tvBookName.text = item
                 tvPercent.text = "67%"
                 progressBar.progress = 67
