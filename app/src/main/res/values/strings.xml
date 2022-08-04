@@ -76,7 +76,7 @@
     <string name="str_price">Цена:</string>
     <string name="str_somoni">сомони</string>
     <string name="str_stock">Склад: В наличии</string>
-    <string name="str_type">Тип:</string>
+    <string name="str_type_of">Тип:</string>
     <string name="str_paper">Бумажный</string>
     <string name="str_e_book">Электронная книга</string>
     <string name="str_audio_book">Аудиокнига</string>
@@ -110,7 +110,6 @@
     <string name="str_authors">Авторы</string>
     <string name="str_new_arrivals">Новые поступления</string>
     <string name="str_news">Новости</string>
-    <string name="str_cancel">Отменить</string>
     <string name="str_search_results">Результаты поиска</string>
     <string name="str_status_in_cash">В наличии</string>
     <string name="str_not_in_cash">Нет в наличии</string>
@@ -142,7 +141,5 @@
     <string name="str_deliver_tomorrow">Доставим завтра</string>
     <string name="str_pre_order_7_18_days">Предзаказ 7–18 дней</string>
     <string name="str_apply">Применить</string>
-
-    <string name="str_somoni">сомони</string>
 
 </resources>
