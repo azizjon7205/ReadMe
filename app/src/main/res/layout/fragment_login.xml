@@ -26,6 +26,7 @@
                 tools:ignore="UseAppTint" />
 
             <LinearLayout
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/item_background_black" />
@@ -36,6 +37,7 @@
                 android:padding="25dp">
 
                 <TextView
+                    android:fitsSystemWindows="true"
                     android:id="@+id/tv_skip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

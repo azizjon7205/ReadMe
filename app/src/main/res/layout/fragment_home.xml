@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:fitsSystemWindows="true"
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -36,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:text="Search"
+                    android:text="@string/str_search"
                     android:textColor="#8A8A8F"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -55,11 +57,6 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
-                android:id="@+id/rv_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_banner"
                 tools:listitem="@layout/item_banner_main"
@@ -69,9 +66,36 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
+                android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:text="Не навреди"
+                    android:id="@+id/tv_book_name"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Генри Марш"
+                    android:id="@+id/tv_book_author"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textColor="@color/black_light_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
@@ -82,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="Categories"
+                    android:text="@string/str_categories"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -95,10 +119,10 @@
                     <TextView
                         android:id="@+id/tv_shaw_all"
                         android:layout_width="wrap_content"
-                        android:layout_height="13dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
-                        android:text="Shaw all"
+                        android:text="@string/str_show_all"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/iv_arrow_right"
@@ -140,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="Authors"
+                    android:text="@string/str_authors"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -153,10 +177,10 @@
                     <TextView
                         android:id="@+id/tv_shaw_all_authors"
                         android:layout_width="wrap_content"
-                        android:layout_height="13dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
-                        android:text="Shaw all"
+                        android:text="@string/str_show_all"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_author"
@@ -198,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="AudioBooks"
+                    android:text="@string/str_audio_books"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -211,10 +235,10 @@
                     <TextView
                         android:id="@+id/tv_shaw_all_audio_books"
                         android:layout_width="wrap_content"
-                        android:layout_height="13dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
-                        android:text="Shaw all"
+                        android:text="@string/str_show_all"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_audio_book"
@@ -256,7 +280,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="ElectronicBooks"
+                    android:text="@string/str_electronic_books"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -269,10 +293,10 @@
                     <TextView
                         android:id="@+id/tv_shaw_all_electronic_books"
                         android:layout_width="wrap_content"
-                        android:layout_height="13dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:fontFamily="@font/sf_pro_text_semibold"
-                        android:text="Shaw all"
+                        android:text="@string/str_show_all"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/iv_arrow_right_electronic_book"
@@ -321,7 +345,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="New Arrivals"
+                    android:text="@string/str_new_arrivals"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -334,9 +358,9 @@
                     <TextView
                         android:id="@+id/tv_shaw_all_new_arrivals"
                         android:layout_width="wrap_content"
-                        android:layout_height="13dp"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_text_semibold"
-                        android:text="Shaw all"
+                        android:text="@string/str_show_all"
                         android:layout_marginEnd="3dp"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -379,7 +403,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
-                    android:text="News"
+                    android:text="@string/str_news"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
             </LinearLayout>

@@ -31,11 +31,14 @@
             <FrameLayout
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@color/white"
                 android:layout_margin="5dp"
+                android:padding="2dp"
                 android:layout_width="17dp"
-                android:layout_height="17dp">
+                android:layout_height="20dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
+                    app:tint="@color/black"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_book_online"
                     android:layout_width="match_parent"
@@ -48,7 +51,7 @@
             android:id="@+id/tv_audio_book_name"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/sf_pro_text_medium"
-            android:text="Understanding all things"
+            android:text="@string/str_book_name"
             android:singleLine="false"
             android:ellipsize="end"
             android:lines="2"
@@ -60,7 +63,7 @@
 
         <TextView
             android:id="@+id/tv_audio_book_author"
-            android:text="Jack London"
+            android:text="Джон Кэхо"
             android:fontFamily="@font/sf_pro_text_regular"
             android:layout_marginTop="3dp"
             android:textColor="@color/black_light_1"

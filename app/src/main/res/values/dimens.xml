@@ -13,5 +13,13 @@
     <dimen name="text_type_34">34sp</dimen>
 
     <dimen name="side_16">16dp</dimen>
+    <dimen name="carousel_spacing">16dp</dimen>
+
+
+    <array name="initial_slider_values">
+        <item>50</item>
+        <item>150</item>
+
+    </array>
 
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:iconTintMode="src_in"
+        android:icon="@drawable/ic_download_102"
+        android:id="@+id/menu_download"
+        android:title="Скачать фрагмент" />
+    <item
+        android:icon="@drawable/ic_favorite"
+        app:iconTint="@color/gray_light_2"
+        android:id="@+id/menu_bookmarks"
+        android:title="Добавить в закладки" />
+    <item
+        android:icon="@drawable/ic_share_77"
+        android:id="@+id/menu_share"
+        android:title="Поделиться" />
+
+</menu>

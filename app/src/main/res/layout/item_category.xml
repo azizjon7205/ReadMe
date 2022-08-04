@@ -30,7 +30,7 @@
             android:textSize="13sp"
             android:fontFamily="@font/sf_pro_text_medium"
             android:textColor="@color/black"
-            android:text="@string/all_books"
+            android:text="@string/str_all_books"
             android:singleLine="false"
             android:hyphenationFrequency="none"
             android:layout_marginStart="10dp"

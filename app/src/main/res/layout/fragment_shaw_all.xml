@@ -7,6 +7,7 @@
     tools:context=".ui.home.ShawAllFragment">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:fitsSystemWindows="true"
         android:paddingBottom="8dp"
         app:elevation="0dp"
         android:background="@color/white"
@@ -33,7 +34,7 @@
                     android:id="@+id/tv_category_name"
                     android:layout_marginHorizontal="@dimen/side_16"
                     android:textSize="20sp"
-                    android:text="Categories"
+                    android:text="@string/str_categories"
                     android:gravity="center"
                     android:fontFamily="@font/sf_pro_display_bold"
                     android:textColor="@color/black"

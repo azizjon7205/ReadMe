@@ -8,12 +8,18 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.blurry.Blurry
 import jp.wasabeef.glide.transformations.BlurTransformation
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.AuthorBooksAdapter
@@ -30,7 +36,7 @@ import me.ruyeo.kitobz.utils.utils.extensions.tint
 import me.ruyeo.kitobz.utils.utils.extensions.visible
 import viewBinding
 
-
+@AndroidEntryPoint
 class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     private val binding by viewBinding { FragmentDetailsBinding.bind(it) }
     private val authorBooksAdapter by lazy { AuthorBooksAdapter() }
@@ -49,6 +55,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
         isPaperBook = !(isAudioBook || isElectronicBook)
 
+
 //        if (Build.VERSION.SDK_INT in 19..20) {
 //            setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true)
 //        }
@@ -63,6 +70,12 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 //        ---------------------------
 //        requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 //        requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+//        (requireActivity() as AppCompatActivity).supportActionBar?.show();
+//        requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+//        setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,12 +86,34 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     }
 
     private fun initViews() {
+//        val toolbar = binding.toolbarDetail
+//        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
+
         val description = "Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … "
         if (isPaperBook) llPaperClicked()
         if (isElectronicBook) llEbookClicked()
         if (isAudioBook) llAudioBookClicked()
 
         with(binding) {
+            ivBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
+            flMore.setOnClickListener {
+                Blurry.with(requireContext()).radius(35).onto(root)
+                val popupMenu = PopupMenu(requireContext(), ivMore)
+                popupMenu.menuInflater.inflate(R.menu.popup_menu,  popupMenu.menu)
+                popupMenu.setForceShowIcon(true)
+                popupMenu.setOnMenuItemClickListener {
+                    Blurry.delete(root)
+                    showToast(it.title.toString())
+                    true
+                }
+                popupMenu.show()
+                popupMenu.setOnDismissListener {
+                    Blurry.delete(root)
+                }
+            }
+
             Glide.with(this@DetailsFragment).load(R.drawable.im_audio_book).into(ivBook)
             Glide.with(this@DetailsFragment)
                 .load(R.drawable.im_audio_book)
@@ -149,7 +184,6 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 showKeyboard(etComment)
             }
 
-
             for (i in loadGenres()){
                 val chip = Chip(requireContext())
                 chip.setTextColor(Color.parseColor("#6575A1"))
@@ -160,10 +194,19 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 binding.chipGroup.addView(chip)
             }
 
-
+            bAction.setOnClickListener {
+                if (isAudioBook){
+                    findNavController().navigate(R.id.audioPlayerFragment)
+                }
+                if (isElectronicBook){
+                    findNavController().navigate(R.id.pdfViewFragment)
+                }
+            }
         }
         authorBooksAdapter.submitList(loadBooks())
         commentAdapter.submitList(loadComments())
+
+
     }
 
     private fun llPaperClicked(){

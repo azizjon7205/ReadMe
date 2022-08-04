@@ -1,16 +1,19 @@
 package me.ruyeo.kitobz.ui.home
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -22,7 +25,9 @@ import me.ruyeo.kitobz.model.Banner
 import me.ruyeo.kitobz.model.Category
 import me.ruyeo.kitobz.model.ElectronicBook
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.ui.home.customs.CenterZoomLayoutManager
+import me.ruyeo.kitobz.ui.home.customs.BoundsOffsetDecoration
+import me.ruyeo.kitobz.ui.home.customs.LinearHorizontalSpacingDecoration
+import me.ruyeo.kitobz.ui.home.customs.ProminentLayoutManager
 import me.ruyeo.kitobz.utils.utils.UiStateList
 import me.ruyeo.kitobz.utils.utils.extensions.dpToPixel
 import viewBinding
@@ -40,6 +45,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val adapterEBooks by lazy { EBookAdapter() }
     private val adapterNewArrivals by lazy { NewArrivalsAdapter() }
     private val adapterNews by lazy { NewsAdapter() }
+    private lateinit var snapHelper: SnapHelper
+    private lateinit var layoutManager: LinearLayoutManager
 
     private var category: Category? = null
 
@@ -58,6 +65,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
     private fun setupUI() {
+        layoutManager = ProminentLayoutManager(requireContext())
+        snapHelper = PagerSnapHelper()
 
         adapterAudioBooks.submitList(loadAudioBooks())
         adapterEBooks.submitList(loadEBooks())
@@ -68,16 +77,30 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         with(binding) {
 
             rvBanner.apply {
-                layoutManager =
-                    CenterZoomLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                canScrollHorizontally(1)
-                smoothScrollBy(5, 0)
-                Handler().postDelayed({ smoothScrollToPosition(2) }, 500)
-
-//                scrollBy(1, 2)
-
+                setItemViewCacheSize(4)
+                layoutManager = this@HomeFragment.layoutManager
                 adapter = adapterBanner
+
+                val spacing = resources.getDimensionPixelSize(R.dimen.carousel_spacing)
+                addItemDecoration(LinearHorizontalSpacingDecoration(spacing))
+                addItemDecoration(BoundsOffsetDecoration())
             }
+            snapHelper.attachToRecyclerView(binding.rvBanner)
+            initRecyclerViewPosition(2)
+
+            rvBanner.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+
+                    val pos = (layoutManager.findFirstVisibleItemPosition() + layoutManager.findLastVisibleItemPosition()) / 2
+                    tvBookName.text = adapterBanner.currentList[pos].title.toString()
+                    if (layoutManager.findFirstVisibleItemPosition() + 1 == layoutManager.findLastVisibleItemPosition() && layoutManager.findLastVisibleItemPosition() == adapterBanner.itemCount-1){
+                        tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].title.toString()
+                    }
+
+                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].title}")
+                }
+            })
 
             rvCats.apply {
                 layoutManager =
@@ -143,7 +166,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 if (category != null)
                     findNavController().navigate(
                         R.id.shawAllFragment,
-                        bundleOf("category" to Gson().toJson(category), "isElectronicBook" to "true")
+                        bundleOf(
+                            "category" to Gson().toJson(category),
+                            "isElectronicBook" to "true"
+                        )
                     )
             }
 
@@ -158,7 +184,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
 
         adapterCategory.onClick = { position, category ->
-            when(position){
+            when (position) {
                 0 -> findNavController().navigate(R.id.searchFragment, bundleOf("to" to "books"))
                 else -> findNavController().navigate(
                     R.id.shawAllFragment,
@@ -175,21 +201,21 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         adapterAudioBooks.onClick = {
             findNavController().navigate(
                 R.id.detailsFragment,
-                bundleOf( "isAudioBook" to "true")
+                bundleOf("isAudioBook" to "true")
             )
         }
 
         adapterEBooks.onClick = {
             findNavController().navigate(
                 R.id.detailsFragment,
-                bundleOf( "isElectronicBook" to "true")
+                bundleOf("isElectronicBook" to "true")
             )
         }
 
         adapterNewArrivals.onClick = {
             findNavController().navigate(
                 R.id.detailsFragment,
-                bundleOf( "isPaperBook" to "true")
+                bundleOf("isPaperBook" to "true")
             )
         }
     }
@@ -280,18 +306,30 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private fun loadBanners(): List<Banner> {
         val items = ArrayList<Banner>()
 
-        items.add(Banner())
-        items.add(Banner())
-        items.add(Banner())
-        items.add(Banner())
-        items.add(Banner())
-        items.add(Banner())
-        items.add(Banner())
-        items.add(Banner())
+        items.add(Banner(title = "Kitob 1"))
+        items.add(Banner(title = "Kitob 2"))
+        items.add(Banner(title = "Kitob 3"))
+        items.add(Banner(title = "Kitob 4"))
+        items.add(Banner(title = "Kitob 5"))
+        items.add(Banner(title = "Kitob 6"))
 
         return items
     }
 
+    private fun initRecyclerViewPosition(position: Int) {
+        // This initial scroll will be slightly off because it doesn't respect the SnapHelper.
+        // Do it anyway so that the target view is laid out, then adjust onPreDraw.
+        layoutManager.scrollToPosition(position)
+
+        binding.rvBanner.doOnPreDraw {
+            val targetView = layoutManager.findViewByPosition(position) ?: return@doOnPreDraw
+            val distanceToFinalSnap =
+                snapHelper.calculateDistanceToFinalSnap(layoutManager, targetView)
+                    ?: return@doOnPreDraw
+
+            layoutManager.scrollToPositionWithOffset(position, -distanceToFinalSnap[0])
+        }
+    }
 
 }
 

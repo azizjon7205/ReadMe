@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "115400418539",
+    "project_id": "kitobz-462d0",
+    "storage_bucket": "kitobz-462d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115400418539:android:d3e4070462f5ce1b800aae",
+        "android_client_info": {
+          "package_name": "me.ruyeo.kitobz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115400418539-0fl5m9hfr91esurmkfb9i2sr7g5l0hs7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFj4yZUjvMmRnFkMG87HwL2m8_AVFfKAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115400418539-0fl5m9hfr91esurmkfb9i2sr7g5l0hs7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,37 +5,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemBannerMainBinding
 import me.ruyeo.kitobz.model.Banner
 
-class BannerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BannerAdapter : ListAdapter<Banner, BannerAdapter.ViewHolder>(ITEM_DIFF){
 
-    private val dif = AsyncListDiffer(this, ITEM_DIFF)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemBannerMainBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is ViewHolder) {
-            holder.bind()
-        }
-    }
-
-
-    override fun getItemCount() = dif.currentList.size
 
     inner class ViewHolder(private val binding: ItemBannerMainBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind() {
-            val banner = dif.currentList[adapterPosition]
+            val banner = getItem(adapterPosition)
             with(binding) {
                 Glide.with(itemView)
                     .load(banner.image)
@@ -43,11 +34,6 @@ class BannerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     .into(ivBanner)
             }
         }
-    }
-
-
-    fun submitList(list: List<Banner>) {
-        dif.submitList(list)
     }
 
     companion object {
@@ -58,6 +44,10 @@ class BannerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             override fun areContentsTheSame(oldItem: Banner, newItem: Banner): Boolean =
                 oldItem == newItem
         }
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind()
     }
 
 

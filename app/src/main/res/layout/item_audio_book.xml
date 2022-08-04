@@ -50,7 +50,7 @@
             android:id="@+id/tv_audio_book_name"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/sf_pro_text_medium"
-            android:text="Understanding all things"
+            android:text="@string/str_book_name"
             android:singleLine="false"
             android:ellipsize="end"
             android:lines="2"
@@ -62,7 +62,7 @@
 
         <TextView
             android:id="@+id/tv_audio_book_author"
-            android:text="Jack London"
+            android:text="Джон Кэхо"
             android:fontFamily="@font/sf_pro_text_regular"
             android:layout_marginTop="3dp"
             android:textColor="@color/black_light_1"
