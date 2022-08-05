@@ -1,7 +1,8 @@
 package me.ruyeo.kitobz.model
 
 data class User(
-    val uid: Long? = null,
+    val id: Long? = null,
+    val uid: String? = null,
     val phone: String? = null,
     val name: String? = null,
     val password: String? = null,

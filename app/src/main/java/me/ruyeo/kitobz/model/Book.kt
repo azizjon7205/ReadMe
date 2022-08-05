@@ -2,6 +2,7 @@ package me.ruyeo.kitobz.model
 
 data class Book(
     val id: Long? = null,
+    val uid: String? = null,
     val image: String? = null,
     val image200: String? = null,
     val image400: String? = null,
@@ -26,6 +27,7 @@ data class Book(
 
 data class BookShort(
     val id: Long? = null,
+    val uid: String? = null,
     val image: String? = null,
     val name: String? = null,
     val author: String? = null,
@@ -39,6 +41,7 @@ data class BookShort(
 
 data class PaperBook(
     val id: Long? = null,
+    val uid: String? = null,
     val price: Int? = null,
     val is_discount: Boolean? = null,
     val discount_price: Int? = null,
@@ -52,6 +55,7 @@ data class PaperBook(
 
 data class ElectronicBook(
     val id: Long? = null,
+    val uid: String? = null,
     val price: Int? = null,
     val is_discount: Boolean? = null,
     val discount_price: Int? = null,
@@ -65,6 +69,7 @@ data class ElectronicBook(
 
 data class ElectronicBookShort(
     val id: Long? = null,
+    val uid: String? = null,
     val price: Int? = null,
     val is_discount: Boolean? = null,
     val discount_price: Int? = null,
@@ -74,6 +79,7 @@ data class ElectronicBookShort(
 
 data class AudioBook(
     val id: Long? = null,
+    val uid: String? = null,
     val price: Int? = null,
     val is_discount: Boolean? = null,
     val discount_price: Int? = null,
@@ -87,6 +93,7 @@ data class AudioBook(
 
 data class AudioBookShort(
     val id: Long? = null,
+    val uid: String? = null,
     val price: Int? = null,
     val is_discount: Boolean? = null,
     val discount_price: Int? = null,
@@ -96,12 +103,14 @@ data class AudioBookShort(
 
 data class AuthorBook(
     val id: Long? = null,
+    val uid: String? = null,
     val image: String? = null,
     val name: String? = null
 )
 
 data class Feedback(
     val id: Long? = null,
+    val uid: String? = null,
     val author: String? = null,
     val author_img: String? = null,
     val feedback: String? = null,
