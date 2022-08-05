@@ -10,5 +10,4 @@ class HomeRepository @Inject constructor(
 ) {
     suspend fun getCategories() = apiService.getCategories()
 
-    suspend fun getBanners(id: Int) = apiService.getBanners(id)
 }

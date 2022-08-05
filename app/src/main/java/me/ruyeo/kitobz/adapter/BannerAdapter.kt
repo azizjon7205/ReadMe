@@ -3,16 +3,15 @@ package me.ruyeo.kitobz.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemBannerMainBinding
-import me.ruyeo.kitobz.model.Banner
+import me.ruyeo.kitobz.model.Banner1
 
-class BannerAdapter : ListAdapter<Banner, BannerAdapter.ViewHolder>(ITEM_DIFF){
+class BannerAdapter : ListAdapter<Banner1, BannerAdapter.ViewHolder>(ITEM_DIFF){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -30,18 +29,18 @@ class BannerAdapter : ListAdapter<Banner, BannerAdapter.ViewHolder>(ITEM_DIFF){
             with(binding) {
                 Glide.with(itemView)
                     .load(banner.image)
-                    .error(R.drawable.ic_launcher_background)
+                    .error(R.drawable.im_login)
                     .into(ivBanner)
             }
         }
     }
 
     companion object {
-        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Banner>() {
-            override fun areItemsTheSame(oldItem: Banner, newItem: Banner): Boolean =
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Banner1>() {
+            override fun areItemsTheSame(oldItem: Banner1, newItem: Banner1): Boolean =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Banner, newItem: Banner): Boolean =
+            override fun areContentsTheSame(oldItem: Banner1, newItem: Banner1): Boolean =
                 oldItem == newItem
         }
     }

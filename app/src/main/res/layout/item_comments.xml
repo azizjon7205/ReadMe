@@ -15,7 +15,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_owner_image"
             app:shapeAppearanceOverlay="@style/circle"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/ic_account"
             android:layout_margin="10dp"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
