@@ -8,10 +8,8 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +24,7 @@ import me.ruyeo.kitobz.adapter.AuthorBooksAdapter
 import me.ruyeo.kitobz.adapter.CommentAdapter
 import me.ruyeo.kitobz.databinding.FragmentDetailsBinding
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.model.Comment
+import me.ruyeo.kitobz.model.Feedback
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.ui.home.customs.MySpannable
@@ -315,12 +313,12 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         win.attributes = winParams
     }
 
-    private fun loadComments(): ArrayList<Comment>{
-        var items = ArrayList<Comment>()
+    private fun loadComments(): ArrayList<Feedback>{
+        var items = ArrayList<Feedback>()
 
-        items.add(Comment(ownerName = "Коля Абрамович", ownerImage = "", date = "07.03.2020", comment = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
-        items.add(Comment(ownerName = "Коля Абрамович", ownerImage = "", date = "07.03.2020", comment = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
-        items.add(Comment(ownerName = "Коля Абрамович", ownerImage = "", date = "07.03.2020", comment = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
+        items.add(Feedback(author = "Коля Абрамович", author_img = "", date = "07.03.2020", feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
+        items.add(Feedback(author = "Коля Абрамович", author_img = "", date = "07.03.2020", feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
+        items.add(Feedback(author = "Коля Абрамович", author_img = "", date = "07.03.2020", feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
 
         return items
     }

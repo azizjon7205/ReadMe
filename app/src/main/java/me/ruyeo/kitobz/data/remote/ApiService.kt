@@ -23,7 +23,4 @@ interface ApiService {
     @GET("cats")
     suspend fun getCategories(): BaseResponseList<Category>
 
-    //Banners
-    @GET("banners/{id}")
-    suspend fun getBanners(@Path("id") id: Int = 12): BaseResponseList<Banner>
 }

@@ -7,7 +7,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_banner"
         app:shapeAppearanceOverlay="@style/corner_radius_8"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/im_login"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"

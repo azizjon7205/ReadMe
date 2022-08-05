@@ -6,7 +6,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.data.repository.AuthRepository
-import me.ruyeo.kitobz.model.LoginData
 import me.ruyeo.kitobz.model.User
 import me.ruyeo.kitobz.utils.utils.Constants
 import me.ruyeo.kitobz.utils.utils.UiStateObject
