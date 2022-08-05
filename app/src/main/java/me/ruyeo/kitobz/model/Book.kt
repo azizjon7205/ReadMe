@@ -24,6 +24,19 @@ data class Book(
     val hasEVersion: Boolean = true
 )
 
+data class BookShort(
+    val id: Long? = null,
+    val image: String? = null,
+    val name: String? = null,
+    val author: String? = null,
+    val price: Int? = null,
+    val is_discount: Boolean = false,
+    val discount_price: Int? = null,
+    val hasPaperVersion: Boolean = true,
+    val hasAudio: Boolean = true,
+    val hasEVersion: Boolean = true
+)
+
 data class PaperBook(
     val id: Long? = null,
     val price: Int? = null,
