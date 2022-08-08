@@ -11,4 +11,9 @@ object Constants {
 
     const val ERROR_MESSAGE = "Something went wrong"
 
+    const val PHONE_AUTH_TIMEOUT = 60L
+
+    //collections
+    const val BOOKS = "books"
+    const val CATEGORIES = "categories"
 }

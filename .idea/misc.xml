@@ -3,116 +3,65 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-anydpi/ic_arrow_right.xml" value="0.1295" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-v24/bg_text_color_selector.xml" value="0.1205" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable-xxhdpi/bg_rounded_boreder_corner_8.xml" value="0.116" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/back_gradient.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_circler_borderless.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_circular_border.xml" value="0.1435" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_circular_borderless.xml" value="0.1045" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_color_selector.xml" value="0.1205" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner.xml" value="0.121" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner_8.xml" value="0.116" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner_lefts_8.xml" value="0.116" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_border_corner_rights_8.xml" value="0.116" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_boreder_corner_8.xml" value="0.116" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_rounded_corner_8.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/bg_text_color_selector.xml" value="0.1205" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/btn_bgn.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/button_default_bg.xml" value="0.131" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/custom_popup_background.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_add.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_left.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_arrow_top.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_back.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_bin.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_book.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_book_online.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_chat.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_check.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_circle.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_circle_done.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_create_theme.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_download.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_filter.xml" value="0.116" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_font_size.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_headphones.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_liblary.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_list.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_lock.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_lock_2.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_logo.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_more_bottom.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_next_right.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_phone.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_pin.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_rewind_left.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_search.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_select_image.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_uncheck.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_version.xml" value="0.1245" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_write.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/item_background_black.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/tv_rounded.xml" value="0.108" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/category_item.xml" value="0.5" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/dialog_message.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_author_books.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_basket.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_basket_information.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_basket_orders.xml" value="0.1648148148148148" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_categories.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_choose_language.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_confirmation.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.22" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details_1.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details_demo.xml" value="0.25" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_discuss.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_filter.xml" value="0.1141552511415525" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_first.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_forgetpassword.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_intro.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_login.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library_search.xml" value="0.1648148148148148" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_pdf_view.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_registtration.xml" value="0.25" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_search.xml" value="0.25" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_shaw_all.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_splash.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_all_authors.xml" value="0.18125" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_all_books.xml" value="0.1686746987951807" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_all_category.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_audio_book.xml" value="0.3645833333333333" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_author_book.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_authors.xml" value="0.18125" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_banner_main.xml" value="0.15" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_basket_book.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_book.xml" value="0.15" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_books.xml" value="0.33" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category.xml" value="0.33" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_category_header.xml" value="0.25" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_comments.xml" value="0.22" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_ebook.xml" value="0.33" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_my_library_audio.xml" value="0.25" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_new_arrivals.xml" value="0.38" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_news.xml" value="0.33" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_popup.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_search.xml" value="0.2554858934169279" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_shaw_all.xml" value="0.25" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/layout_popup.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.18229166666666666" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/context_menu.xml" value="0.18125" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/menu/popup_menu.xml" value="0.18125" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-hdpi/ic_electronic_book_checked.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-xhdpi/bg_rounded_border_corner_8.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/back_gradient.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/bg_circular_borderless.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/bg_rounded_border_corner.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/bg_rounded_border_corner_lefts_8.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/bg_rounded_border_corner_rights_8.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/bg_rounded_corner_8.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/btn_bgn.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/button_default_bg.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/button_false_bg.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/color_cursor_of_edittext.xml" value="0.1365" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_add.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_back.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_bin.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_electron_book.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_electronic_book.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_forwind_right.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_lock.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_logo.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_rewind_left.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_search.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_trash.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_uncheck.xml" value="0.1265" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/tv_rounded.xml" value="0.129" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/dialog_message.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_audio_player.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_basket.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_basket_information.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_basket_orders.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_categories.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_confirmation.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_discuss.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_first.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_intro.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_my_library.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_my_library_search.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_search.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_library_audio.xml" value="0.203125" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_my_library_audio.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_sub_my_library_electron.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/item_basket_book.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/item_book.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/item_my_library_audio.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/item_my_library_electronic.xml" value="0.22" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_message.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.253125" />
+        <entry key="..\:/android/Kitobzlast/app/src/main/res/layout/fragment_confirmation.xml" value="0.25416666666666665" />
+        <entry key="..\:/android/Kitobzlast/app/src/main/res/layout/fragment_login.xml" value="0.23425925925925925" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
@@ -121,7 +70,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.33" />
+        <option name="scale" value="1.1" />
       </ProjectState>
     </option>
   </component>

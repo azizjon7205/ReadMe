@@ -112,7 +112,7 @@ class ShawAllFragment : BaseFragment(R.layout.fragment_shaw_all) {
         }
     }
 
-    private fun setupObservers() {
+  /*  private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.getCategoryState.collect {
@@ -122,11 +122,11 @@ class ShawAllFragment : BaseFragment(R.layout.fragment_shaw_all) {
                         }
                         is UiStateList.SUCCESS -> {
                             val items = ArrayList<Category>()
-                            /**
+                            *//**
                              * items.addAll(it.data[0].children!!)
                              * books.addAll(items)
                              * loadListToRecycler()
-                             * */
+                             * *//*
                             items.addAll(it.data[0].children!!)
                             Log.d("@@@", "Categories ${it.data[0].children?.size}")
                         }
@@ -139,7 +139,7 @@ class ShawAllFragment : BaseFragment(R.layout.fragment_shaw_all) {
             }
         }
 
-    }
+    }*/
 
     private fun loadListToRecycler() {
         val isElectronic = binding.lBooks.tvElectronicBook.isActivated
