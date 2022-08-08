@@ -31,6 +31,8 @@ data class Author(
 
 data class News(
     val id: Long? = null,
+    var uid: String? = null,
+    val url: String? = null,
     val text: String? = null,
     val image: String? = null
 )
