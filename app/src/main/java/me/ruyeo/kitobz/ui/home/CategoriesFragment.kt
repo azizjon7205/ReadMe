@@ -35,7 +35,7 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.getCategories()
+       // viewModel.getCategories()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,10 +61,10 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
             rvAll.layoutManager = LinearLayoutManager(requireContext())
         }
 
-        setupObservers()
+      //  setupObservers()
     }
 
-    private fun setupObservers() {
+   /* private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.getCategoryState.collect {
@@ -85,10 +85,7 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
                     }
                 }
             }
-        }
+        }*/
 
     }
 
-
-
-}

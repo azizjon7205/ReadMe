@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemCommentsBinding
-import me.ruyeo.kitobz.model.Comment
+import me.ruyeo.kitobz.model.Feedback
 
 class CommentAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -34,31 +34,31 @@ class CommentAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         @SuppressLint("SetTextI18n")
         fun bind() {
-            val comment = dif.currentList[adapterPosition]
+            val feedback = dif.currentList[adapterPosition]
             with(binding) {
                 Glide.with(root)
-                    .load(comment.ownerImage)
+                    .load(feedback.author_img)
                     .error(R.drawable.ic_launcher_background)
                     .into(ivOwnerImage)
 
-                tvCommentOwner.text = comment.ownerName
-                tvCommentDate.text = comment.date
-                tvComment.text = comment.comment
+                tvCommentOwner.text = feedback.author
+                tvCommentDate.text = feedback.date
+                tvComment.text = feedback.feedback
             }
         }
     }
 
 
-    fun submitList(list: List<Comment>) {
+    fun submitList(list: List<Feedback>) {
         dif.submitList(list)
     }
 
     companion object {
-        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Comment>() {
-            override fun areItemsTheSame(oldItem: Comment, newItem: Comment): Boolean =
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Feedback>() {
+            override fun areItemsTheSame(oldItem: Feedback, newItem: Feedback): Boolean =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Comment, newItem: Comment): Boolean =
+            override fun areContentsTheSame(oldItem: Feedback, newItem: Feedback): Boolean =
                 oldItem == newItem
         }
     }

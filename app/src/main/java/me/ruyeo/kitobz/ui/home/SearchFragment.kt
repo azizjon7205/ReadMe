@@ -16,6 +16,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.AllAuthorsAdapter
 import me.ruyeo.kitobz.adapter.SearchAdapter
 import me.ruyeo.kitobz.databinding.FragmentSearchBinding
+import me.ruyeo.kitobz.model.Banner1
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.utils.utils.UiStateList
@@ -38,7 +39,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         key = arguments?.getString("to").toString()
         when(key){
 //            "search" -> viewModel.getBanners(12)
-            "authors" -> viewModel.getBanners(12)
+            "authors" -> {}
         }
         Log.d("@@@", "OnCreate $key")
     }
@@ -68,6 +69,8 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                 }
                 "authors" -> {
                     tvSearchResults.visible(false)
+                    adapterAuthors.submitList(loadBanners())
+                    rvSearch.adapter = adapterAuthors
                     setupObserves()
                     adapterAuthors.onClick = {
                         findNavController().navigate(R.id.authorBooksFragment)
@@ -82,28 +85,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
     }
 
     private fun setupObserves(){
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.getBannerState.collect {
-                    when (it) {
-                        is UiStateList.LOADING -> {
 
-                        }
-                        is UiStateList.SUCCESS -> {
-                            val items = it.data
-                            adapterAuthors.submitList(items)
-//                            adapter.submitList(it.data[0].children!!)
-                            binding.rvSearch.adapter = adapterAuthors
-                            Log.d("@@@", "Banners ${it.data.size}")
-                        }
-                        is UiStateList.ERROR -> {
-                            showMessage(it.message)
-                        }
-                        else -> Unit
-                    }
-                }
-            }
-        }
     }
 
     private fun loadBooks(): ArrayList<Book> {
@@ -160,6 +142,19 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             )
         )
 
+
+        return items
+    }
+
+    private fun loadBanners(): List<Banner1> {
+        val items = ArrayList<Banner1>()
+
+        items.add(Banner1(name = "Kitob 1"))
+        items.add(Banner1(name = "Kitob 2"))
+        items.add(Banner1(name = "Kitob 3"))
+        items.add(Banner1(name = "Kitob 4"))
+        items.add(Banner1(name = "Kitob 5"))
+        items.add(Banner1(name = "Kitob 6"))
 
         return items
     }

@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemNewArrivalsBinding
 import me.ruyeo.kitobz.model.ElectronicBook
 

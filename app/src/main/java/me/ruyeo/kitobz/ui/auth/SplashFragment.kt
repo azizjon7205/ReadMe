@@ -28,38 +28,12 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
 
         setupUI()
-        setupObservers()
     }
 
     private fun setupUI() {
-        //button setOnClick
-        val map = HashMap<String, Any>()
-        map["email"] = "carwolt123@gmail.com"
-        map["password"] = "12345678"
-        viewModel.login(map)
+
 
         timer()
-    }
-
-    private fun setupObservers() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.loginState.collect {
-                    when (it) {
-                        is UiStateObject.LOADING -> {
-
-                        }
-                        is UiStateObject.SUCCESS -> {
-                            Log.d("TAG", "setupObservers: ${it.data}")
-                        }
-                        is UiStateObject.ERROR -> {
-
-                        }
-                        else -> Unit
-                    }
-                }
-            }
-        }
     }
 
     private fun timer() {
@@ -69,7 +43,7 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
             }
 
             override fun onFinish() {
-                findNavController().navigate(R.id.action_splashFragment_to_introFragment)
+                findNavController().navigate(R.id.action_splashFragment_to_audioPlayerFragment)
             }
         }
         timer!!.start()

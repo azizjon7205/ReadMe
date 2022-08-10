@@ -89,7 +89,7 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter) {
             }
 
             bFilter.setOnClickListener {
-                findNavController().navigate(R.id.shawAllFragment)
+                findNavController().navigateUp()
             }
 
         }

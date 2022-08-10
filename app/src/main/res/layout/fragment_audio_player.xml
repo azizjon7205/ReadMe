@@ -252,7 +252,7 @@
             app:layout_constraintTop_toBottomOf="@id/view">
 
             <SeekBar
-                android:id="@+id/position_bar"
+                android:id="@+id/seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/Seekbar"
@@ -269,10 +269,10 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/position_bar" />
+                app:layout_constraintTop_toBottomOf="@id/seekbar" />
 
             <TextView
-                android:id="@+id/tv_end"
+                android:id="@+id/tv_final"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -280,7 +280,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/position_bar" />
+                app:layout_constraintTop_toBottomOf="@id/seekbar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

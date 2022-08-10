@@ -20,10 +20,7 @@ import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.*
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
-import me.ruyeo.kitobz.model.AudioBook
-import me.ruyeo.kitobz.model.Banner
-import me.ruyeo.kitobz.model.Category
-import me.ruyeo.kitobz.model.ElectronicBook
+import me.ruyeo.kitobz.model.*
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.customs.BoundsOffsetDecoration
 import me.ruyeo.kitobz.ui.home.customs.LinearHorizontalSpacingDecoration
@@ -52,8 +49,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel.getBooks()
         viewModel.getCategories()
-        viewModel.getBanners(12)
 
     }
 
@@ -62,6 +60,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         setupUI()
         setupObservers()
+        setupBookObservers()
     }
 
     private fun setupUI() {
@@ -73,6 +72,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         adapterNews.submitList(loadEBooks())
         adapterNewArrivals.submitList(loadEBooks())
         adapterBanner.submitList(loadBanners())
+        adapterAuthors.submitList(loadBanners())
 
         with(binding) {
 
@@ -93,12 +93,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     super.onScrolled(recyclerView, dx, dy)
 
                     val pos = (layoutManager.findFirstVisibleItemPosition() + layoutManager.findLastVisibleItemPosition()) / 2
-                    tvBookName.text = adapterBanner.currentList[pos].title.toString()
+                    tvBookName.text = adapterBanner.currentList[pos].name.toString()
                     if (layoutManager.findFirstVisibleItemPosition() + 1 == layoutManager.findLastVisibleItemPosition() && layoutManager.findLastVisibleItemPosition() == adapterBanner.itemCount-1){
-                        tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].title.toString()
+                        tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].name.toString()
                     }
 
-                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].title}")
+                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].name}")
                 }
             })
 
@@ -111,6 +111,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             rvAuthors.apply {
                 layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                adapter = adapterAuthors
                 addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
             }
 
@@ -223,19 +224,15 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.getCategoryState.collect {
+                viewModel.getCategoriesState.collect {
                     when (it) {
                         is UiStateList.LOADING -> {
 
                         }
                         is UiStateList.SUCCESS -> {
-                            val items = ArrayList<Category>()
-                            items.add(0, Category())
-                            items.addAll(it.data[0].children!!)
-                            category = items[1]
-                            adapterCategory.submitList(items)
+                            adapterCategory.submitList(it.data)
                             binding.rvCats.adapter = adapterCategory
-                            Log.d("@@@", "Categories ${it.data[0].children?.size}")
+                            Log.d("@@@", "Categories ${it.data}")
                         }
                         is UiStateList.ERROR -> {
                             showMessage(it.message)
@@ -245,22 +242,18 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 }
             }
         }
+    }
 
+    private fun setupBookObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.getBannerState.collect {
+                viewModel.getBooksState.collect {
                     when (it) {
                         is UiStateList.LOADING -> {
 
                         }
                         is UiStateList.SUCCESS -> {
-                            val items = it.data
-//                            adapterBanner.submitList(items)
-                            adapterAuthors.submitList(items)
-//                            adapter.submitList(it.data[0].children!!)
-//                            binding.rvBanner.adapter = adapterBanner
-                            binding.rvAuthors.adapter = adapterAuthors
-                            Log.d("@@@", "Banners ${it.data.size}")
+                            Log.d("@@@", "Books ${it.data}")
                         }
                         is UiStateList.ERROR -> {
                             showMessage(it.message)
@@ -270,7 +263,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 }
             }
         }
-
     }
 
     private fun loadAudioBooks(): List<AudioBook> {
@@ -303,15 +295,15 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         return items
     }
 
-    private fun loadBanners(): List<Banner> {
-        val items = ArrayList<Banner>()
+    private fun loadBanners(): List<Banner1> {
+        val items = ArrayList<Banner1>()
 
-        items.add(Banner(title = "Kitob 1"))
-        items.add(Banner(title = "Kitob 2"))
-        items.add(Banner(title = "Kitob 3"))
-        items.add(Banner(title = "Kitob 4"))
-        items.add(Banner(title = "Kitob 5"))
-        items.add(Banner(title = "Kitob 6"))
+        items.add(Banner1(name = "Kitob 1"))
+        items.add(Banner1(name = "Kitob 2"))
+        items.add(Banner1(name = "Kitob 3"))
+        items.add(Banner1(name = "Kitob 4"))
+        items.add(Banner1(name = "Kitob 5"))
+        items.add(Banner1(name = "Kitob 6"))
 
         return items
     }

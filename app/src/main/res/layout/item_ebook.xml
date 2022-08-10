@@ -45,7 +45,7 @@
                     android:src="@drawable/ic_book_online"
                     app:tint="@color/black" />
             </FrameLayout>
-            
+
             <ImageView
                 android:id="@+id/iv_favorite"
                 android:layout_width="20dp"
