@@ -25,7 +25,7 @@ data class Banner1(
 )
 
 data class Author(
-    val id: Long? = null,
+    var uid: String? = null,
     val name: String? = null,
 )
 

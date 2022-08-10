@@ -42,9 +42,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
     private var oneTimeOnly = 0
 
     private val binding by viewBinding { FragmentAudioPlayerBinding.bind(it) }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

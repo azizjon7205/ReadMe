@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_bookmark_plus.xml" value="0.112" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_more.xml" value="0.112" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="1.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.18229166666666666" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-hdpi/ic_electronic_book_checked.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-xhdpi/bg_rounded_border_corner_8.xml" value="0.1265" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/back_gradient.xml" value="0.129" />

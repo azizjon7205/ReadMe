@@ -16,4 +16,19 @@ object Constants {
     //collections
     const val BOOKS = "books"
     const val CATEGORIES = "categories"
+
+    const val HOME_PATH = "home_page"
+
+    const val USER_PATH = "users"
+    const val FEEDBACK_PATH = "feedbacks"
+    const val FAVORITES_PATH = "feedbacks"
+    const val ORDER_PATH = "orders"
+    const val CART_PATH = "cart"
+
+    const val BOOK_PATH = "books"
+    const val ELECTRONIC_BOOK_PATH = "electronic_books"
+    const val AUDIO_BOOK_PATH = "audio_books"
+    const val AUTHOR_BOOK_PATH = "author_books"
+    const val AUTHOR_PATH = "authors"
+    const val CATEGORY_PATH = "categories"
 }

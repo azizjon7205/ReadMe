@@ -1,16 +1,21 @@
 package me.ruyeo.kitobz.ui.details
 
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Html
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.widget.NestedScrollView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -28,10 +33,7 @@ import me.ruyeo.kitobz.model.Feedback
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.ui.home.customs.MySpannable
-import me.ruyeo.kitobz.utils.utils.extensions.dpToPixel
-import me.ruyeo.kitobz.utils.utils.extensions.setBackgroundTintByColor
-import me.ruyeo.kitobz.utils.utils.extensions.tint
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.utils.extensions.*
 import viewBinding
 
 @AndroidEntryPoint
@@ -53,39 +55,17 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
         isPaperBook = !(isAudioBook || isElectronicBook)
 
-
-//        if (Build.VERSION.SDK_INT in 19..20) {
-//            setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true)
-//        }
-//        if (Build.VERSION.SDK_INT >= 19) {
-//            requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//        }
-//        if (Build.VERSION.SDK_INT >= 21) {
-//            setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
-//            requireActivity().window.statusBarColor = Color.TRANSPARENT
-//        }
-
-//        ---------------------------
-//        requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-//        requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
-//        (requireActivity() as AppCompatActivity).supportActionBar?.show();
-//        requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-//        setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupKeyboardListener(binding.nestedScroll)
+
         initViews()
-        // there will be something
     }
 
     private fun initViews() {
-//        val toolbar = binding.toolbarDetail
-//        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
 
         val description = "Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … "
         if (isPaperBook) llPaperClicked()
@@ -93,6 +73,8 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         if (isAudioBook) llAudioBookClicked()
 
         with(binding) {
+//            root.fitSystemWindowsAndAdjustResize()
+
             ivBack.setOnClickListener {
                 findNavController().navigateUp()
             }
@@ -179,6 +161,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 bWriteComment.visible(false)
                 bPublishComment.visible(true)
                 llComment.visible(true)
+                llComment.isFocusableInTouchMode = true
                 showKeyboard(etComment)
             }
 
@@ -203,7 +186,6 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         }
         authorBooksAdapter.submitList(loadBooks())
         commentAdapter.submitList(loadComments())
-
 
     }
 
@@ -300,17 +282,6 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
     private fun LinearLayout.clicked() {
         this.isActivated = !this.isActivated
-    }
-
-    private fun setWindowFlag(bits: Int, on: Boolean) {
-        val win = requireActivity().window
-        val winParams = win.attributes
-        if (on) {
-            winParams.flags = winParams.flags or bits
-        } else {
-            winParams.flags = winParams.flags and bits.inv()
-        }
-        win.attributes = winParams
     }
 
     private fun loadComments(): ArrayList<Feedback>{
@@ -467,4 +438,24 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         return ssb
     }
 
+    private fun setupKeyboardListener(view: View) {
+        view.viewTreeObserver.addOnGlobalLayoutListener {
+            val r = Rect()
+            view.getWindowVisibleDisplayFrame(r)
+            if (Math.abs(view.rootView.height - (r.bottom - r.top)) > 100) { // if more than 100 pixels, its probably a keyboard...
+                onKeyboardShow(view)
+            }
+        }
+    }
+
+    private fun onKeyboardShow(view: View) {
+        (view as NestedScrollView).scrollToBottomWithoutFocusChange()
+    }
+
+    fun NestedScrollView.scrollToBottomWithoutFocusChange() { // Kotlin extension to scrollView
+        val lastChild = getChildAt(childCount - 1)
+        val bottom = lastChild.bottom + paddingBottom
+        val delta = bottom - (scrollY + height)
+        smoothScrollBy(0, delta)
+    }
 }

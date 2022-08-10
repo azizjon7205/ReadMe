@@ -98,7 +98,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                         tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].name.toString()
                     }
 
-                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].name}")
+//                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].name}")
                 }
             })
 
@@ -230,9 +230,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
                         }
                         is UiStateList.SUCCESS -> {
-                            adapterCategory.submitList(it.data)
+                            val items = ArrayList<Category>()
+                            items.addAll(it.data)
+                            items.add(0, Category())
+                            adapterCategory.submitList(items)
                             binding.rvCats.adapter = adapterCategory
-                            Log.d("@@@", "Categories ${it.data}")
+                            Log.d("@@@", "Categories ${it.data.size}")
                         }
                         is UiStateList.ERROR -> {
                             showMessage(it.message)
