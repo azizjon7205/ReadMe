@@ -1,73 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.CategoriesFragment">
+    android:fitsSystemWindows="true"
+    tools:context=".ui.basket.orders.BasketOrderFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:fitsSystemWindows="true"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:elevation="0dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/side_16"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:id="@+id/iv_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_arrow_left" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_16"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/sf_pro_display_bold"
-                    android:gravity="center_vertical"
-                    android:text="Orders"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="90dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:textSize="30sp"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@string/str_order_of"
                 android:textColor="@color/black"
-                android:gravity="center"
-                android:text="sdfdfd"
-                android:id="@+id/tv_pay_type"/>
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_order_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="5771"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@string/str_framed"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
 
         </LinearLayout>
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:gravity="center_horizontal">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <ImageView
+                android:id="@+id/iv_check_done"
+                android:layout_width="109dp"
+                android:layout_height="109dp"
+                android:src="@drawable/ic_circle_done" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="32dp"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:text="@string/str_all_orders_is_done_information"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_type_15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_16"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:fontFamily="@font/sf_pro_text_bold"
+                android:text="@string/str_order_history"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_type_17" />
+
+            <TextView
+                android:id="@+id/tv_order_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/sf_pro_text_bold"
+                android:text="(13)"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_type_17" />
+
+            <LinearLayout
+                android:id="@+id/ll_see_all_orders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:text="@string/str_see_all"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_type_11" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="24dp"
+                    android:paddingTop="2dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_next"
+                    app:tint="@color/gray" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_orders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="@dimen/side_16"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_order_history" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

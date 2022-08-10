@@ -9,7 +9,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -440,7 +442,7 @@
                             <LinearLayout
                                 android:layout_width="82dp"
                                 android:layout_height="50dp"
-                                android:background="@drawable/tv_rounded"
+                                android:background="@drawable/bg_rounded_border_corner_8"
                                 android:gravity="center">
 
                                 <ImageView
@@ -470,7 +472,7 @@
                             <LinearLayout
                                 android:layout_width="82dp"
                                 android:layout_height="50dp"
-                                android:background="@drawable/tv_rounded"
+                                android:background="@drawable/bg_rounded_border_corner_8"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
@@ -500,7 +502,7 @@
                             <LinearLayout
                                 android:layout_width="82dp"
                                 android:layout_height="50dp"
-                                android:background="@drawable/tv_rounded"
+                                android:background="@drawable/bg_rounded_border_corner_8"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
@@ -538,7 +540,7 @@
                     android:layout_height="50dp"
                     android:layout_marginHorizontal="14dp"
                     android:layout_marginBottom="@dimen/side_16"
-                    android:background="@drawable/tv_rounded"
+                    android:background="@drawable/bg_rounded_border_corner_8"
                     android:fontFamily="@font/sf_pro_text_semibold"
                     android:text="@string/str_checkout"
                     android:textColor="@color/black"

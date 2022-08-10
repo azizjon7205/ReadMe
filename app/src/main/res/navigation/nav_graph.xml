@@ -52,7 +52,14 @@
         android:id="@+id/profileFragment2"
         android:name="me.ruyeo.kitobz.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_personalDataFragment"
+            app:destination="@id/personalDataFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="me.ruyeo.kitobz.ui.home.SearchFragment"
@@ -126,6 +133,29 @@
         android:id="@+id/basketOrderFragment"
         android:name="me.ruyeo.kitobz.ui.basket.orders.BasketOrderFragment"
         android:label="BasketOrderFragment"
-        tools:layout="@layout/fragment_basket_orders"/>
+        tools:layout="@layout/fragment_basket_orders">
+        <action
+            android:id="@+id/action_basketOrderFragment_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.orderhistory.OrderHistoryFragment"
+        android:label="fragment_orders_history"
+        tools:layout="@layout/fragment_orders_history" />
+    <fragment
+        android:id="@+id/personalDataFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.personaldata.PersonalDataFragment"
+        android:label="PersonalDataFragment"
+        tools:layout="@layout/fragment_personal_data">
+        <action
+            android:id="@+id/action_personalDataFragment_to_confirmNumberFragment"
+            app:destination="@id/confirmNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmNumberFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.personaldata.confirmpnumber.ConfirmNumberFragment"
+        android:label="ConfirmNumberFragment"
+        tools:layout="@layout/fragment_confirmation"/>
 
 </navigation>
