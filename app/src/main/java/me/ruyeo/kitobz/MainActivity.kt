@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
-                R.id.homeFragment, R.id.basketFragment, R.id.myLibraryFragment, R.id.discussFragment, R.id.profileFragment2 -> {
+                R.id.homeFragment, R.id.basketFragment, R.id.myLibraryFragment, R.id.discussFragment, R.id.profileFragment2, R.id.basketOrderFragment -> {
                     binding.bnvMain.visible(true)
                 }
                 else -> {

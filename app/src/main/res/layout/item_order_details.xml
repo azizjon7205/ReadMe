@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="14dp"
+    android:layout_marginVertical="10dp"
+    android:background="@drawable/bg_rounded_border_corner_8"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/side_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/str_book"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_type_20" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:gravity="end"
+            android:layout_weight="1"
+            android:text="@string/str_number"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_type_20" />
+
+        <TextView
+            android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:gravity="center_horizontal"
+            android:text="5771"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_type_20" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_light_1"
+        android:layout_marginHorizontal="@dimen/side_16"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/side_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textSize="@dimen/text_type_14"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:textColor="@color/black"
+            android:text="@string/str_date_of"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textSize="@dimen/text_type_14"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:textColor="@color/black"
+            android:text="25.11.2021"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/side_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textSize="@dimen/text_type_14"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:textColor="@color/black"
+            android:text="@string/str_status_of"/>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textSize="@dimen/text_type_14"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:textColor="@color/black"
+            android:text="@string/str_expectation"/>
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_order_books"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_basket_book" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/side_16"
+        android:layout_marginTop="@dimen/side_16"
+        android:background="@color/white_light_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/side_16"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="19dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_total_books"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_type_14" />
+
+            <TextView
+                android:id="@+id/tv_total_books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="6"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_type_14" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_delivery"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_type_14" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_delivery_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="2dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="7"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_type_14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="@string/str_somoni"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_type_14" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/str_sum"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_type_14" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_all_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="2dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="487"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_type_14"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="@string/str_somoni"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_type_14"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -35,6 +35,7 @@
                 app:shapeAppearanceOverlay="@style/corner_radius_8" />
 
             <LinearLayout
+                android:id="@+id/ll_all_book_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -44,10 +45,10 @@
 
                 <FrameLayout
                     android:id="@+id/f_ebook"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/white"
                     android:layout_width="@dimen/side_16"
-                    android:layout_height="@dimen/side_16">
+                    android:layout_height="@dimen/side_16"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/white">
 
                     <ImageView
                         android:layout_width="12dp"
@@ -60,9 +61,9 @@
 
                 <FrameLayout
                     android:id="@+id/f_paper_book"
-                    android:layout_marginEnd="5dp"
                     android:layout_width="16dp"
-                    android:layout_height="16dp">
+                    android:layout_height="16dp"
+                    android:layout_marginEnd="5dp">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="match_parent"
@@ -89,6 +90,17 @@
                 </FrameLayout>
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_favorite"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
