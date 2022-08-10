@@ -1,6 +1,7 @@
 package me.ruyeo.kitobz.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -48,6 +49,7 @@ class LogInFragment:BaseFragment(R.layout.fragment_login) {
                 }
                 is LoginState.Error -> {
                     binding.progressbar.visibility = View.GONE
+                    Log.d("@@@", "Error: ${state.msg}")
                     showMessage(state.msg)
                     binding.bnLogin.isEnabled = true
                 }

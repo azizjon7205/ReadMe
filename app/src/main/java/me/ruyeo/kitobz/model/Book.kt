@@ -20,23 +20,24 @@ data class Book(
     val audioBook: AudioBook? = null,
     val feedbacks: List<Feedback> = arrayListOf(),
     val last_updated: String? = null,
-    val hasPaperVersion: Boolean = true,
-    val hasAudio: Boolean = true,
-    val hasEVersion: Boolean = true
+    val hasPaperVersion: Boolean = false,
+    val hasAudio: Boolean = false,
+    val hasEVersion: Boolean = false
 )
 
 data class BookShort(
-    val id: Long? = null,
-    val uid: String? = null,
+    val book_id: Long? = null,
+    var uid: String? = null,
     val image: String? = null,
     val name: String? = null,
     val author: String? = null,
     val price: Int? = null,
     val is_discount: Boolean = false,
     val discount_price: Int? = null,
-    val hasPaperVersion: Boolean = true,
-    val hasAudio: Boolean = true,
-    val hasEVersion: Boolean = true
+    val hasPaperVersion: Boolean = false,
+    val hasAudio: Boolean = false,
+    val hasEVersion: Boolean = false,
+    val categories: List<Category> = arrayListOf()
 )
 
 data class PaperBook(
@@ -61,7 +62,6 @@ data class ElectronicBook(
     val discount_price: Int? = null,
     val published_year: Int? = null,
     val published_language: String? = null,
-    val pdf_fragment: String? = null,
     val pdf: String? = null,
     val pages_count: Int = 0,
     val book_id: Long? = null
@@ -86,9 +86,14 @@ data class AudioBook(
     val published_year: Int? = null,
     val voice_language: String? = null,
     val duration: Long? = null,
-    val audios: String? = null,
+    val audios: List<Audio>? = arrayListOf(),
     val audio_fragment: String? = null,
     val book_id: Long? = null
+)
+
+data class Audio(
+    val name: String? = null,
+    val url: String? = null
 )
 
 data class AudioBookShort(
