@@ -43,7 +43,7 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
             }
 
             override fun onFinish() {
-                findNavController().navigate(R.id.action_splashFragment_to_audioPlayerFragment)
+                findNavController().navigate(R.id.action_splashFragment_to_introFragment)
             }
         }
         timer!!.start()

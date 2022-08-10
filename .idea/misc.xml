@@ -19,6 +19,8 @@
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/button_default_bg.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/button_false_bg.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/color_cursor_of_edittext.xml" value="0.1365" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/custom_thumb.xml" value="0.118" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/custom_track.xml" value="0.118" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_add.xml" value="0.1265" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_back.xml" value="0.129" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable/ic_bin.xml" value="0.1265" />
@@ -48,7 +50,7 @@
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_intro.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_my_library.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_my_library_search.xml" value="0.2" />
-        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_notifications.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_orders_history.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_personal_data.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/layout/fragment_profile.xml" value="0.15" />
@@ -72,8 +74,6 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/layout/dialog_message.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Kitobz/app/src/main/res/menu/bottom_menu.xml" value="0.253125" />
-        <entry key="..\:/android/Kitobzlast/app/src/main/res/layout/fragment_confirmation.xml" value="0.25416666666666665" />
-        <entry key="..\:/android/Kitobzlast/app/src/main/res/layout/fragment_login.xml" value="0.23425925925925925" />
       </map>
     </option>
   </component>

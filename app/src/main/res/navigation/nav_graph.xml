@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_profileFragment2_to_personalDataFragment"
             app:destination="@id/personalDataFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -157,5 +160,10 @@
         android:name="me.ruyeo.kitobz.ui.profile.personaldata.confirmpnumber.ConfirmNumberFragment"
         android:label="ConfirmNumberFragment"
         tools:layout="@layout/fragment_confirmation"/>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.notifications.NotificationsFragment"
+        android:label="NotificationsFragment"
+        tools:layout="@layout/fragment_notifications"/>
 
 </navigation>
