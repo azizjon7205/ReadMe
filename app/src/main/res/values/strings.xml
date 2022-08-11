@@ -117,7 +117,14 @@
     <string name="str_information_about_interest_only_answers">Отправлять уведомления только на те темы где я оставлял ответ</string>
     <string name="str_answer_only_to_me">Ответы только мне</string>
     <string name="str_information_about_answer_only_to_me">Отправлять уведомления только если мне кто-то ответил</string>
+    <string name="str_information_about_memory_audio_books">При нажатии на кнопку "Очистить" удалятся все файлы в разделе "Моя библиотека->Аудиокниги". При необходимости можно будет скачать заново.</string>
+    <string name="str_information_about_memory_electronic_books">При нажатии на кнопку "Очистить" удалятся все файлы в разделе "Моя библиотека->Электронные книги". При необходимости можно будет скачать заново.</string>
+    <string name="str_information_about_memory_pictures">При нажатии на кнопку "Очистить" удалятся картинки. При повторном просмотре они скачаются заново.</string>
+    <string name="str_caching">Кэширование</string>
     <string name="str_profile_books">Книг</string>
+    <string name="str_pictures">Картинки</string>
+    <string name="str_clear">Очистить</string>
+    <string name="str_clear_all">Очистить все</string>
     <string name="str_settings">Настройки</string>
     <string name="str_personal_data">Личные данные</string>
     <string name="str_notifications">Уведомления</string>
@@ -128,6 +135,8 @@
     <string name="str_date_of">Дата:</string>
     <string name="str_status_of">Статус:</string>
     <string name="str_save">Спасти</string>
+    <string name="str_memory">Память</string>
+    <string name="str_mb">мб</string>
 
     <!--Popup Menu Strings-->
     <string name="str_bookmarks">Закладки</string>
@@ -148,6 +157,7 @@
     <string name="str_not_in_cash">Нет в наличии</string>
     <string name="str_year_published">Год издания</string>
     <string name="str_language_published">Язык издания</string>
+    <string name="str_language">Язык</string>
     <string name="str_pages">Страниц</string>
     <string name="str_paper_type">Переплёт</string>
     <string name="str_genres">Жанры</string>

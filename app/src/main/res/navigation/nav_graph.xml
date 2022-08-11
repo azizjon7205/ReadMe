@@ -62,6 +62,12 @@
         <action
             android:id="@+id/action_profileFragment2_to_notificationsFragment"
             app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_applicationFragment"
+            app:destination="@id/applicationFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -165,5 +171,24 @@
         android:name="me.ruyeo.kitobz.ui.profile.notifications.NotificationsFragment"
         android:label="NotificationsFragment"
         tools:layout="@layout/fragment_notifications"/>
+    <fragment
+        android:id="@+id/applicationFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.application.ApplicationFragment"
+        android:label="ApplicationFragment"
+        tools:layout="@layout/fragment_application">
+        <action
+            android:id="@+id/action_applicationFragment_to_memoryFragment"
+            app:destination="@id/memoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memoryFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.application.memory.MemoryFragment"
+        android:label="MemoryFragment"
+        tools:layout="@layout/fragment_memory"/>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="me.ruyeo.kitobz.ui.profile.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorites"/>
 
 </navigation>
