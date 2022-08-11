@@ -36,8 +36,8 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
     private var finalTime: Double = 0.0
 
     private var handler = Handler()
-    private val forwardTime = 5000
-    private val backwardTime = 5000
+    private val forwardTime = 30000
+    private val backwardTime = 30000
 
     private var oneTimeOnly = 0
 
@@ -56,7 +56,15 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             Glide.with(requireContext()).load(R.drawable.im_audio_book)
                 .apply(bitmapTransform(BlurTransformation(25)))
                 .into(imBackground)
+        }
 
+
+        setupAudioPlayer()
+    }
+
+
+    private fun setupAudioPlayer() {
+        binding.apply {
 
             /* Click more button */
             icMore.setOnClickListener {
@@ -70,38 +78,57 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
 
             /*Click rewind button*/
             icRewindRight.setOnClickListener {
-                rewindBtnClick()
+                rightRewindBtnClick()
             }
 
-            setupAudioPlayer()
-        }
-    }
+            icRewindLeft.setOnClickListener {
+                leftRewindBtnClick()
+            }
 
 
-    private fun setupAudioPlayer() {
-        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.simple)
-        mediaPlayer.isLooping = true
-        mediaPlayer.seekTo(0)
-        mediaPlayer.setVolume(1f, 1f)
-        val totalTime = mediaPlayer.duration
+            mediaPlayer = MediaPlayer.create(requireContext(), R.raw.simple)
+            mediaPlayer.isLooping = true
+            mediaPlayer.seekTo(0)
+            mediaPlayer.setVolume(1f, 1f)
+            val totalTime = mediaPlayer.duration
 
+            finalTime = mediaPlayer.duration.toDouble()
+            startTime = mediaPlayer.currentPosition.toDouble()
 
-        binding.seekbar.max = totalTime
-        binding.seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser) {
-                    mediaPlayer.seekTo(progress);
-                    binding.seekbar.setProgress(progress);
+            seekbar.max = totalTime
+            seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean,
+                ) {
+                    if (fromUser) {
+                        mediaPlayer.seekTo(progress);
+                        binding.seekbar.setProgress(progress);
+                    }
                 }
-            }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-            }
+                override fun onStartTrackingTouch(p0: SeekBar?) {
+                }
 
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-            }
+                override fun onStopTrackingTouch(p0: SeekBar?) {
+                }
 
-        })
+            })
+
+            /* Set in TextView start and final Time */
+            tvFinal.setText(String.format("%d:%d",
+                TimeUnit.MILLISECONDS.toMinutes(finalTime.toLong()),
+                TimeUnit.MILLISECONDS.toSeconds(finalTime.toLong()) - TimeUnit.MINUTES.toSeconds(
+                    TimeUnit.MILLISECONDS.toMinutes(finalTime.toLong())))
+            )
+
+            tvStart.setText(String.format("%d:%d",
+                TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()),
+                TimeUnit.MILLISECONDS.toSeconds(startTime.toLong()) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(startTime.toLong())))
+            )
+        }
     }
 
     fun playBtnClick() {
@@ -109,8 +136,6 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             // Stopping
             mediaPlayer.start()
             Glide.with(binding.icPlay).load(R.drawable.ic_stop).into(binding.icPlay)
-            finalTime = mediaPlayer.duration.toDouble()
-            startTime = mediaPlayer.currentPosition.toDouble()
 
             if (oneTimeOnly == 0) {
                 binding.seekbar.max = finalTime.toInt()
@@ -118,21 +143,8 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             }
 
 
-            /* Set in TextView start and final Time */
-            binding.tvFinal.setText(String.format("%d:%d",
-                TimeUnit.MILLISECONDS.toMinutes(finalTime.toLong()),
-                TimeUnit.MILLISECONDS.toSeconds(finalTime.toLong()) - TimeUnit.MINUTES.toSeconds(
-                    TimeUnit.MILLISECONDS.toMinutes(finalTime.toLong())))
-            )
-
-            binding.tvStart.setText(String.format("%d:%d",
-                TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()),
-                TimeUnit.MILLISECONDS.toSeconds(startTime.toLong()) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(startTime.toLong())))
-            )
-
             binding.seekbar.setProgress(startTime.toInt())
-            handler.postDelayed(UpdateSongTime,100)
+            handler.postDelayed(UpdateSongTime, 100)
 
         } else {
             // Playing
@@ -141,8 +153,22 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
         }
     }
 
-    fun rewindBtnClick() {
-        mediaPlayer.deselectTrack(300)
+    fun rightRewindBtnClick() {
+        var temp = startTime.toInt()
+
+        if ((temp+forwardTime)<= finalTime){
+            startTime = startTime + forwardTime
+            mediaPlayer.seekTo(startTime.toInt())
+        }
+    }
+
+    fun leftRewindBtnClick(){
+        var temp = startTime.toInt()
+
+        if((temp-backwardTime)>0){
+            startTime  = startTime - backwardTime
+            mediaPlayer.seekTo(startTime.toInt())
+        }
     }
 
 
@@ -207,7 +233,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
                     TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(startTime.toLong())))
         )
         binding.seekbar.setProgress(startTime.toInt())
-        handler.postDelayed(this@AudioPlayerFragment,100)
+        handler.postDelayed(this@AudioPlayerFragment, 100)
     }
 
 }
