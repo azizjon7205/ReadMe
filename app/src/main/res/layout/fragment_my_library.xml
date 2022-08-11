@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.library.MyLibraryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -19,17 +20,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_display_bold"
-                    android:textSize="@dimen/text_type_32"
+                    android:text="@string/str_my_library"
                     android:textColor="@color/black"
-                    android:text="@string/str_my_library"/>
+                    android:textSize="@dimen/text_type_32" />
 
                 <ImageView
                     android:id="@+id/iv_search"
@@ -37,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/side_16"
                     android:src="@drawable/ic_search"
-                    app:tint="@color/black"/>
+                    app:tint="@color/black" />
 
             </LinearLayout>
 
@@ -48,17 +49,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            app:tabTextColor="@color/gray"
-            app:tabSelectedTextColor="@color/black"
             android:background="@color/white"
-            app:tabIndicatorColor="@color/blue_light"/>
+            app:tabIndicatorColor="@color/blue_light"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/gray" />
 
         <me.ruyeo.kitobz.utils.utils.mylibrary.NoSwipePager
             android:id="@+id/view_pager"

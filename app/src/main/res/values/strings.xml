@@ -54,6 +54,7 @@
     <string name="str_proceed">Продолжить</string>
     <string name="str_begin">Начать</string>
     <string name="str_completed">Завершено</string>
+    <string name="str_completed_of">Завершено:</string>
     <string name="str_number_of_pages">Количество страниц:</string>
 
 
@@ -90,11 +91,31 @@
     <string name="str_cash">Наличными</string>
     <string name="str_checkout">Оформить заказ</string>
     <string name="str_information">Информация</string>
+    <string name="str_framed">оформлен</string>
+    <string name="str_order_of">Заказ №</string>
+    <string name="str_number">№</string>
+    <string name="str_all_orders_is_done_information">Вам очень скоро перезвонит нас менеджер для уточнения деталей. Посчитать количество символов в тексте. Такая функция есть в текстовых редакторах, но не всегда удобно создавать новый документ и копировать туда нужный фрагмент. Компания Involta вывела подсчет количества слов и символов в отдельный инструмент, которым можно пользоваться даже со смартфона.</string>
     <string name="str_information_about_basket_page">Копирайтерам, специалистам по СЕО и контекстной рекламе часто требуется посчитать количество символов в тексте. Такая функция есть в текстовых редакторах, но не всегда удобно создавать новый документ и копировать туда нужный фрагмент. Компания Involta вывела подсчет количества слов и символов в отдельный инструмент, которым можно пользоваться даже со смартфона.
 \n\nПрограмма в режиме онлайн анализирует исследуемый фрагмент и считает в нем общее количество: слов, символов (с пробелами и без), букв кириллического и латинского алфавита, цифр, пробелов и остальных знаков. Эти данные помогают понять, соблюдены ли технические требования к тексту, нет ли замены символов или повтора пробелов.
 \n\nТекст можно проверить сразу полностью или вводить по строке, если нужен более качественный анализ. В любом случае онлайн-подсчет количества символов будет точным и быстрым, ведь скорость работы программы зависит только от возможности вашего подключения к интернету. Сько от возможности вашего подключения к интернету.</string>
-
-
+    <string name="str_order_history">История заказов</string>
+    <string name="str_see_all">Смотреть все</string>
+    <string name="str_point">·</string>
+    <string name="str_expectation">Ожидание</string>
+    <string name="str_in_processing">В обработке</string>
+    <string name="str_favorites">Избранное</string>
+    <string name="str_reviews">Отзывов</string>
+    <string name="str_profile_books">Книг</string>
+    <string name="str_settings">Настройки</string>
+    <string name="str_personal_data">Личные данные</string>
+    <string name="str_notifications">Уведомления</string>
+    <string name="str_application">Приложение</string>
+    <string name="str_log_out">Выйти</string>
+    <string name="str_application_version">Версия приложения</string>
+    <string name="str_total_orders">Всего заказов:</string>
+    <string name="str_date_of">Дата:</string>
+    <string name="str_status_of">Статус:</string>
+    <string name="str_save">Спасти</string>
 
     <!--Popup Menu Strings-->
     <string name="str_bookmarks">Закладки</string>

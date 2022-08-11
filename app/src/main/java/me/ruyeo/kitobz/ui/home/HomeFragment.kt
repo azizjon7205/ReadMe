@@ -49,6 +49,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel.getBooks()
         viewModel.getCategories()
 
     }
@@ -58,6 +60,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         setupUI()
         setupObservers()
+        setupBookObservers()
     }
 
     private fun setupUI() {
@@ -95,7 +98,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                         tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].name.toString()
                     }
 
-                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].name}")
+//                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].name}")
                 }
             })
 
@@ -221,19 +224,18 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.getCategoryState.collect {
+                viewModel.getCategoriesState.collect {
                     when (it) {
                         is UiStateList.LOADING -> {
 
                         }
                         is UiStateList.SUCCESS -> {
                             val items = ArrayList<Category>()
+                            items.addAll(it.data)
                             items.add(0, Category())
-                            items.addAll(it.data[0].children!!)
-                            category = items[1]
                             adapterCategory.submitList(items)
                             binding.rvCats.adapter = adapterCategory
-                            Log.d("@@@", "Categories ${it.data[0].children?.size}")
+                            Log.d("@@@", "Categories ${it.data.size}")
                         }
                         is UiStateList.ERROR -> {
                             showMessage(it.message)
@@ -243,7 +245,27 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 }
             }
         }
+    }
 
+    private fun setupBookObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.getBooksState.collect {
+                    when (it) {
+                        is UiStateList.LOADING -> {
+
+                        }
+                        is UiStateList.SUCCESS -> {
+                            Log.d("@@@", "Books ${it.data}")
+                        }
+                        is UiStateList.ERROR -> {
+                            showMessage(it.message)
+                        }
+                        else -> Unit
+                    }
+                }
+            }
+        }
     }
 
     private fun loadAudioBooks(): List<AudioBook> {

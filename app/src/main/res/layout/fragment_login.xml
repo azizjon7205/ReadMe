@@ -99,7 +99,7 @@
                 android:layout_height="match_parent"
                 android:hint="@string/str_phone_number"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -140,6 +140,14 @@
             android:text="@string/str_login"
             android:textColor="@color/white" />
 
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tv_registration"

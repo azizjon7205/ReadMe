@@ -9,6 +9,8 @@
 
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -621,6 +623,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/side_16"
                 android:layout_marginBottom="10dp"
+                android:focusableInTouchMode="true"
                 android:background="@drawable/bg_rounded_border_corner_8"
                 android:orientation="vertical"
                 android:paddingHorizontal="10dp">
@@ -718,7 +721,7 @@
                         android:minHeight="48dp"
                         android:overScrollMode="always"
                         android:scrollbars="vertical"
-                        android:singleLine="false" />
+                        android:singleLine="false"/>
 
                     <androidx.appcompat.widget.AppCompatRatingBar
                         android:id="@+id/rating"
@@ -726,6 +729,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:numStars="5"
+                        android:fitsSystemWindows="true"
                         android:progressTint="@color/orange_light"
                         android:rating="3.5"
                         android:scaleX="0.65"

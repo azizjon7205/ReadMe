@@ -1,5 +1,6 @@
 package me.ruyeo.kitobz.ui.basket
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -29,6 +30,15 @@ class BasketFragment : BaseFragment(R.layout.fragment_basket) {
     private var cashHelper = false
     private var capitalCardHelper = false
     private var visaCardHelper = false
+    private var basketBooks: ArrayList<InfoModel> = ArrayList()
+    private var allBookCount: Int= 0
+    private var allPrice: Int= 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        getAllBasketBooks()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,13 +54,17 @@ class BasketFragment : BaseFragment(R.layout.fragment_basket) {
         binding.ivInfo.setOnClickListener {
             findNavController().navigate(R.id.informationFragment)
         }
-        Log.d("TAGBasketItems", "initViews: ${getAllBasketBooks()}")
-        basketBookAdapter.submitList(getAllBasketBooks())
+        basketBookAdapter.submitList(basketBooks)
         binding.rvBasket.adapter = basketBookAdapter
+
+        getAllPriceAndBookCount()
+        binding.tvTotalBooks.text = allBookCount.toString()
+        binding.tvAllSum.text = allPrice.toString()
         
         setComment()
         setPaymentState()
         clickBCheckOut()
+        setAdapterFunction()
     }
 
     private fun clickBCheckOut() {
@@ -64,6 +78,40 @@ class BasketFragment : BaseFragment(R.layout.fragment_basket) {
             }else{
                 Toast.makeText(requireContext(), "Please choose the desired payment system!!!", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun getAllPriceAndBookCount(){
+        basketBooks.forEach {
+            allBookCount += it.bookCount
+            allPrice += it.price
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setAdapterFunction(){
+        var bookPrice: Int = 0
+        basketBookAdapter.clickAddBCount = { position ->
+            bookPrice = (basketBooks[position].price / basketBooks[position].bookCount)
+            basketBooks[position].price = bookPrice * (basketBooks[position].bookCount + 1)
+            allPrice += bookPrice
+            basketBooks[position].bookCount += 1
+            allBookCount += 1
+            basketBookAdapter.submitList(basketBooks)
+            basketBookAdapter.notifyDataSetChanged()
+            binding.tvTotalBooks.text = allBookCount.toString()
+            binding.tvAllSum.text = allPrice.toString()
+        }
+        basketBookAdapter.clickRemoveBCount = { position ->
+            bookPrice = (basketBooks[position].price / basketBooks[position].bookCount)
+            basketBooks[position].price = bookPrice * (basketBooks[position].bookCount - 1)
+            allPrice -= bookPrice
+            basketBooks[position].bookCount -= 1
+            allBookCount -= 1
+            basketBookAdapter.submitList(basketBooks)
+            basketBookAdapter.notifyDataSetChanged()
+            binding.tvTotalBooks.text = allBookCount.toString()
+            binding.tvAllSum.text = allPrice.toString()
         }
     }
 
@@ -124,6 +172,7 @@ class BasketFragment : BaseFragment(R.layout.fragment_basket) {
         binding.ivAddComment.setOnClickListener{
             binding.ivAddComment.visibility = View.GONE
             binding.llClearAndChecked.visibility = View.VISIBLE
+            binding.ivCheckedComment.visibility = View.VISIBLE
             binding.edtComment.visibility = View.VISIBLE
             binding.tvCommentState.text = getString(R.string.str_comment)
         }
@@ -146,14 +195,12 @@ class BasketFragment : BaseFragment(R.layout.fragment_basket) {
         }
     }
 
-    private fun getAllBasketBooks(): ArrayList<InfoModel>{
-        val items: ArrayList<InfoModel> = ArrayList()
-        items.add(InfoModel("paper", true))
-        items.add(InfoModel("electronic", false))
-        items.add(InfoModel("electronic", false))
-        items.add(InfoModel("audio", false))
-        items.add(InfoModel("paper", false))
-        return items
+    private fun getAllBasketBooks(){
+        basketBooks.add(InfoModel("paper", true,1,120))
+        basketBooks.add(InfoModel("electronic", false,1,25))
+        basketBooks.add(InfoModel("electronic", false,1,25))
+        basketBooks.add(InfoModel("audio", false,1,60))
+        basketBooks.add(InfoModel("paper", false,1,125))
     }
 
 }

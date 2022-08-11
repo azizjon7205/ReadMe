@@ -26,6 +26,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         android:background="@android:color/transparent"
         app:elevation="0dp">
 
@@ -37,17 +38,17 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="15dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="10dp">
 
                 <ImageView
                     android:id="@+id/ic_close"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:src="@drawable/ic_close"
-                    app:layout_constraintBottom_toBottomOf="@id/ic_bookmark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/ic_bookmark"
                     app:tint="@color/white" />
 
                 <ImageView
@@ -58,14 +59,14 @@
                     android:scaleType="center"
                     android:src="@drawable/ic_bookmark_plus"
                     app:layout_constraintRight_toLeftOf="@id/ic_more"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
                     app:tint="@color/white" />
 
                 <ImageView
                     android:id="@+id/ic_more"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="21dp"
                     android:src="@drawable/ic_more"
                     app:layout_constraintBottom_toBottomOf="@id/ic_bookmark"
                     app:layout_constraintRight_toRightOf="parent"
