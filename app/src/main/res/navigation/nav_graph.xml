@@ -38,7 +38,11 @@
         android:id="@+id/discussFragment"
         android:name="me.ruyeo.kitobz.ui.discussions.DiscussFragment"
         android:label="fragment_discuss"
-        tools:layout="@layout/fragment_discuss" />
+        tools:layout="@layout/fragment_discuss" >
+        <action
+            android:id="@+id/action_discussFragment_to_detailDiscussionFragment"
+            app:destination="@id/detailDiscussionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myLibraryFragment"
         android:name="me.ruyeo.kitobz.ui.library.MyLibraryFragment"
@@ -157,5 +161,10 @@
         android:name="me.ruyeo.kitobz.ui.profile.personaldata.confirmpnumber.ConfirmNumberFragment"
         android:label="ConfirmNumberFragment"
         tools:layout="@layout/fragment_confirmation"/>
+    <fragment
+        android:id="@+id/detailDiscussionFragment"
+        android:name="me.ruyeo.kitobz.ui.discussions.DetailDiscussionFragment"
+        android:label="fragment_detail_discussion"
+        tools:layout="@layout/fragment_detail_discussion" />
 
 </navigation>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_rounded_border_corner_8"
+    android:orientation="vertical"
+    android:layout_marginBottom="13dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="13dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_owner_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:shapeAppearanceOverlay="@style/circle" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_answer_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="Дарья Иванова"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_answer_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="07.03.2020"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="18dp"
+            android:id="@+id/ll_show_replies"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/fl_replies_count"
+                android:background="@drawable/bg_circular_borderless"
+                android:backgroundTint="@color/gray"
+                android:layout_width="16dp"
+                android:layout_height="16dp">
+
+                <TextView
+                    android:id="@+id/tv_answers_count"
+                    android:maxHeight="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="1"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/text_type_11"
+                    android:gravity="center|center_vertical"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_answers_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/str_answers_2"
+                android:gravity="center_vertical"
+                android:layout_marginStart="3dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_type_11" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_next"
+                app:tint="@color/gray" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_answer_message"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="16dp"
+        android:text="Очень интересная книга, всем советую её прочесть, особенно тем кого часто одолевает грусть и печаль. Авто чётко раскрывает тему и указывает путь к счастью."
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_type_15"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="8dp"
+        android:lineSpacingExtra="5dp"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

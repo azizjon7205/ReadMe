@@ -98,8 +98,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                         tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].name.toString()
                     }
 
-//                    Log.d("@@@", "Position -> ${layoutManager.findFirstVisibleItemPosition()} --  ${adapterBanner.currentList[pos].name}")
-                }
+               }
             })
 
             rvCats.apply {
@@ -147,15 +146,15 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 findNavController().navigate(R.id.searchFragment, bundleOf("to" to "search"))
             }
 
-            clShawAll.setOnClickListener {
+            llShowAllCategories.setOnClickListener {
                 findNavController().navigate(R.id.categoriesFragment)
             }
 
-            clShawAllAuthors.setOnClickListener {
+            llShowAllAuthors.setOnClickListener {
                 findNavController().navigate(R.id.searchFragment, bundleOf("to" to "authors"))
             }
 
-            clShawAllAudioBooks.setOnClickListener {
+            llShowAllAudioBooks.setOnClickListener {
                 if (category != null)
                     findNavController().navigate(
                         R.id.shawAllFragment,
@@ -163,7 +162,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     )
             }
 
-            clShawAllElectronicBooks.setOnClickListener {
+            llShowAllElektronicBooks.setOnClickListener {
                 if (category != null)
                     findNavController().navigate(
                         R.id.shawAllFragment,
@@ -174,7 +173,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     )
             }
 
-            clShawAllNewArrivals.setOnClickListener {
+            llShowAllNewArrivals.setOnClickListener {
                 if (category != null)
                     findNavController().navigate(
                         R.id.shawAllFragment,

@@ -14,6 +14,7 @@
     <string name="str_choose_language">Выберите предпочитаемый язык\n приложения</string>
     <string name="str_finish">Завершить</string>
     <string name="str_follow">Подписаться</string>
+    <string name="str_you_followed">Вы подписаны</string>
     <string name="str_discover_books_you_i">Откройте для себя весь мир</string>
     <string name="str_find_millions_of_the">Найдите тысячи бумажных, электронных книг и аудио книг</string>
 
@@ -68,6 +69,7 @@
     <string name="str_dot">•</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="str_find_book_in_library">Найти книгу в библиотеке</string>
     <string name="str_cancel">Отменить</string>
     <string name="str_not_found_when_search_my_library">Если не нашли то что искали,\nвоспользуйтесь поиском в каталоге</string>
@@ -162,5 +164,13 @@
     <string name="str_deliver_tomorrow">Доставим завтра</string>
     <string name="str_pre_order_7_18_days">Предзаказ 7–18 дней</string>
     <string name="str_apply">Применить</string>
+
+    <string name="str_answers_1">Ответов:</string>
+    <string name="str_answers_2">Ответы</string>
+    <string name="str_messages">cообщений:</string>
+    <string name="str_write">Написать</string>
+    <string name="str_reply">Ответить</string>
+    <string name="str_close_answers">Закрыть ответы</string>
+    <string name="str_to_leave_reply_login">Что-бы оставить ответ, авторизуйтесь.</string>
 
 </resources>
