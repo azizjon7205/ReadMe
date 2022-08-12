@@ -34,6 +34,7 @@ import java.util.concurrent.TimeUnit
 class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.lang.Runnable {
     private lateinit var filterPopup: PopupWindow
     private lateinit var popupAdapter: PopupAdapter
+    private lateinit var audioListBottomSheet: AudioListBottomSheet
 
     private lateinit var mediaPlayer: MediaPlayer
     private var startTime: Double = 0.0
@@ -58,6 +59,8 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             Glide.with(requireContext()).load(R.drawable.im_audio_book)
                 .apply(bitmapTransform(BlurTransformation(25)))
                 .into(imBackground)
+
+            audioListBottomSheet = AudioListBottomSheet()
 
 
             /*Close button */
@@ -201,7 +204,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
         popupAdapter.onClick = {
             when (it.id) {
                 1 -> showToast(it.text)
-                2 -> showToast(it.text)
+                2 -> showContent()
                 3 -> showTimerDialog()
                 4 -> showToast(it.text)
                 5 -> showToast(it.text)
@@ -269,6 +272,12 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
 
 
         dialog.show()
+    }
+
+
+    private fun showContent() {
+        dismissPopup()
+        audioListBottomSheet.show(childFragmentManager,"AudioBottomSheet")
     }
 
 }
