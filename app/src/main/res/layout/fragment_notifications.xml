@@ -45,15 +45,423 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/side_16"
+                android:layout_marginTop="14dp">
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/text_type_17"
+                        android:fontFamily="@font/arial_bold"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@string/str_news"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_news"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/side_16"
+                android:layout_marginTop="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_type_17"
+                        android:fontFamily="@font/arial_bold"
+                        android:textColor="@color/black"
+                        android:text="@string/str_reviews_1"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_reviews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="50dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_17"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/black"
+                            android:text="@string/str_new_review"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_13"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/gray"
+                            android:text="@string/str_information_about_new_review"/>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_new_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="50dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_17"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/black"
+                            android:text="@string/str_reviews_by_interest_only"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_13"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/gray"
+                            android:text="@string/str_information_about_reviews_by_interest_only"/>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_reviews_interest_only"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/side_16"
+                android:layout_marginTop="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_type_17"
+                        android:fontFamily="@font/arial_bold"
+                        android:textColor="@color/black"
+                        android:text="@string/str_discussions"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_discussions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="50dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_17"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/black"
+                            android:text="@string/str_new_topic"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_13"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/gray"
+                            android:text="@string/str_information_about_new_topic"/>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_new_topic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="50dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_17"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/black"
+                            android:text="@string/str_interest_only_answers"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_13"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/gray"
+                            android:text="@string/str_information_about_interest_only_answers"/>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_interest_only_answers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/side_16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="50dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_17"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/black"
+                            android:text="@string/str_answer_only_to_me"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_type_13"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/gray"
+                            android:text="@string/str_information_about_answer_only_to_me"/>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sw_on_off_answer_only_me"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:track="@drawable/custom_track"
+                        android:thumb="@drawable/custom_thumb"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white_light_1"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

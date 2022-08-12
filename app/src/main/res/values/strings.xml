@@ -6,6 +6,7 @@
     <string name="str_skip">Пропустить</string>
     <string name="str_smsConfirmation">Код подтверждения</string>
     <string name="str_discussion">Обуждение</string>
+    <string name="str_discussions">Обсуждения</string>
     <string name="str_sms_send_text">Введите код который мы вам\n отправили по СМС</string>
     <string name="str_confirm">Подтвердить</string>
     <string name="str_resendTime">Отправить СМС повторно через 57 секунд</string>
@@ -108,7 +109,25 @@
     <string name="str_in_processing">В обработке</string>
     <string name="str_favorites">Избранное</string>
     <string name="str_reviews">Отзывов</string>
+    <string name="str_reviews_1">Отзывы</string>
+    <string name="str_new_review">Новый отзыв</string>
+    <string name="str_information_about_new_review">Отправлять уведомления на все новые отзывы о книгах в любых категориях</string>
+    <string name="str_reviews_by_interest_only">Отзывы только по интересу</string>
+    <string name="str_information_about_reviews_by_interest_only">Отправлять уведомления только на те книги где я оставлял отзыв</string>
+    <string name="str_new_topic">Новая тема</string>
+    <string name="str_information_about_new_topic">Отправлять уведомления при создании новой темы в разделе "Обсуждения"</string>
+    <string name="str_interest_only_answers">Ответы только по интересу</string>
+    <string name="str_information_about_interest_only_answers">Отправлять уведомления только на те темы где я оставлял ответ</string>
+    <string name="str_answer_only_to_me">Ответы только мне</string>
+    <string name="str_information_about_answer_only_to_me">Отправлять уведомления только если мне кто-то ответил</string>
+    <string name="str_information_about_memory_audio_books">При нажатии на кнопку "Очистить" удалятся все файлы в разделе "Моя библиотека->Аудиокниги". При необходимости можно будет скачать заново.</string>
+    <string name="str_information_about_memory_electronic_books">При нажатии на кнопку "Очистить" удалятся все файлы в разделе "Моя библиотека->Электронные книги". При необходимости можно будет скачать заново.</string>
+    <string name="str_information_about_memory_pictures">При нажатии на кнопку "Очистить" удалятся картинки. При повторном просмотре они скачаются заново.</string>
+    <string name="str_caching">Кэширование</string>
     <string name="str_profile_books">Книг</string>
+    <string name="str_pictures">Картинки</string>
+    <string name="str_clear">Очистить</string>
+    <string name="str_clear_all">Очистить все</string>
     <string name="str_settings">Настройки</string>
     <string name="str_personal_data">Личные данные</string>
     <string name="str_notifications">Уведомления</string>
@@ -119,6 +138,8 @@
     <string name="str_date_of">Дата:</string>
     <string name="str_status_of">Статус:</string>
     <string name="str_save">Спасти</string>
+    <string name="str_memory">Память</string>
+    <string name="str_mb">мб</string>
 
     <!--Popup Menu Strings-->
     <string name="str_bookmarks">Закладки</string>
@@ -139,6 +160,7 @@
     <string name="str_not_in_cash">Нет в наличии</string>
     <string name="str_year_published">Год издания</string>
     <string name="str_language_published">Язык издания</string>
+    <string name="str_language">Язык</string>
     <string name="str_pages">Страниц</string>
     <string name="str_paper_type">Переплёт</string>
     <string name="str_genres">Жанры</string>

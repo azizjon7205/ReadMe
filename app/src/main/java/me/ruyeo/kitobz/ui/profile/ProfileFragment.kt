@@ -29,16 +29,27 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     }
 
     private fun initViews() {
-        ordersAdapter.submitList(getOrderHistoryList())
-        binding.rvOrders.adapter = ordersAdapter
-        favoriteAdapter.submitList(getFavoriteBookNames())
-        binding.rvFavoriteBooks.adapter = favoriteAdapter
+        with(binding){
+            ordersAdapter.submitList(getOrderHistoryList())
+            rvOrders.adapter = ordersAdapter
+            favoriteAdapter.submitList(getFavoriteBookNames())
+            rvFavoriteBooks.adapter = favoriteAdapter
 
-        binding.llSeeAllOrders.setOnClickListener {
-            findNavController().navigate(R.id.orderHistoryFragment)
-        }
-        binding.ivPersonalData.setOnClickListener {
-            findNavController().navigate(R.id.personalDataFragment)
+            llSeeAllOrders.setOnClickListener {
+                findNavController().navigate(R.id.orderHistoryFragment)
+            }
+            ivPersonalData.setOnClickListener {
+                findNavController().navigate(R.id.personalDataFragment)
+            }
+            ivNotifications.setOnClickListener {
+                findNavController().navigate(R.id.notificationsFragment)
+            }
+            ivApplication.setOnClickListener {
+                findNavController().navigate(R.id.applicationFragment)
+            }
+            llSeeAllFavorite.setOnClickListener {
+                findNavController().navigate(R.id.favoriteFragment)
+            }
         }
     }
 
