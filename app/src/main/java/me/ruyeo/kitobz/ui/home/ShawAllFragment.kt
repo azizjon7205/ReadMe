@@ -3,24 +3,18 @@ package me.ruyeo.kitobz.ui.home
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.BookAdapter
 import me.ruyeo.kitobz.databinding.FragmentShawAllBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Category
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.utils.utils.UiStateList
-import me.ruyeo.kitobz.utils.utils.extensions.showMessage
+import me.ruyeo.kitobz.ui.home.home.HomeViewModel
 import me.ruyeo.kitobz.utils.utils.extensions.typeClicked
 import viewBinding
 

@@ -1,4 +1,4 @@
-package me.ruyeo.kitobz.ui.home
+package me.ruyeo.kitobz.ui.home.home
 
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +22,7 @@ import me.ruyeo.kitobz.adapter.*
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
 import me.ruyeo.kitobz.model.*
 import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.ui.home.customs.BoundsOffsetDecoration
 import me.ruyeo.kitobz.ui.home.customs.LinearHorizontalSpacingDecoration
 import me.ruyeo.kitobz.ui.home.customs.ProminentLayoutManager

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="me.ruyeo.kitobz.ui.home.HomeFragment"
+        android:name="me.ruyeo.kitobz.ui.home.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_discussFragment_to_detailDiscussionFragment"
             app:destination="@id/detailDiscussionFragment" />
+        <action
+            android:id="@+id/action_discussFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
     </fragment>
     <fragment
         android:id="@+id/myLibraryFragment"

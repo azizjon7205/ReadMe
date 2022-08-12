@@ -1,29 +1,38 @@
 package me.ruyeo.kitobz.ui.discussions
 
+import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.widget.NestedScrollView
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
+import me.ruyeo.kitobz.adapter.DiscussAnswerRepliesAdapter
 import me.ruyeo.kitobz.adapter.DiscussAnswersAdapter
 import me.ruyeo.kitobz.databinding.FragmentDetailDiscussionBinding
 import me.ruyeo.kitobz.managers.PrefsManager
 import me.ruyeo.kitobz.model.Answer
 import me.ruyeo.kitobz.model.Discuss
 import me.ruyeo.kitobz.model.DiscussDetails
+import me.ruyeo.kitobz.model.Reply
 import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.utils.utils.extensions.scrollToBottomWithoutFocusChange
 import me.ruyeo.kitobz.utils.utils.extensions.visible
 import viewBinding
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussion) {
@@ -45,10 +54,15 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupKeyboardListener(binding.nestedScroll)
+
         initViews()
     }
 
+
+
     private fun initViews() {
+
         discussDetails = DiscussDetails(
             header = "Где убили Пушкина? Когда и кем был убит Александр Пушкин",
             owner_name = "Алина Бакальчук",
@@ -59,7 +73,10 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
             answers = loadAnswers()
         )
 
+
+
         with(binding) {
+
             ivBack.setOnClickListener {
                 findNavController().navigateUp()
             }
@@ -71,6 +88,24 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
             tvDiscussOwner.text = discuss?.owner_name
             tvDiscussDate.text = discuss?.created_date
 //            tvDiscussTheme.text = discussDetails?.discuss_theme
+
+            tvFollow.setOnClickListener {
+                tvFollow.isActivated = !tvFollow.isActivated
+                checkFollow()
+            }
+
+            bWriteAnswer.setOnClickListener {
+                bWriteAnswer.visible(false)
+                bPublishAnswer.visible(true)
+                llAnswer.visible(true)
+                showKeyboard(etAnswer)
+            }
+
+            etAnswer.setOnFocusChangeListener { v, hasFocus ->
+                if (!hasFocus){
+                    llAnswer.visible(false)
+                }
+            }
 
             val messageToAuth = root.context.getString(R.string.str_to_leave_reply_login)
             val clickableMessage = "авторизуйтесь."
@@ -107,30 +142,44 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
 
     private fun setupUI(discussDetails: DiscussDetails) {
         with(binding) {
+            val repliesAdapter by lazy { DiscussAnswerRepliesAdapter() }
+
             fmProgress.visible(false)
             tvDiscussTheme.text = discussDetails.discuss_theme
 
             answersAdapter.submitList(discussDetails.answers)
             answersAdapter.onClick = {
-
+                rvAnswers.visible(false)
+                llRepliesToAnswer.visible(true)
+                tvAnswerOwner.text = it.owner_name
+                tvAnswerDate.text = it.date
+                tvAnswerMessage.text = it.message
+                rvReplies.visible(true)
+                repliesAdapter.submitList(it.replies)
+                rvReplies.adapter = repliesAdapter
+            }
+            llCloseAnswers.setOnClickListener {
+                rvAnswers.visible(true)
+                llRepliesToAnswer.visible(false)
             }
             rvAnswers.adapter = answersAdapter
 
-            if (prefsManager.getUser() != null) {
+            if (prefsManager.getUser() == null) {
                 tvFollow.visible(true)
                 llAnswersTotalCount.visible(true)
                 llUserAnswer.visible(true)
                 tvNoteRegisterMain.visible(false)
                 tvNoteRegister.visible(false)
+                checkFollow()
 
                 if (discussDetails.answers_count == 0) {
                     flBeFirst.visible(true)
 
                 } else {
-                    rvAnswers.visible(true)
+                    flBeFirst.visible(false)
                 }
             } else{
-
+                tvFollow.visible(false)
                 if (discussDetails.answers_count == 0) {
                     llAnswersTotalCount.visible(false)
                     tvNoteRegisterMain.visible(true)
@@ -149,12 +198,25 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
         }
     }
 
+    private fun checkFollow(){
+        val tvFollow = binding.tvFollow
+
+        if (tvFollow.isActivated){
+            tvFollow.text = binding.root.context.getString(R.string.str_you_followed)
+            tvFollow.setTextColor(Color.BLACK)
+        } else{
+            tvFollow.text = binding.root.context.getString(R.string.str_follow)
+            tvFollow.setTextColor(Color.WHITE)
+        }
+    }
+
     private fun loadAnswers(): List<Answer>{
         return arrayListOf(
             Answer(
                 owner_name = "Андрей Рыбаков",
                 date = "07.03.2020",
                 messages_count = 1,
+                replies = loadReplies(),
                 message = "Очень интересная книга, всем советую её прочесть, особенно тем кого часто одолевает грусть и печаль. Авто чётко раскрывает тему и указывает путь к счастью."
             ),
             Answer(
@@ -165,6 +227,30 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
             )
 
         )
+    }
+    private fun loadReplies(): List<Reply>{
+        return arrayListOf(
+            Reply(
+                owner_name = "Коля Абрамович",
+                date = "07.03.2020",
+                message = "Очень интересная книга, всем советую её прочесть, особенно тем кого часто одолевает грусть и печаль."
+            )
+
+        )
+    }
+
+    private fun setupKeyboardListener(view: View) {
+        view.viewTreeObserver.addOnGlobalLayoutListener {
+            val r = Rect()
+            view.getWindowVisibleDisplayFrame(r)
+            if (Math.abs(view.rootView.height - (r.bottom - r.top)) > 100) { // if more than 100 pixels, its probably a keyboard...
+                onKeyboardShow(view)
+            }
+        }
+    }
+
+    private fun onKeyboardShow(view: View) {
+        (view as NestedScrollView).scrollToBottomWithoutFocusChange()
     }
 
 }

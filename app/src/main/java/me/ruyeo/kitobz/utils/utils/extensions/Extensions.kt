@@ -28,6 +28,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import java.text.DecimalFormat
@@ -35,6 +36,13 @@ import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
+
+fun NestedScrollView.scrollToBottomWithoutFocusChange() { // Kotlin extension to scrollView
+    val lastChild = getChildAt(childCount - 1)
+    val bottom = lastChild.bottom + paddingBottom
+    val delta = bottom - (scrollY + height)
+    smoothScrollBy(0, delta)
+}
 
 fun Context.dpToPixel(dp: Float): Float {
     return dp * (resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)

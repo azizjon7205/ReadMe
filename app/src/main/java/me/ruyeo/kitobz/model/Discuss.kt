@@ -30,7 +30,7 @@ data class Answer(
     val date: String? = null,
     val messages_count: Int = 0,
     val message: String? = null,
-    val replies: ArrayList<Reply> = arrayListOf()
+    val replies: List<Reply> = arrayListOf()
 )
 
 data class Reply(

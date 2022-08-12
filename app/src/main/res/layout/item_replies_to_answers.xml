@@ -20,6 +20,7 @@
         android:layout_marginStart="38dp">
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_avatar"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:scaleType="centerCrop"

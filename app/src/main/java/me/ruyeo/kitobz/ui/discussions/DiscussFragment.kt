@@ -42,6 +42,10 @@ class DiscussFragment : BaseFragment(R.layout.fragment_discuss) {
 
         with(binding) {
             rvDiscuss.adapter = adapter
+
+            ivInfo.setOnClickListener {
+                findNavController().navigate(R.id.action_discussFragment_to_informationFragment)
+            }
         }
     }
 

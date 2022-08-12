@@ -161,7 +161,6 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 bWriteComment.visible(false)
                 bPublishComment.visible(true)
                 llComment.visible(true)
-                llComment.isFocusableInTouchMode = true
                 showKeyboard(etComment)
             }
 
@@ -452,10 +451,4 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         (view as NestedScrollView).scrollToBottomWithoutFocusChange()
     }
 
-    fun NestedScrollView.scrollToBottomWithoutFocusChange() { // Kotlin extension to scrollView
-        val lastChild = getChildAt(childCount - 1)
-        val bottom = lastChild.bottom + paddingBottom
-        val delta = bottom - (scrollY + height)
-        smoothScrollBy(0, delta)
-    }
 }
