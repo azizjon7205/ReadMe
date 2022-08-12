@@ -1,5 +1,6 @@
 package me.ruyeo.kitobz.ui.audioplayer
 
+import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -9,12 +10,15 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.PopupWindow
 import android.widget.SeekBar
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.blurry.Blurry
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.coroutines.Runnable
 import me.ruyeo.kitobz.R
@@ -54,20 +58,31 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             Glide.with(requireContext()).load(R.drawable.im_audio_book)
                 .apply(bitmapTransform(BlurTransformation(25)))
                 .into(imBackground)
-        }
 
 
-        setupAudioPlayer()
-    }
+            /*Close button */
+            icClose.setOnClickListener {
+                findNavController().popBackStack()
+            }
 
-
-    private fun setupAudioPlayer() {
-        binding.apply {
+            /*Bookmark button */
+            icBookmark.setOnClickListener {
+                showToast("Bookmark")
+            }
 
             /* Click more button */
             icMore.setOnClickListener {
                 showPopup()
             }
+
+        }
+        setupAudioPlayer()
+    }
+
+    private fun setupAudioPlayer() {
+        binding.apply {
+
+
 
             /* Click play button */
             icPlay.setOnClickListener {
@@ -154,17 +169,17 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
     fun rightRewindBtnClick() {
         var temp = startTime.toInt()
 
-        if ((temp+forwardTime)<= finalTime){
+        if ((temp + forwardTime) <= finalTime) {
             startTime = startTime + forwardTime
             mediaPlayer.seekTo(startTime.toInt())
         }
     }
 
-    fun leftRewindBtnClick(){
+    fun leftRewindBtnClick() {
         var temp = startTime.toInt()
 
-        if((temp-backwardTime)>0){
-            startTime  = startTime - backwardTime
+        if ((temp - backwardTime) > 0) {
+            startTime = startTime - backwardTime
             mediaPlayer.seekTo(startTime.toInt())
         }
     }
@@ -178,10 +193,20 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
 
         popupAdapter = PopupAdapter()
         recyclerview.apply {
-
             adapter = popupAdapter
         }
         popupAdapter.submitList(popupItems())
+
+
+        popupAdapter.onClick = {
+            when (it.id) {
+                1 -> showToast(it.text)
+                2 -> showToast(it.text)
+                3 -> showTimerDialog()
+                4 -> showToast(it.text)
+                5 -> showToast(it.text)
+            }
+        }
 
         return PopupWindow(view,
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -190,17 +215,17 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
 
     private fun popupItems(): ArrayList<Popup> {
         val items = ArrayList<Popup>()
-        items.add(Popup(getString(R.string.str_bookmarks), R.drawable.ic_save))
-        items.add(Popup(getString(R.string.str_content), R.drawable.ic_list))
-        items.add(Popup(getString(R.string.str_sleep_timer), R.drawable.ic_alarm_clock))
-        items.add(Popup(getString(R.string.str_search), R.drawable.ic_search))
-        items.add(Popup(getString(R.string.str_speed), R.drawable.ic_speed))
+        items.add(Popup(1, getString(R.string.str_bookmarks), R.drawable.ic_save))
+        items.add(Popup(2, getString(R.string.str_content), R.drawable.ic_list))
+        items.add(Popup(3, getString(R.string.str_sleep_timer), R.drawable.ic_alarm_clock))
+        items.add(Popup(4, getString(R.string.str_search), R.drawable.ic_search))
+        items.add(Popup(5, getString(R.string.str_speed), R.drawable.ic_speed))
 
         return items
     }
 
-
     private fun showPopup() {
+
         filterPopup = popupMenu()
         filterPopup.isOutsideTouchable = true
         filterPopup.isFocusable = true
@@ -213,7 +238,6 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             if (it.isShowing) {
                 it.dismiss()
             }
-            filterPopup = null!!
         }
 
     }
@@ -232,6 +256,19 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
         )
         binding.seekbar.setProgress(startTime.toInt())
         handler.postDelayed(this@AudioPlayerFragment, 100)
+    }
+
+
+
+    private fun showTimerDialog() {
+        dismissPopup()
+
+        val dialog = Dialog(requireContext(),R.style.CustomDialog)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_timer)
+
+
+        dialog.show()
     }
 
 }

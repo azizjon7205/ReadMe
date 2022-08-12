@@ -8,8 +8,9 @@ import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.databinding.ItemPopupBinding
 import me.ruyeo.kitobz.model.Popup
 
-class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()) {
+class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()){
 
+    var onClick: ((Popup) -> Unit)? = null
 
     class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<Popup>() {
         override fun areItemsTheSame(oldItem: Popup, newItem: Popup): Boolean {
@@ -35,6 +36,11 @@ class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()) {
         RecyclerView.ViewHolder(itemPopupBinding.root) {
         fun onBind(popup: Popup) {
             itemPopupBinding.apply {
+
+                root.setOnClickListener {
+                    onClick!!.invoke(getItem(adapterPosition))
+                }
+
                 tvText.text = popup.text
                 Glide.with(icImage).load(popup.image).into(icImage)
             }

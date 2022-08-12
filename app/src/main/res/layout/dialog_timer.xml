@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="312dp"
+    android:layout_height="306dp"
+    style="@style/CustomDialog"
+    android:background="@android:color/transparent"
+    app:cardCornerRadius="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_sleep_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:text="@string/str_sleep_timer"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_sleep_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:text="@string/str_sleep_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_sleep_timer" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_sleep_text">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_hour_minimize"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_minimize"
+                android:tint="@color/blue"
+                app:contentPadding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/constraint2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/constraint2"
+                app:layout_constraintTop_toTopOf="@id/constraint2"
+                app:shapeAppearanceOverlay="@style/circle"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/ic_hour_minimize"
+                app:layout_constraintRight_toLeftOf="@id/ic_hour_add"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/et_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_hours"
+                    android:text="@string/str_hours"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textColor="@color/gray"
+                    app:layout_constraintLeft_toLeftOf="@id/et_hour"
+                    app:layout_constraintRight_toRightOf="@id/et_hour"
+                    app:layout_constraintTop_toBottomOf="@id/et_hour"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_hour_add"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_add"
+                android:tint="@color/blue"
+                app:contentPadding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/constraint2"
+                app:layout_constraintLeft_toRightOf="@id/constraint2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/constraint2"
+                app:shapeAppearanceOverlay="@style/circle"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_minutes_minimize"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_minimize"
+                android:tint="@color/blue"
+                app:contentPadding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/constraint4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/constraint4"
+                app:layout_constraintTop_toTopOf="@id/constraint4"
+                app:shapeAppearanceOverlay="@style/circle"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/ic_minutes_minimize"
+                app:layout_constraintRight_toLeftOf="@id/ic_minutes_add"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/et_minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_minutes"
+                    android:text="@string/str_minutes"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:textColor="@color/gray"
+                    app:layout_constraintLeft_toLeftOf="@id/et_minutes"
+                    app:layout_constraintRight_toRightOf="@id/et_minutes"
+                    app:layout_constraintTop_toBottomOf="@id/et_minutes"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_minutes_add"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_add"
+                android:tint="@color/blue"
+                app:contentPadding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/constraint4"
+                app:layout_constraintLeft_toRightOf="@id/constraint4"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/constraint4"
+                app:shapeAppearanceOverlay="@style/circle"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <Button
+            android:id="@+id/bn_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:background="@drawable/btn_bgn"
+            android:fontFamily="@font/sf_pro_text_regular"
+            app:layout_constraintTop_toBottomOf="@id/constraint3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/str_turn_on_the_timer"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
