@@ -3,7 +3,9 @@ package me.ruyeo.kitobz.ui.pdfview
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.PopupMenu
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentPdfViewBinding
@@ -47,8 +49,44 @@ class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {
 
         binding.ivBack.setOnClickListener { }
         binding.ivSave.setOnClickListener { }
-        binding.ivResize.setOnClickListener { }
-        binding.ivMore.setOnClickListener { }
+        binding.ivResize.setOnClickListener {
+            openResizeSettings()
+        }
+        binding.ivMore.setOnClickListener {
+            openSettings()
+        }
+    }
+
+    private fun openSettings() {
+        val popupMenu = PopupMenu(requireContext(), binding.ivMore)
+        popupMenu.menuInflater.inflate(R.menu.popup_menu_pdf, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menuContent -> {
+                    showToast("content")
+                }
+                R.id.menuBookmarks -> {
+
+                }
+                R.id.menuFind -> {
+
+                }
+            }
+
+            false
+        }
+
+        binding.ivMore.setOnClickListener {
+            popupMenu.show()
+        }
+    }
+
+    private fun openResizeSettings() {
+        val bottomSheet = BottomSheetDialog()
+        bottomSheet.show(
+            childFragmentManager,
+            "ModalBottomSheet"
+        )
     }
 
     private fun setTvs() {
