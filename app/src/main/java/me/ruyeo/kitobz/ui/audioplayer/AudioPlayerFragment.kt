@@ -44,6 +44,8 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
     private val forwardTime = 30000
     private val backwardTime = 30000
 
+    private var speedOn: Boolean = false
+
     private var oneTimeOnly = 0
 
     private val binding by viewBinding { FragmentAudioPlayerBinding.bind(it) }
@@ -86,7 +88,6 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
         binding.apply {
 
 
-
             /* Click play button */
             icPlay.setOnClickListener {
                 playBtnClick()
@@ -107,6 +108,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
             mediaPlayer.seekTo(0)
             mediaPlayer.setVolume(1f, 1f)
             val totalTime = mediaPlayer.duration
+
 
             finalTime = mediaPlayer.duration.toDouble()
             startTime = mediaPlayer.currentPosition.toDouble()
@@ -207,7 +209,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
                 2 -> showContent()
                 3 -> showTimerDialog()
                 4 -> showToast(it.text)
-                5 -> showToast(it.text)
+                5 -> setSpeed()
             }
         }
 
@@ -262,11 +264,10 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
     }
 
 
-
     private fun showTimerDialog() {
         dismissPopup()
 
-        val dialog = Dialog(requireContext(),R.style.CustomDialog)
+        val dialog = Dialog(requireContext(), R.style.CustomDialog)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_timer)
 
@@ -274,10 +275,20 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
         dialog.show()
     }
 
+    private fun setSpeed() {
+        dismissPopup()
+        if(speedOn) {
+            mediaPlayer.setPlaybackParams(mediaPlayer.playbackParams.setSpeed(1.5f))
+            speedOn = false
+        }else{
+            mediaPlayer.setPlaybackParams(mediaPlayer.playbackParams.setSpeed(1.0f))
+            speedOn = true
+        }
+    }
 
     private fun showContent() {
         dismissPopup()
-        audioListBottomSheet.show(childFragmentManager,"AudioBottomSheet")
+        audioListBottomSheet.show(childFragmentManager, "AudioBottomSheet")
     }
 
 }
