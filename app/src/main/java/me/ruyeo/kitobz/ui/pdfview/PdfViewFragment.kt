@@ -63,7 +63,7 @@ class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menuContent -> {
-
+                    showToast("content")
                 }
                 R.id.menuBookmarks -> {
 
