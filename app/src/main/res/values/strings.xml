@@ -64,10 +64,13 @@
     <string name="str_step">Глава 5. Перекрёсток на Варшав...</string>
     <string name="str_heard">прослушано</string>
     <string name="str_percentage">47%</string>
+    <string name="str_hours">часов</string>
+    <string name="str_minutes">минут</string>
     <string name="str_hour">час.</string>
     <string name="str_min">мин</string>
     <string name="str_dot">•</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="str_sleep_text">Чтение остановится через</string>
+    <string name="str_turn_on_the_timer">Включить таймер</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="str_find_book_in_library">Найти книгу в библиотеке</string>
     <string name="str_cancel">Отменить</string>

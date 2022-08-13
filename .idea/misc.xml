@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="0.2484375" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/item_audio_list.xml" value="0.5150976909413855" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/item_popup.xml" value="0.2484375" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.6" />
+        <entry key="..\:/All Projects/android/Studio Projectes/github/Kitobz/app/src/main/res/layout/layout_popup.xml" value="0.2388888888888889" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-anydpi/ic_notification.xml" value="0.1225" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-hdpi/button_rounded_corner_6.xml" value="0.1225" />
         <entry key="..\:/AndroidProjects/PDPAndroidProjects/UpworkProject/Kitobz_buy_books/app/src/main/res/drawable-hdpi/ic_electronic_book_checked.xml" value="0.1" />
