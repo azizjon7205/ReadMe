@@ -82,7 +82,7 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
             }
 
             Glide.with(root).load(discuss?.avatar)
-                .error(R.drawable.ic_launcher_background)
+                .error(R.drawable.im_audio_book)
                 .into(ivDiscussAvatar)
             tvDiscussHeader.text = discuss?.header
             tvDiscussOwner.text = discuss?.owner_name

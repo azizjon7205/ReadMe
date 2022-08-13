@@ -43,7 +43,7 @@
                     android:id="@+id/iv_discuss_avatar"
                     android:layout_width="115dp"
                     android:layout_height="115dp"
-                    android:src="@drawable/ic_launcher_background"
+                    android:src="@drawable/im_audio_book"
                     app:shapeAppearanceOverlay="@style/circle" />
 
                 <FrameLayout
@@ -213,7 +213,7 @@
                         android:layout_height="40dp"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/ic_account"
                         app:shapeAppearanceOverlay="@style/circle" />
 
                     <LinearLayout
@@ -354,7 +354,7 @@
                         android:layout_height="40dp"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/ic_account"
                         app:shapeAppearanceOverlay="@style/circle" />
 
                     <LinearLayout

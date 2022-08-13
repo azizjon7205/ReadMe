@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.MainActivity
 import me.ruyeo.kitobz.R
@@ -25,13 +23,17 @@ class ConfirmationFragment : BaseFragment(R.layout.fragment_confirmation) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
-        setupObservers()
+//        setupObservers()
     }
 
     private fun setupUI() {
         binding.apply {
             bnConfirm.setOnClickListener {
-                viewModel.verifyCode(smsCodeEt.text.toString())
+                Intent(requireContext(), MainActivity::class.java).also {
+                    startActivity(it)
+                }
+                requireActivity().finish()
+//                viewModel.verifyCode(smsCodeEt.text.toString())
             }
         }
     }

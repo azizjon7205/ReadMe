@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentLoginBinding
@@ -13,8 +12,8 @@ import me.ruyeo.kitobz.ui.BaseFragment
 import viewBinding
 
 @AndroidEntryPoint
-class LogInFragment:BaseFragment(R.layout.fragment_login) {
-    private val binding by viewBinding { FragmentLoginBinding.bind(it)}
+class LogInFragment : BaseFragment(R.layout.fragment_login) {
+    private val binding by viewBinding { FragmentLoginBinding.bind(it) }
     private val viewModel by viewModels<LoginViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,22 +25,26 @@ class LogInFragment:BaseFragment(R.layout.fragment_login) {
         setupObservers()
     }
 
-   private fun setupUI(){
+    private fun setupUI() {
         binding.apply {
             bnLogin.setOnClickListener {
-                viewModel.sendVerificationCode(etPhonenumber.text.toString(),requireActivity())
+                findNavController().navigate(R.id.action_logInFragment_to_confirmationFragment)
+//                viewModel.sendVerificationCode(etPhonenumber.text.toString(),requireActivity())
             }
 
             tvForgotPassword.setOnClickListener { findNavController().navigate(R.id.action_logInFragment_to_forgetPasswordFragment) }
 
             tvRegistration.setOnClickListener { findNavController().navigate(R.id.action_logInFragment_to_registrationFragment) }
 
-            tvSkip.setOnClickListener { findNavController().popBackStack() }
+            tvSkip.setOnClickListener {
+                callActivityMain()
+//                findNavController().popBackStack()
+            }
 
         }
     }
 
-    private fun setupObservers(){
+    private fun setupObservers() {
         viewModel.loginState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 LoginState.CodeSent -> {

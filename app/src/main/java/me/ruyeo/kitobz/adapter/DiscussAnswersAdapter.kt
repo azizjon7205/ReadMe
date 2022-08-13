@@ -43,7 +43,7 @@ class DiscussAnswersAdapter : ListAdapter<Answer, DiscussAnswersAdapter.ViewHold
             val answer = currentList[adapterPosition]
             with(binding) {
 
-                Glide.with(root).load(answer.owner_image).error(R.drawable.ic_launcher_background).into(ivOwnerImage)
+                Glide.with(root).load(answer.owner_image).error(R.drawable.ic_account).into(ivOwnerImage)
                 tvAnswerOwner.text = answer.owner_name
                 tvAnswerDate.text = answer.date
                 tvAnswerMessage.text = answer.message

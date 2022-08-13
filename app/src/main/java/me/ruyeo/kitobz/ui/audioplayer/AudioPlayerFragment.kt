@@ -29,7 +29,6 @@ import me.ruyeo.kitobz.ui.BaseFragment
 import viewBinding
 import java.util.concurrent.TimeUnit
 
-
 @AndroidEntryPoint
 class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.lang.Runnable {
     private lateinit var filterPopup: PopupWindow
@@ -90,7 +89,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
 
             /* Click play button */
             icPlay.setOnClickListener {
-                playBtnClick()
+//                playBtnClick()
             }
 
             /*Click rewind button*/

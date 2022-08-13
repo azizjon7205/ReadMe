@@ -43,7 +43,7 @@ class DiscussAnswerRepliesAdapter : ListAdapter<Reply, DiscussAnswerRepliesAdapt
             val reply = currentList[adapterPosition]
             with(binding) {
 
-                Glide.with(root).load(reply.owner_image).error(R.drawable.ic_launcher_background).into(ivAvatar)
+                Glide.with(root).load(reply.owner_image).error(R.drawable.im_login).into(ivAvatar)
                 tvReplierName.text = reply.owner_name
                 tvReplyMessage.text = reply.message
 
