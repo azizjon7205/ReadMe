@@ -1,12 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="250dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/item_bottomsheet_background"
-    android:backgroundTint="@color/gray">
+    android:padding="10dp">
 
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/line"
+        android:layout_width="60dp"
+        android:layout_height="8dp"
+        app:cardBackgroundColor="@color/line"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/ic_close"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="@id/tv_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_content"
+        app:tint="@color/black" />
+
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:text="@string/str_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/line"
+        app:layout_constraintRight_toRightOf="@id/line"
+        app:layout_constraintTop_toBottomOf="@id/line" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_audio_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_audio_list"
+        tools:itemCount="16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
