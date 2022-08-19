@@ -1,12 +1,15 @@
 package me.ruyeo.kitobz.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemPopupBinding
 import me.ruyeo.kitobz.model.Popup
+import me.ruyeo.kitobz.utils.utils.extensions.tint
 
 class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()){
 
@@ -34,6 +37,7 @@ class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()){
 
     inner class VH(var itemPopupBinding: ItemPopupBinding) :
         RecyclerView.ViewHolder(itemPopupBinding.root) {
+        @SuppressLint("ResourceAsColor")
         fun onBind(popup: Popup) {
             itemPopupBinding.apply {
 
@@ -42,6 +46,7 @@ class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()){
                 }
 
                 tvText.text = popup.text
+
                 Glide.with(icImage).load(popup.image).into(icImage)
             }
         }
