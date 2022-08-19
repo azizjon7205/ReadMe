@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import dagger.hilt.android.AndroidEntryPoint
-import jp.wasabeef.blurry.Blurry
+
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.coroutines.Runnable
 import me.ruyeo.kitobz.R
@@ -26,6 +26,7 @@ import me.ruyeo.kitobz.adapter.PopupAdapter
 import me.ruyeo.kitobz.databinding.FragmentAudioPlayerBinding
 import me.ruyeo.kitobz.model.Popup
 import me.ruyeo.kitobz.ui.BaseFragment
+import okhttp3.internal.wait
 import viewBinding
 import java.util.concurrent.TimeUnit
 
@@ -208,7 +209,7 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
                 2 -> showContent()
                 3 -> showTimerDialog()
                 4 -> showToast(it.text)
-                5 -> setSpeed()
+                5 -> setSpeed(it)
             }
         }
 
@@ -274,14 +275,17 @@ class AudioPlayerFragment : BaseFragment(R.layout.fragment_audio_player), java.l
         dialog.show()
     }
 
-    private fun setSpeed() {
+    private fun setSpeed(popup: Popup) {
         dismissPopup()
-        if(speedOn) {
-            mediaPlayer.setPlaybackParams(mediaPlayer.playbackParams.setSpeed(1.5f))
-            speedOn = false
-        }else{
-            mediaPlayer.setPlaybackParams(mediaPlayer.playbackParams.setSpeed(1.0f))
-            speedOn = true
+
+        if (mediaPlayer.isPlaying) {
+            if (speedOn) {
+                mediaPlayer.setPlaybackParams(mediaPlayer.playbackParams.setSpeed(1.5f))
+                speedOn = false
+            } else {
+                mediaPlayer.setPlaybackParams(mediaPlayer.playbackParams.setSpeed(1.0f))
+                speedOn = true
+            }
         }
     }
 
