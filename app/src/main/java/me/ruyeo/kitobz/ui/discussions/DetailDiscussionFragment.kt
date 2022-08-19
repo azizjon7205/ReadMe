@@ -9,11 +9,11 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.widget.NestedScrollView
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -28,22 +28,19 @@ import me.ruyeo.kitobz.model.Discuss
 import me.ruyeo.kitobz.model.DiscussDetails
 import me.ruyeo.kitobz.model.Reply
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.utils.utils.extensions.scrollToBottomWithoutFocusChange
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.extensions.scrollToBottomWithoutFocusChange
+import me.ruyeo.kitobz.utils.extensions.visible
 import viewBinding
 import javax.inject.Inject
-
 
 @AndroidEntryPoint
 class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussion) {
     private val binding by viewBinding { FragmentDetailDiscussionBinding.bind(it) }
-    private val answersAdapter by lazy { DiscussAnswersAdapter() }
 
     @Inject
     lateinit var prefsManager: PrefsManager
 
     private var discuss: Discuss? = null
-    private var discussDetails: DiscussDetails? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,56 +53,14 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
 
         setupKeyboardListener(binding.nestedScroll)
 
+        setupUI()
         initViews()
     }
 
 
-
     private fun initViews() {
 
-        discussDetails = DiscussDetails(
-            header = "Где убили Пушкина? Когда и кем был убит Александр Пушкин",
-            owner_name = "Алина Бакальчук",
-            answers_count = 2,
-            messages_count = 3,
-            created_date = "16.02.2015",
-            discuss_theme = "Дуэль между Александром Сергеевичем Пушкиным и Жоржем де Геккерном (Дантесом) состоялась 27 января (8 февраля) 1837 года на окраине Санкт-Петербурга, в районе Чёрной речки близ Комендантской дачи. Дуэлянты стрелялись на пистолетах. В результате дуэли Пушкин был смертельно ранен и через два дня умер.",
-            answers = loadAnswers()
-        )
-
-
-
         with(binding) {
-
-            ivBack.setOnClickListener {
-                findNavController().navigateUp()
-            }
-
-            Glide.with(root).load(discuss?.avatar)
-                .error(R.drawable.im_audio_book)
-                .into(ivDiscussAvatar)
-            tvDiscussHeader.text = discuss?.header
-            tvDiscussOwner.text = discuss?.owner_name
-            tvDiscussDate.text = discuss?.created_date
-//            tvDiscussTheme.text = discussDetails?.discuss_theme
-
-            tvFollow.setOnClickListener {
-                tvFollow.isActivated = !tvFollow.isActivated
-                checkFollow()
-            }
-
-            bWriteAnswer.setOnClickListener {
-                bWriteAnswer.visible(false)
-                bPublishAnswer.visible(true)
-                llAnswer.visible(true)
-                showKeyboard(etAnswer)
-            }
-
-            etAnswer.setOnFocusChangeListener { v, hasFocus ->
-                if (!hasFocus){
-                    llAnswer.visible(false)
-                }
-            }
 
             val messageToAuth = root.context.getString(R.string.str_to_leave_reply_login)
             val clickableMessage = "авторизуйтесь."
@@ -133,67 +88,54 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
             tvNoteRegisterMain.text = spannable
             tvNoteRegisterMain.movementMethod = LinkMovementMethod.getInstance()
 
-            tvNoteRegister.text = spannable
-            tvNoteRegister.movementMethod = LinkMovementMethod.getInstance()
-
-            setupUI(discussDetails!!)
         }
     }
 
-    private fun setupUI(discussDetails: DiscussDetails) {
+    private fun setupUI() {
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.fcv_answers) as NavHostFragment
+        val navController = navHostFragment.navController
+        val navGraph = navController.navInflater.inflate(R.navigation.answer_nav_graph)
+        navGraph.setStartDestination(R.id.answerFragment)
+        navController.setGraph(navGraph, bundleOf("discuss" to Gson().toJson(discuss)))
+
         with(binding) {
-            val repliesAdapter by lazy { DiscussAnswerRepliesAdapter() }
 
-            fmProgress.visible(false)
-            tvDiscussTheme.text = discussDetails.discuss_theme
+            llBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
 
-            answersAdapter.submitList(discussDetails.answers)
-            answersAdapter.onClick = {
-                rvAnswers.visible(false)
-                llRepliesToAnswer.visible(true)
-                tvAnswerOwner.text = it.owner_name
-                tvAnswerDate.text = it.date
-                tvAnswerMessage.text = it.message
-                rvReplies.visible(true)
-                repliesAdapter.submitList(it.replies)
-                rvReplies.adapter = repliesAdapter
+            Glide.with(root).load(discuss?.avatar)
+                .error(R.drawable.im_audio_book)
+                .into(ivDiscussAvatar)
+            tvDiscussHeader.text = discuss?.header
+            tvDiscussOwner.text = discuss?.owner_name
+            tvDiscussDate.text = discuss?.created_date
+            tvDiscussTheme.text = discuss?.discuss_theme ?: ""
+
+            tvFollow.setOnClickListener {
+                tvFollow.isActivated = !tvFollow.isActivated
+                checkFollow()
             }
-            llCloseAnswers.setOnClickListener {
-                rvAnswers.visible(true)
-                llRepliesToAnswer.visible(false)
-            }
-            rvAnswers.adapter = answersAdapter
 
             if (prefsManager.getUser() == null) {
                 tvFollow.visible(true)
                 llAnswersTotalCount.visible(true)
-                llUserAnswer.visible(true)
                 tvNoteRegisterMain.visible(false)
-                tvNoteRegister.visible(false)
                 checkFollow()
 
-                if (discussDetails.answers_count == 0) {
-                    flBeFirst.visible(true)
-
-                } else {
-                    flBeFirst.visible(false)
-                }
             } else{
                 tvFollow.visible(false)
-                if (discussDetails.answers_count == 0) {
+                if (discuss?.messages_count == 0) {
                     llAnswersTotalCount.visible(false)
                     tvNoteRegisterMain.visible(true)
-                    tvNoteRegister.visible(false)
                 } else {
                     llAnswersTotalCount.visible(true)
                     tvNoteRegisterMain.visible(false)
-                    tvNoteRegister.visible(true)
-                    rvAnswers.visible(true)
                 }
             }
 
-            tvAnswersTotalCount.text = discussDetails.answers_count.toString()
-            tvMessagesTotalCount.text = discussDetails.messages_count.toString()
+            tvAnswersTotalCount.text = discuss?.answers_count.toString()
+            tvMessagesTotalCount.text = discuss?.messages_count.toString()
 
         }
     }
@@ -215,22 +157,24 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
             Answer(
                 owner_name = "Андрей Рыбаков",
                 date = "07.03.2020",
-                messages_count = 1,
+                replies_count = 1,
                 replies = loadReplies(),
                 message = "Очень интересная книга, всем советую её прочесть, особенно тем кого часто одолевает грусть и печаль. Авто чётко раскрывает тему и указывает путь к счастью."
             ),
             Answer(
                 owner_name = "Коля Абрамович",
                 date = "07.03.2020",
-                messages_count = 0,
+                replies_count = 0,
                 message = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."
             )
 
         )
     }
+
     private fun loadReplies(): List<Reply>{
         return arrayListOf(
             Reply(
+                uid = "1",
                 owner_name = "Коля Абрамович",
                 date = "07.03.2020",
                 message = "Очень интересная книга, всем советую её прочесть, особенно тем кого часто одолевает грусть и печаль."

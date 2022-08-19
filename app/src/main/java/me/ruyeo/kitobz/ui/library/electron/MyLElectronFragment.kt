@@ -9,7 +9,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.MyLibraryElectronicAdapter
 import me.ruyeo.kitobz.databinding.FragmentSubMyLibraryElectronBinding
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.utils.utils.mylibrary.RecyclerItemTouchHelper
+import me.ruyeo.kitobz.utils.mylibrary.RecyclerItemTouchHelper
 import viewBinding
 
 class MyLElectronFragment : BaseFragment(R.layout.fragment_sub_my_library_electron) {

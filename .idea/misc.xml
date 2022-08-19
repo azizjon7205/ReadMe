@@ -19,7 +19,10 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_more.xml" value="0.112" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/ic_next.xml" value="0.112" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/drawable/tv_rounded.xml" value="0.112" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/activity_main.xml" value="0.11944444444444445" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.1" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/dialog_lottie.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_answer.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_audio_player.xml" value="0.18" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_basket.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_basket_information.xml" value="0.1" />
@@ -27,7 +30,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_categories.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_choose_language.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_confirmation.xml" value="0.1" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_detail_discussion.xml" value="0.3784355179704017" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_detail_discussion.xml" value="0.2" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_detail_discussion_demo.xml" value="0.357429718875502" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_discuss.xml" value="0.15" />
@@ -39,6 +42,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_notifications.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_orders_history.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_replies.xml" value="0.16822916666666668" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_audio_book.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_basket_book.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_discuss_message.xml" value="0.25" />

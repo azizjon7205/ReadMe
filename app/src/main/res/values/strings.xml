@@ -210,5 +210,6 @@
     <string name="content">Содержание</string>
     <string name="bookmarks">Закладки</string>
     <string name="find">Найти</string>
+    <string name="str_be_the_forst_replier">Будьте первым кто оставит отзыв Пример</string>
 
 </resources>

@@ -3,12 +3,11 @@ package me.ruyeo.kitobz
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.databinding.ActivityMainBinding
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.extensions.visible
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

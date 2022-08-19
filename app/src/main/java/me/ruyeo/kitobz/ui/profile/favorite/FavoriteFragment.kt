@@ -8,7 +8,7 @@ import me.ruyeo.kitobz.adapter.AllFavoriteAdapter
 import me.ruyeo.kitobz.databinding.FragmentFavoritesBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.utils.utils.extensions.typeClicked
+import me.ruyeo.kitobz.utils.extensions.typeClicked
 import viewBinding
 
 class FavoriteFragment : BaseFragment(R.layout.fragment_favorites) {

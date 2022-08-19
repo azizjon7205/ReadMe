@@ -15,7 +15,7 @@ import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Category
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.home.HomeViewModel
-import me.ruyeo.kitobz.utils.utils.extensions.typeClicked
+import me.ruyeo.kitobz.utils.extensions.typeClicked
 import viewBinding
 
 @AndroidEntryPoint

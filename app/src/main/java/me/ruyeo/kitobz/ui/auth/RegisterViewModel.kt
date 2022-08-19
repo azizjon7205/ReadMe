@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.data.repository.AuthRepository
 import me.ruyeo.kitobz.model.User
-import me.ruyeo.kitobz.utils.utils.Constants
-import me.ruyeo.kitobz.utils.utils.UiStateObject
+import me.ruyeo.kitobz.utils.Constants
+import me.ruyeo.kitobz.utils.UiStateObject
 import javax.inject.Inject
 
 @HiltViewModel

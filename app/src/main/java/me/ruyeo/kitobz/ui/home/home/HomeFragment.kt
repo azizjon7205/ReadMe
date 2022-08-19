@@ -26,8 +26,8 @@ import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.ui.home.customs.BoundsOffsetDecoration
 import me.ruyeo.kitobz.ui.home.customs.LinearHorizontalSpacingDecoration
 import me.ruyeo.kitobz.ui.home.customs.ProminentLayoutManager
-import me.ruyeo.kitobz.utils.utils.UiStateList
-import me.ruyeo.kitobz.utils.utils.extensions.dpToPixel
+import me.ruyeo.kitobz.utils.UiStateList
+import me.ruyeo.kitobz.utils.extensions.dpToPixel
 import viewBinding
 
 

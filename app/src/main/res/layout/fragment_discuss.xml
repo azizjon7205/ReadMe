@@ -22,14 +22,22 @@
             android:fontFamily="@font/sf_pro_display_bold"
             android:textSize="28sp" />
 
-        <ImageView
-            android:id="@+id/iv_info"
-            android:layout_gravity="end|center_vertical"
-            android:layout_width="26dp"
-            android:layout_height="27dp"
-            android:layout_marginEnd="@dimen/side_16"
-            android:src="@drawable/ic_info"
-            app:tint="@color/black" />
+        <FrameLayout
+            android:id="@+id/fl_info"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="27dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/side_16"
+                android:src="@drawable/ic_info"
+                app:tint="@color/black" />
+        </FrameLayout>
+
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView

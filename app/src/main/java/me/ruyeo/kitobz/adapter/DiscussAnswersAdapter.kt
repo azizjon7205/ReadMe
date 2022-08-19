@@ -1,6 +1,5 @@
 package me.ruyeo.kitobz.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,10 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemDiscussMessageBinding
-import me.ruyeo.kitobz.databinding.ItemDiscussionBinding
 import me.ruyeo.kitobz.model.Answer
-import me.ruyeo.kitobz.model.Discuss
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.extensions.visible
 
 class DiscussAnswersAdapter : ListAdapter<Answer, DiscussAnswersAdapter.ViewHolder>(ITEM_DIFF) {
 
@@ -21,7 +18,7 @@ class DiscussAnswersAdapter : ListAdapter<Answer, DiscussAnswersAdapter.ViewHold
     companion object {
         private val ITEM_DIFF = object : DiffUtil.ItemCallback<Answer>() {
             override fun areItemsTheSame(oldItem: Answer, newItem: Answer): Boolean =
-                oldItem.id == newItem.id
+                oldItem.uid == newItem.uid
 
             override fun areContentsTheSame(oldItem: Answer, newItem: Answer): Boolean =
                 oldItem == newItem
@@ -48,12 +45,12 @@ class DiscussAnswersAdapter : ListAdapter<Answer, DiscussAnswersAdapter.ViewHold
                 tvAnswerDate.text = answer.date
                 tvAnswerMessage.text = answer.message
 
-                if (answer.messages_count == 0){
+                if (answer.replies_count == 0){
                     flRepliesCount.visible(false)
                     tvAnswersText.text = root.context.getString(R.string.str_reply)
                 } else{
                     flRepliesCount.visible(true)
-                    tvAnswersCount.text = answer.messages_count.toString()
+                    tvAnswersCount.text = answer.replies_count.toString()
                     tvAnswersText.text = root.context.getString(R.string.str_answers_2)
                 }
 

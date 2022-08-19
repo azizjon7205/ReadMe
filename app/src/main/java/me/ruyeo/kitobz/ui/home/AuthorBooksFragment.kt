@@ -1,9 +1,7 @@
 package me.ruyeo.kitobz.ui.home
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
@@ -13,9 +11,8 @@ import me.ruyeo.kitobz.adapter.BookAdapter
 import me.ruyeo.kitobz.databinding.FragmentAuthorBooksBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.utils.utils.extensions.typeClicked
+import me.ruyeo.kitobz.utils.extensions.typeClicked
 import viewBinding
-import java.util.*
 import kotlin.collections.ArrayList
 
 class AuthorBooksFragment : BaseFragment(R.layout.fragment_author_books), View.OnClickListener {

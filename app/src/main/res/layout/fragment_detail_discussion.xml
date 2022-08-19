@@ -16,14 +16,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/side_16">
+            android:orientation="vertical">
 
             <!-- back icon (as toolbar) -->
             <LinearLayout
-                android:background="@android:color/transparent"
-                android:layout_width="match_parent"
-                android:layout_height="44dp">
+                android:id="@+id/ll_back"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:paddingHorizontal="@dimen/side_16"
+                android:background="@color/white">
 
                 <ImageView
                     android:id="@+id/iv_back"
@@ -36,6 +37,7 @@
 
             <!-- Header and owner -->
             <LinearLayout
+                android:layout_marginHorizontal="@dimen/side_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -87,7 +89,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/tv_follow"
                         android:layout_width="wrap_content"
                         android:layout_height="24dp"
@@ -99,7 +100,8 @@
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="5dp"
                         android:text="@string/str_you_followed"
-                        android:textSize="@dimen/text_type_10" />
+                        android:textSize="@dimen/text_type_10"
+                        android:visibility="gone" />
 
                 </FrameLayout>
             </LinearLayout>
@@ -109,6 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_16"
+                android:layout_marginHorizontal="@dimen/side_16"
                 android:background="@drawable/bg_rounded_border_corner_8"
                 android:paddingVertical="10dp"
                 android:paddingStart="14dp"
@@ -178,296 +181,15 @@
 
             </LinearLayout>
 
-            <!--Answers-->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_answers"
+            <fragment
+                android:layout_marginHorizontal="@dimen/side_16"
+                android:id="@+id/fcv_answers"
+                android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="0"
-                tools:listitem="@layout/item_discuss_message" />
+                app:defaultNavHost="true">
 
-            <!--Replies to answers-->
-            <LinearLayout
-                android:id="@+id/ll_replies_to_answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_rounded_border_corner_8"
-                android:orientation="vertical"
-                android:paddingBottom="10dp"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginTop="9dp"
-                    android:gravity="center_vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/iv_answer_owner_image"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_account"
-                        app:shapeAppearanceOverlay="@style/circle" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_answer_owner"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:text="Дарья Иванова"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/tv_answer_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:text="07.03.2020"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_close_answers"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="13dp"
-                        android:layout_marginEnd="18dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="3dp"
-                            android:fontFamily="@font/sf_pro_text_semibold"
-                            android:gravity="center_vertical"
-                            android:includeFontPadding="false"
-                            android:text="@string/str_close_answers"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_type_11" />
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_marginStart="3dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_back"
-                            app:tint="@color/gray" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tv_answer_message"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="43dp"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/sf_pro_text_regular"
-                    android:lineSpacingExtra="5dp"
-                    android:text="Очень интересная книга, всем советую её прочесть, особенно тем кого часто одолевает грусть и печаль. Авто чётко раскрывает тему и указывает путь к счастью."
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_type_15" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_replies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="1"
-                    tools:listitem="@layout/item_replies_to_answers" />
-
-            </LinearLayout>
-
-            <!-- Progressbar -->
-            <FrameLayout
-                android:visibility="gone"
-                android:paddingVertical="10dp"
-                android:id="@+id/fm_progress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ProgressBar
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </FrameLayout>
-
-            <!-- Message to register -->
-            <TextView
-                android:id="@+id/tv_note_register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="80dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/sf_pro_text_regular"
-                android:lineSpacingExtra="4dp"
-                android:text="Что-бы оставить ответ, авторизуйтесь."
-                android:textAlignment="center"
-                android:textColor="@color/black_light_1"
-                android:textSize="17sp"
-                android:visibility="gone" />
-
-            <!-- Replying user -->
-            <LinearLayout
-                android:id="@+id/ll_user_answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/bg_rounded_border_corner_8"
-                android:fitsSystemWindows="true"
-                android:orientation="vertical"
-                android:paddingHorizontal="10dp"
-                android:visibility="visible">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:gravity="center_vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/iv_owner_image"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_account"
-                        app:shapeAppearanceOverlay="@style/circle" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_user_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:text="Дарья Иванова"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/tv_user_answer_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/sf_pro_text_regular"
-                            android:text="07.03.2020"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/b_write_answer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="32dp"
-                        android:background="@drawable/button_default_bg"
-                        android:drawableStart="@drawable/ic_write"
-                        android:drawablePadding="10dp"
-                        android:fontFamily="@font/sf_pro_text_regular"
-                        android:gravity="center_vertical"
-                        android:includeFontPadding="false"
-                        android:paddingHorizontal="10dp"
-                        android:text="@string/str_write"
-                        android:textSize="@dimen/text_type_12"
-                        android:visibility="visible"
-                        app:background="@null" />
-
-                    <Button
-                        android:id="@+id/b_publish_answer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="32dp"
-                        android:background="@drawable/button_default_bg"
-                        android:fontFamily="@font/sf_pro_text_regular"
-                        android:gravity="center_vertical"
-                        android:includeFontPadding="false"
-                        android:paddingHorizontal="15dp"
-                        android:text="@string/str_publish"
-                        android:textSize="12sp"
-                        android:visibility="gone"
-                        app:background="@null" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_answer"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <EditText
-                        android:id="@+id/et_answer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="33dp"
-                        android:background="@null"
-                        android:fontFamily="@font/sf_pro_text_regular"
-                        android:gravity="top|start"
-                        android:inputType="textMultiLine"
-                        android:minHeight="64dp"
-                        android:overScrollMode="always"
-                        android:scrollbars="vertical"
-                        android:singleLine="false"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- NOTE: be first replier text -->
-            <FrameLayout
-                android:id="@+id/fl_be_first"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/tv_be_first"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="40dp"
-                    android:fontFamily="@font/sf_pro_text_regular"
-                    android:lineSpacingExtra="5dp"
-                    android:text="Будьте первым кто оставит отзыв Пример"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_light_1"
-                    android:textSize="17sp" />
-
-            </FrameLayout>
+            </fragment>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -477,7 +199,7 @@
         android:id="@+id/cl_note_register"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nested_scroll">
 
@@ -494,7 +216,7 @@
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintVertical_bias="0.75" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

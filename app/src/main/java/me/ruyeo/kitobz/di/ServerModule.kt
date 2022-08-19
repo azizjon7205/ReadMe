@@ -8,7 +8,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.ruyeo.kitobz.data.remote.ApiService
-import me.ruyeo.kitobz.utils.utils.Constants.BASE_URL
+import me.ruyeo.kitobz.utils.Constants.BASE_URL
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

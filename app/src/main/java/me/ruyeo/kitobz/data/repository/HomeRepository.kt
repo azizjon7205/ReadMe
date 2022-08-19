@@ -1,13 +1,9 @@
 package me.ruyeo.kitobz.data.repository
 
-import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.coroutines.delay
 import me.ruyeo.kitobz.data.remote.ApiService
-import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.utils.utils.Constants
+import me.ruyeo.kitobz.utils.Constants
 import javax.inject.Inject
 
 class HomeRepository @Inject constructor(

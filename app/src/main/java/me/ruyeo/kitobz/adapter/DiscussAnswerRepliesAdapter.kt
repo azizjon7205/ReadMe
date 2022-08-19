@@ -1,6 +1,5 @@
 package me.ruyeo.kitobz.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,20 +7,15 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.databinding.ItemDiscussMessageBinding
-import me.ruyeo.kitobz.databinding.ItemDiscussionBinding
 import me.ruyeo.kitobz.databinding.ItemRepliesToAnswersBinding
-import me.ruyeo.kitobz.model.Answer
-import me.ruyeo.kitobz.model.Discuss
 import me.ruyeo.kitobz.model.Reply
-import me.ruyeo.kitobz.utils.utils.extensions.visible
 
 class DiscussAnswerRepliesAdapter : ListAdapter<Reply, DiscussAnswerRepliesAdapter.ViewHolder>(ITEM_DIFF) {
 
     companion object {
         private val ITEM_DIFF = object : DiffUtil.ItemCallback<Reply>() {
             override fun areItemsTheSame(oldItem: Reply, newItem: Reply): Boolean =
-                oldItem.id == newItem.id
+                oldItem.uid == newItem.uid
 
             override fun areContentsTheSame(oldItem: Reply, newItem: Reply): Boolean =
                 oldItem == newItem

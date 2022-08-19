@@ -24,7 +24,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/ic_account"
             app:shapeAppearanceOverlay="@style/circle" />
 
         <TextView

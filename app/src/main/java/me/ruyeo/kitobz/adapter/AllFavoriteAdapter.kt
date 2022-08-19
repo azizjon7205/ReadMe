@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemBookBinding
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.extensions.visible
 
 class AllFavoriteAdapter : ListAdapter<Book, AllFavoriteAdapter.ViewHolder>(ITEM_DIFF) {
     var onItemClick: ((Long) -> Unit)? = null

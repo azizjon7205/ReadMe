@@ -9,7 +9,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.MyLibraryAudioAdapter
 import me.ruyeo.kitobz.databinding.FragmentSubMyLibraryAudioBinding
 import me.ruyeo.kitobz.ui.BaseFragment
-import me.ruyeo.kitobz.utils.utils.mylibrary.RecyclerItemTouchHelper
+import me.ruyeo.kitobz.utils.mylibrary.RecyclerItemTouchHelper
 import viewBinding
 
 class MyLAudioFragment : BaseFragment(R.layout.fragment_sub_my_library_audio) {

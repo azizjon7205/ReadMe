@@ -12,14 +12,9 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.data.repository.AuthRepository
-import me.ruyeo.kitobz.model.LoginData
-import me.ruyeo.kitobz.utils.utils.Constants.ERROR_MESSAGE
-import me.ruyeo.kitobz.utils.utils.Constants.PHONE_AUTH_TIMEOUT
-import me.ruyeo.kitobz.utils.utils.UiStateObject
+import me.ruyeo.kitobz.utils.Constants.PHONE_AUTH_TIMEOUT
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

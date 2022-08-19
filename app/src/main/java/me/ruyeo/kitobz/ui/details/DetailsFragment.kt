@@ -7,11 +7,8 @@ import android.text.Html
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
@@ -33,7 +30,7 @@ import me.ruyeo.kitobz.model.Feedback
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.ui.home.customs.MySpannable
-import me.ruyeo.kitobz.utils.utils.extensions.*
+import me.ruyeo.kitobz.utils.extensions.*
 import viewBinding
 
 @AndroidEntryPoint

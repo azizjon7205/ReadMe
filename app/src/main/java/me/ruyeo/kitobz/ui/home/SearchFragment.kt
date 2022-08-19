@@ -15,7 +15,7 @@ import me.ruyeo.kitobz.model.Banner1
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.ui.BaseFragment
 import me.ruyeo.kitobz.ui.home.home.HomeViewModel
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.extensions.visible
 import viewBinding
 
 @AndroidEntryPoint

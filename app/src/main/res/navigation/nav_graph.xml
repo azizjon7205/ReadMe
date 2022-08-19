@@ -4,11 +4,16 @@
     android:id="@+id/navigation"
     app:startDestination="@id/homeFragment">
 
+    <action
+        android:id="@+id/action_discuss_to_answers"
+        app:destination="@+id/detailDiscussionFragment"
+        app:popUpTo="@navigation/nav_graph"/>
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="me.ruyeo.kitobz.ui.home.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -26,7 +31,7 @@
         android:id="@+id/basketFragment"
         android:name="me.ruyeo.kitobz.ui.basket.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" >
+        tools:layout="@layout/fragment_basket">
         <action
             android:id="@+id/action_basketFragment_to_informationFragment"
             app:destination="@id/informationFragment" />
@@ -38,7 +43,7 @@
         android:id="@+id/discussFragment"
         android:name="me.ruyeo.kitobz.ui.discussions.DiscussFragment"
         android:label="fragment_discuss"
-        tools:layout="@layout/fragment_discuss" >
+        tools:layout="@layout/fragment_discuss">
         <action
             android:id="@+id/action_discussFragment_to_detailDiscussionFragment"
             app:destination="@id/detailDiscussionFragment" />
@@ -50,7 +55,7 @@
         android:id="@+id/myLibraryFragment"
         android:name="me.ruyeo.kitobz.ui.library.MyLibraryFragment"
         android:label="fragment_my_library"
-        tools:layout="@layout/fragment_my_library" >
+        tools:layout="@layout/fragment_my_library">
         <action
             android:id="@+id/action_myLibraryFragment_to_myLSearchFragment"
             app:destination="@id/myLSearchFragment" />
@@ -59,7 +64,7 @@
         android:id="@+id/profileFragment2"
         android:name="me.ruyeo.kitobz.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment2_to_orderHistoryFragment"
             app:destination="@id/orderHistoryFragment" />
@@ -80,7 +85,7 @@
         android:id="@+id/searchFragment"
         android:name="me.ruyeo.kitobz.ui.home.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_authorBooksFragment"
             app:destination="@id/authorBooksFragment" />
@@ -89,7 +94,7 @@
         android:id="@+id/shawAllFragment"
         android:name="me.ruyeo.kitobz.ui.home.ShawAllFragment"
         android:label="fragment_shaw_all"
-        tools:layout="@layout/fragment_shaw_all" >
+        tools:layout="@layout/fragment_shaw_all">
         <action
             android:id="@+id/action_shawAllFragment_to_filterFragment"
             app:destination="@id/filterFragment" />
@@ -108,7 +113,7 @@
         android:id="@+id/detailsFragment"
         android:name="me.ruyeo.kitobz.ui.details.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_detailsFragment_to_audioPlayerFragment"
             app:destination="@id/audioPlayerFragment" />
@@ -120,7 +125,7 @@
         android:id="@+id/filterFragment"
         android:name="me.ruyeo.kitobz.ui.home.FilterFragment"
         android:label="fragment_filter"
-        tools:layout="@layout/fragment_filter" >
+        tools:layout="@layout/fragment_filter">
         <action
             android:id="@+id/action_filterFragment_to_shawAllFragment"
             app:destination="@id/shawAllFragment" />
@@ -134,17 +139,17 @@
         android:name="me.ruyeo.kitobz.ui.pdfview.PdfViewFragment"
         android:label="fragment_pdf_view"
         tools:layout="@layout/fragment_pdf_view" />
-        tools:layout="@layout/fragment_details" />
+    tools:layout="@layout/fragment_details" />
     <fragment
         android:id="@+id/myLSearchFragment"
         android:name="me.ruyeo.kitobz.ui.library.search.MyLSearchFragment"
         android:label="MyLSearchFragment"
-        tools:layout="@layout/fragment_my_library_search"/>
+        tools:layout="@layout/fragment_my_library_search" />
     <fragment
         android:id="@+id/informationFragment"
         android:name="me.ruyeo.kitobz.ui.basket.information.InformationFragment"
         android:label="InformationFragment"
-        tools:layout="@layout/fragment_basket_information"/>
+        tools:layout="@layout/fragment_basket_information" />
     <fragment
         android:id="@+id/basketOrderFragment"
         android:name="me.ruyeo.kitobz.ui.basket.orders.BasketOrderFragment"
@@ -172,12 +177,12 @@
         android:id="@+id/confirmNumberFragment"
         android:name="me.ruyeo.kitobz.ui.profile.personaldata.confirmpnumber.ConfirmNumberFragment"
         android:label="ConfirmNumberFragment"
-        tools:layout="@layout/fragment_confirmation"/>
+        tools:layout="@layout/fragment_confirmation" />
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="me.ruyeo.kitobz.ui.profile.notifications.NotificationsFragment"
         android:label="NotificationsFragment"
-        tools:layout="@layout/fragment_notifications"/>
+        tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/applicationFragment"
         android:name="me.ruyeo.kitobz.ui.profile.application.ApplicationFragment"
@@ -191,12 +196,12 @@
         android:id="@+id/memoryFragment"
         android:name="me.ruyeo.kitobz.ui.profile.application.memory.MemoryFragment"
         android:label="MemoryFragment"
-        tools:layout="@layout/fragment_memory"/>
+        tools:layout="@layout/fragment_memory" />
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="me.ruyeo.kitobz.ui.profile.favorite.FavoriteFragment"
         android:label="FavoriteFragment"
-        tools:layout="@layout/fragment_favorites"/>
+        tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/detailDiscussionFragment"
         android:name="me.ruyeo.kitobz.ui.discussions.DetailDiscussionFragment"

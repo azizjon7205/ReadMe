@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.discussions.answers.AnswerFragment">
+
+    <!--Answers-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_answers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_discuss_message" />
+
+    <!-- Progressbar -->
+    <FrameLayout
+        android:visibility="gone"
+        android:paddingVertical="30dp"
+        android:id="@+id/fm_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+    <!-- Message to register -->
+    <TextView
+        android:id="@+id/tv_note_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/str_to_leave_reply_login"
+        android:textAlignment="center"
+        android:textColor="@color/black_light_1"
+        android:textSize="17sp"
+        android:visibility="gone" />
+
+    <!-- Replying user -->
+    <LinearLayout
+        android:id="@+id/ll_user_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_rounded_border_corner_8"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_owner_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_account"
+                app:shapeAppearanceOverlay="@style/circle" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="Дарья Иванова"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_user_answer_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="07.03.2020"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/b_write_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/button_default_bg"
+                android:drawableStart="@drawable/ic_write"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="10dp"
+                android:text="@string/str_write"
+                android:textSize="@dimen/text_type_12"
+                android:visibility="visible"
+                app:background="@null" />
+
+            <Button
+                android:id="@+id/b_publish_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/button_default_bg"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="15dp"
+                android:text="@string/str_publish"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:background="@null" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_answer"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:background="@null"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:minHeight="64dp"
+                android:overScrollMode="always"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- NOTE: be first replier text -->
+    <FrameLayout
+        android:id="@+id/fl_be_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_be_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="40dp"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/str_be_the_forst_replier"
+            android:textAlignment="center"
+            android:textColor="@color/black_light_1"
+            android:textSize="17sp" />
+
+    </FrameLayout>
+
+</LinearLayout>

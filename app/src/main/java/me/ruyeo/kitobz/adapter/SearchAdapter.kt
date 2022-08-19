@@ -2,7 +2,6 @@ package me.ruyeo.kitobz.adapter
 
 import android.graphics.Paint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.databinding.ItemSearchBinding
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.utils.utils.extensions.visible
+import me.ruyeo.kitobz.utils.extensions.visible
 
 class SearchAdapter: RecyclerView.Adapter<SearchAdapter.BookVH>() {
 

@@ -16,8 +16,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import me.ruyeo.kitobz.MainActivity
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.utils.utils.dialogs.MessageDialog
-import me.ruyeo.kitobz.utils.utils.dialogs.ProgressBarDialog
+import me.ruyeo.kitobz.utils.dialogs.MessageDialog
+import me.ruyeo.kitobz.utils.dialogs.ProgressBarDialog
 
 
 abstract class BaseFragment(private val layoutRes: Int) : Fragment() {

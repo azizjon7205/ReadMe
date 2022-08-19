@@ -18,7 +18,7 @@ class DiscussAdapter : ListAdapter<Discuss, DiscussAdapter.ViewHolder>(ITEM_DIFF
     companion object {
         private val ITEM_DIFF = object : DiffUtil.ItemCallback<Discuss>() {
             override fun areItemsTheSame(oldItem: Discuss, newItem: Discuss): Boolean =
-                oldItem.id == newItem.id
+                oldItem.uid == newItem.uid
 
             override fun areContentsTheSame(oldItem: Discuss, newItem: Discuss): Boolean =
                 oldItem == newItem

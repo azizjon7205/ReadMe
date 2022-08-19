@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.data.repository.HomeRepository
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Category
-import me.ruyeo.kitobz.utils.utils.Constants.ERROR_MESSAGE
-import me.ruyeo.kitobz.utils.utils.UiStateList
+import me.ruyeo.kitobz.utils.Constants.ERROR_MESSAGE
+import me.ruyeo.kitobz.utils.UiStateList
 import javax.inject.Inject
 
 @HiltViewModel
