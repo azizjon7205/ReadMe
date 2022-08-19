@@ -188,4 +188,17 @@
     <string name="str_pre_order_7_18_days">Предзаказ 7–18 дней</string>
     <string name="str_apply">Применить</string>
 
+    <!--pdf view strings-->
+    <string name="settings_view">Настройки просмотра</string>
+    <string name="size_text">Размер шрифта</string>
+    <string name="day">День</string>
+    <string name="sepia">Сепия</string>
+    <string name="night">Ночь</string>
+    <string name="auto">Авто</string>
+    <string name="without_lock">Без автоблокировки</string>
+    <string name="off_titul">Отключить колонтитулы</string>
+    <string name="content">Содержание</string>
+    <string name="bookmarks">Закладки</string>
+    <string name="find">Найти</string>
+
 </resources>
