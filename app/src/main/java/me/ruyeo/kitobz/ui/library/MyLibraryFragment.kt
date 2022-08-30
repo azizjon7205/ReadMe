@@ -1,7 +1,6 @@
 package me.ruyeo.kitobz.ui.library
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -10,7 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.MyLibraryVPAdapter
 import me.ruyeo.kitobz.databinding.FragmentMyLibraryBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.library.audio.MyLAudioFragment
 import me.ruyeo.kitobz.ui.library.electron.MyLElectronFragment
 import viewBinding

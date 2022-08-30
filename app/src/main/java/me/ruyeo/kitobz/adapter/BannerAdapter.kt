@@ -19,7 +19,6 @@ class BannerAdapter : ListAdapter<Banner1, BannerAdapter.ViewHolder>(ITEM_DIFF){
         return ViewHolder(binding)
     }
 
-
     inner class ViewHolder(private val binding: ItemBannerMainBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

@@ -10,7 +10,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.BookAdapter
 import me.ruyeo.kitobz.databinding.FragmentAuthorBooksBinding
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.utils.extensions.typeClicked
 import viewBinding
 import kotlin.collections.ArrayList
@@ -53,7 +53,7 @@ class AuthorBooksFragment : BaseFragment(R.layout.fragment_author_books), View.O
 
         with(binding){
 
-            ivBack.setOnClickListener{
+            llBack.setOnClickListener{
                 findNavController().navigateUp()
             }
 

@@ -15,25 +15,26 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
+            app:contentInsetStart="0dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize">
 
             <LinearLayout
+                android:id="@+id/ll_back"
                 android:gravity="center_vertical"
-                android:layout_marginEnd="@dimen/side_16"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/iv_back"
+                    android:paddingHorizontal="@dimen/side_16"
                     android:src="@drawable/ic_arrow_left"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"/>
 
                 <TextView
                     android:id="@+id/tv_category_name"
-                    android:layout_marginHorizontal="@dimen/side_16"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:text="@string/str_categories"
                     android:gravity="center"
                     android:fontFamily="@font/sf_pro_display_bold"
@@ -44,10 +45,10 @@
 
                 <ImageView
                     android:id="@+id/iv_filter"
-                    android:layout_gravity="end|center_vertical"
+                    android:paddingHorizontal="@dimen/side_16"
                     android:src="@drawable/ic_filter"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"/>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 

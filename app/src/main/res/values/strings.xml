@@ -194,9 +194,13 @@
     <string name="str_answers_2">Ответы</string>
     <string name="str_messages">cообщений:</string>
     <string name="str_write">Написать</string>
+    <string name="str_write_1">Напишите</string>
     <string name="str_reply">Ответить</string>
     <string name="str_close_answers">Закрыть ответы</string>
     <string name="str_to_leave_reply_login">Что-бы оставить ответ, авторизуйтесь.</string>
+    <string name="str_enter_topic_name">Введите название темы (максимум 70 символов)</string>
+    <string name="str_add_photo">Добавьте фото</string>
+    <string name="str_topic">Тема</string>
 
     <!--pdf view strings-->
     <string name="settings_view">Настройки просмотра</string>
@@ -211,5 +215,9 @@
     <string name="bookmarks">Закладки</string>
     <string name="find">Найти</string>
     <string name="str_be_the_forst_replier">Будьте первым кто оставит отзыв Пример</string>
+
+    <string name="str_home">Главная</string>
+    <string name="str_cart">Корзина</string>
+    <string name="str_profile">Аккаунт</string>
 
 </resources>

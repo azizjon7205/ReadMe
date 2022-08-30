@@ -5,11 +5,10 @@ import android.util.Log
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentPdfViewBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 
 class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {

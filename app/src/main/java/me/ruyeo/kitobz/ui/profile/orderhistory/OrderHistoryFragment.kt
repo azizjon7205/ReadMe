@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.OrderDetailsAdapter
 import me.ruyeo.kitobz.databinding.FragmentOrdersHistoryBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.basket.information.InfoModel
 import viewBinding
 

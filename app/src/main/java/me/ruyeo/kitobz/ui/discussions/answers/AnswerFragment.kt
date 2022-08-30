@@ -1,11 +1,10 @@
 package me.ruyeo.kitobz.ui.discussions.answers
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
@@ -16,9 +15,9 @@ import me.ruyeo.kitobz.databinding.FragmentAnswerBinding
 import me.ruyeo.kitobz.managers.PrefsManager
 import me.ruyeo.kitobz.model.Answer
 import me.ruyeo.kitobz.model.Discuss
-import me.ruyeo.kitobz.model.DiscussDetails
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.utils.extensions.visible
+import me.ruyeo.kitobz.utils.spannable.MyClickableSpans
 import viewBinding
 import javax.inject.Inject
 
@@ -62,7 +61,7 @@ class AnswerFragment : BaseFragment(R.layout.fragment_answer) {
                 showKeyboard(etAnswer)
             }
 
-            if (prefsManager.getUser() == null) {
+            if (prefsManager.getUser() != null) {
                 llUserAnswer.visible(true)
                 tvNoteRegister.visible(false)
 
@@ -73,9 +72,21 @@ class AnswerFragment : BaseFragment(R.layout.fragment_answer) {
                     flBeFirst.visible(false)
                 }
             } else{
+                if (discuss.messages_count == 0) {
+                    tvNoteRegister.visible(false)
+
+                } else {
+                    tvNoteRegister.visible(true)
+                }
                 llAnswer.visible(false)
-                tvNoteRegister.visible(true)
             }
+
+            tvNoteRegister.text = MyClickableSpans.clickableSpan(
+                requireContext().getString(R.string.str_to_leave_reply_login),
+                "авторизуйтесь"){
+                Toast.makeText(requireContext(), "Log in to answer", Toast.LENGTH_SHORT).show()
+            }
+            tvNoteRegister.movementMethod = LinkMovementMethod.getInstance()
         }
     }
 

@@ -1,4 +1,4 @@
-package me.ruyeo.kitobz.ui
+package me.ruyeo.kitobz.ui.base
 
 import android.app.Dialog
 import android.content.Context
@@ -18,6 +18,8 @@ import me.ruyeo.kitobz.MainActivity
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.utils.dialogs.MessageDialog
 import me.ruyeo.kitobz.utils.dialogs.ProgressBarDialog
+import me.ruyeo.kitobz.utils.extensions.activityNavController
+import me.ruyeo.kitobz.utils.extensions.navigateSafely
 
 
 abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
@@ -76,10 +78,7 @@ abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
     }
 
     fun callActivityMain() {
-      var intent = Intent(requireActivity(),MainActivity::class.java)
-        startActivity(intent)
-//        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        requireActivity().finish()
+        activityNavController().navigateSafely(R.id.action_global_mainFlowFragment)
     }
 
     fun clearLightStatusBar() {

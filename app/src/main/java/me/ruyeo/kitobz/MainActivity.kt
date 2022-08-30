@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.databinding.ActivityMainBinding
@@ -19,20 +20,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initViews()
 
-        navController = findNavController(R.id.nav_host_main)
-        binding.bnvMain.setupWithNavController(navController)
+    }
 
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when (destination.id) {
-                R.id.homeFragment, R.id.basketFragment, R.id.myLibraryFragment, R.id.discussFragment, R.id.profileFragment2, R.id.basketOrderFragment -> {
-                    binding.bnvMain.visible(true)
-                }
-                else -> {
-                    binding.bnvMain.visible(false)
-                }
-            }
-        }
+    private fun initViews() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+
+        navController.graph = navGraph
     }
 }

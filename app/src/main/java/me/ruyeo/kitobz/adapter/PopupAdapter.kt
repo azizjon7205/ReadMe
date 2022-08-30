@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.ItemPopupBinding
 import me.ruyeo.kitobz.model.Popup
-import me.ruyeo.kitobz.utils.utils.extensions.tint
 
 class PopupAdapter : ListAdapter<Popup, PopupAdapter.VH>(DiffUtil()){
 

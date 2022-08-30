@@ -1,14 +1,9 @@
 package me.ruyeo.kitobz.ui.discussions
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.TextPaint
 import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.Toast
 import androidx.core.os.bundleOf
@@ -19,17 +14,15 @@ import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
-import me.ruyeo.kitobz.adapter.DiscussAnswerRepliesAdapter
-import me.ruyeo.kitobz.adapter.DiscussAnswersAdapter
 import me.ruyeo.kitobz.databinding.FragmentDetailDiscussionBinding
 import me.ruyeo.kitobz.managers.PrefsManager
 import me.ruyeo.kitobz.model.Answer
 import me.ruyeo.kitobz.model.Discuss
-import me.ruyeo.kitobz.model.DiscussDetails
 import me.ruyeo.kitobz.model.Reply
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.utils.extensions.scrollToBottomWithoutFocusChange
 import me.ruyeo.kitobz.utils.extensions.visible
+import me.ruyeo.kitobz.utils.spannable.MyClickableSpans
 import viewBinding
 import javax.inject.Inject
 
@@ -54,42 +47,8 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
         setupKeyboardListener(binding.nestedScroll)
 
         setupUI()
-        initViews()
     }
 
-
-    private fun initViews() {
-
-        with(binding) {
-
-            val messageToAuth = root.context.getString(R.string.str_to_leave_reply_login)
-            val clickableMessage = "авторизуйтесь."
-            val spannable = SpannableString(messageToAuth)
-            val clickableSpan = object : ClickableSpan() {
-                override fun onClick(widget: View) {
-                    Toast.makeText(requireContext(), "Log in to answer", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun updateDrawState(ds: TextPaint) {
-                    super.updateDrawState(ds)
-                    ds.isUnderlineText = false
-                    ds.color = Color.BLACK
-                }
-            }
-//            val foregroundColorSpan = ForegroundColorSpan(Color.BLUE)  //That is for change link color
-
-            spannable.setSpan(
-                clickableSpan,
-                messageToAuth.length - clickableMessage.length,
-                messageToAuth.length - 1,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-
-            tvNoteRegisterMain.text = spannable
-            tvNoteRegisterMain.movementMethod = LinkMovementMethod.getInstance()
-
-        }
-    }
 
     private fun setupUI() {
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fcv_answers) as NavHostFragment
@@ -99,6 +58,13 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
         navController.setGraph(navGraph, bundleOf("discuss" to Gson().toJson(discuss)))
 
         with(binding) {
+
+            tvNoteRegisterMain.text = MyClickableSpans.clickableSpan(
+                requireContext().getString(R.string.str_to_leave_reply_login),
+                "авторизуйтесь"){
+                Toast.makeText(requireContext(), "Log in to answer", Toast.LENGTH_SHORT).show()
+            }
+            tvNoteRegisterMain.movementMethod = LinkMovementMethod.getInstance()
 
             llBack.setOnClickListener {
                 findNavController().navigateUp()
@@ -117,20 +83,20 @@ class DetailDiscussionFragment : BaseFragment(R.layout.fragment_detail_discussio
                 checkFollow()
             }
 
-            if (prefsManager.getUser() == null) {
+            if (prefsManager.getUser() != null) {
                 tvFollow.visible(true)
                 llAnswersTotalCount.visible(true)
-                tvNoteRegisterMain.visible(false)
+                clNoteRegisterMain.visible(false)
                 checkFollow()
 
             } else{
                 tvFollow.visible(false)
                 if (discuss?.messages_count == 0) {
                     llAnswersTotalCount.visible(false)
-                    tvNoteRegisterMain.visible(true)
+                    clNoteRegisterMain.visible(true)
                 } else {
                     llAnswersTotalCount.visible(true)
-                    tvNoteRegisterMain.visible(false)
+                    clNoteRegisterMain.visible(false)
                 }
             }
 

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.home.home.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,21 +16,22 @@
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
+            app:contentInsetStart="0dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/context_menu">
 
             <LinearLayout
                 android:id="@+id/ll_search"
-                android:layout_marginEnd="70dp"
+                android:paddingHorizontal="@dimen/side_16"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_menu_search"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:src="@drawable/ic_search"
                     app:tint="@color/black" />
 
                 <TextView
@@ -38,17 +40,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_text_regular"
                     android:text="@string/str_search"
                     android:textColor="#8A8A8F"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/text_type_17" />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <me.ruyeo.kitobz.utils.bounce.BouncyNestedScrollView
+        android:id="@+id/nested_scroll_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
@@ -57,16 +62,23 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_banner"
-                tools:listitem="@layout/item_banner_main"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_banner"
+                android:paddingHorizontal="120dp"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="225dp"/>
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_banner"-->
+<!--                tools:listitem="@layout/item_banner_main"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
 
             <LinearLayout
-                android:layout_marginVertical="15dp"
+                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -98,10 +110,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:paddingEnd="0dp"
+                android:paddingStart="16dp">
 
                 <TextView
+                    android:layout_marginVertical="5dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -113,7 +126,8 @@
                 <LinearLayout
                     android:id="@+id/ll_show_all_categories"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UseCompoundDrawables">
@@ -139,8 +153,9 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_cats"
+                android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -153,11 +168,11 @@
                 android:layout_marginTop="17dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:layout_marginStart="16dp">
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_marginVertical="5dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
@@ -168,7 +183,8 @@
                 <LinearLayout
                     android:id="@+id/ll_show_all_authors"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UseCompoundDrawables">
@@ -194,8 +210,9 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_authors"
+                android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -208,11 +225,11 @@
                 android:layout_marginTop="17dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:layout_marginStart="16dp">
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_marginVertical="5dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
@@ -223,7 +240,8 @@
                 <LinearLayout
                     android:id="@+id/ll_show_all_audio_books"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UseCompoundDrawables">
@@ -246,10 +264,12 @@
                         app:tint="@color/gray" />
 
                 </LinearLayout>
+
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_audio_books"
+                android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -262,11 +282,11 @@
                 android:layout_marginTop="17dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:layout_marginStart="16dp">
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_marginVertical="5dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
@@ -277,7 +297,8 @@
                 <LinearLayout
                     android:id="@+id/ll_show_all_elektronic_books"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UseCompoundDrawables">
@@ -300,34 +321,36 @@
                         app:tint="@color/gray" />
 
                 </LinearLayout>
+
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_electronic_books"
+                android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_ebook" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginTop="17dp" />
+                android:layout_marginTop="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="22dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:layout_marginStart="16dp">
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_marginVertical="5dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
@@ -338,7 +361,8 @@
                 <LinearLayout
                     android:id="@+id/ll_show_all_new_arrivals"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UseCompoundDrawables">
@@ -361,10 +385,12 @@
                         app:tint="@color/gray" />
 
                 </LinearLayout>
+
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_new_arrivals"
+                android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -377,12 +403,12 @@
                 android:layout_marginTop="17dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:layout_marginStart="16dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_pro_text_bold"
                     android:text="@string/str_news"
@@ -390,8 +416,7 @@
                     android:textSize="17sp" />
             </LinearLayout>
 
-
-            <androidx.recyclerview.widget.RecyclerView
+            <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -400,6 +425,6 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </me.ruyeo.kitobz.utils.bounce.BouncyNestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

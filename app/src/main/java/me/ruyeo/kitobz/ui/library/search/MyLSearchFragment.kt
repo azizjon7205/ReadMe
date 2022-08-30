@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.MyLibrarySearchAdapter
 import me.ruyeo.kitobz.databinding.FragmentMyLibrarySearchBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 
 class MyLSearchFragment: BaseFragment(R.layout.fragment_my_library_search) {

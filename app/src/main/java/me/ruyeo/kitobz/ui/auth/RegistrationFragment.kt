@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentRegisttrationBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 
 @AndroidEntryPoint

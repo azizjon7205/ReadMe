@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.MyLibraryElectronicAdapter
 import me.ruyeo.kitobz.databinding.FragmentSubMyLibraryElectronBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.utils.mylibrary.RecyclerItemTouchHelper
 import viewBinding
 

@@ -11,7 +11,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.DiscussAdapter
 import me.ruyeo.kitobz.databinding.FragmentDiscussBinding
 import me.ruyeo.kitobz.model.Discuss
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 
 @AndroidEntryPoint
@@ -45,6 +45,10 @@ class DiscussFragment : BaseFragment(R.layout.fragment_discuss) {
 
             flInfo.setOnClickListener {
                 findNavController().navigate(R.id.action_discussFragment_to_informationFragment)
+            }
+
+            fabCreate.setOnClickListener {
+                findNavController().navigate(R.id.action_discussFragment_to_createDiscussionFragment)
             }
         }
     }

@@ -1,211 +1,40 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
 
     <action
-        android:id="@+id/action_discuss_to_answers"
-        app:destination="@+id/detailDiscussionFragment"
-        app:popUpTo="@navigation/nav_graph"/>
+        android:id="@+id/action_global_authFlowFragment"
+        app:destination="@id/authFlowFragment"
+        app:popUpTo="@id/nav_graph" />
+
+    <action
+        android:id="@+id/action_global_mainFlowFragment"
+        app:destination="@id/mainFlowFragment"
+        app:popUpTo="@id/nav_graph" />
+
+    <action
+        android:id="@+id/action_global_splashFragment"
+        app:destination="@id/splashFragment"
+        app:popUpTo="@id/nav_graph" />
+
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="me.ruyeo.kitobz.ui.home.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_shawAllFragment"
-            app:destination="@id/shawAllFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_categoriesFragment"
-            app:destination="@id/categoriesFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
+        android:id="@+id/mainFlowFragment"
+        android:name="me.ruyeo.kitobz.ui.mainflow.MainFlowFragment"
+        android:label="fragment_main_flow"
+        tools:layout="@layout/fragment_main_flow" />
     <fragment
-        android:id="@+id/basketFragment"
-        android:name="me.ruyeo.kitobz.ui.basket.BasketFragment"
-        android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket">
-        <action
-            android:id="@+id/action_basketFragment_to_informationFragment"
-            app:destination="@id/informationFragment" />
-        <action
-            android:id="@+id/action_basketFragment_to_basketOrderFragment"
-            app:destination="@id/basketOrderFragment" />
-    </fragment>
+        android:id="@+id/authFlowFragment"
+        android:name="me.ruyeo.kitobz.ui.authflow.AuthFlowFragment"
+        android:label="fragment_auth_flow"
+        tools:layout="@layout/fragment_auth_flow" />
     <fragment
-        android:id="@+id/discussFragment"
-        android:name="me.ruyeo.kitobz.ui.discussions.DiscussFragment"
-        android:label="fragment_discuss"
-        tools:layout="@layout/fragment_discuss">
-        <action
-            android:id="@+id/action_discussFragment_to_detailDiscussionFragment"
-            app:destination="@id/detailDiscussionFragment" />
-        <action
-            android:id="@+id/action_discussFragment_to_informationFragment"
-            app:destination="@id/informationFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/myLibraryFragment"
-        android:name="me.ruyeo.kitobz.ui.library.MyLibraryFragment"
-        android:label="fragment_my_library"
-        tools:layout="@layout/fragment_my_library">
-        <action
-            android:id="@+id/action_myLibraryFragment_to_myLSearchFragment"
-            app:destination="@id/myLSearchFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/profileFragment2"
-        android:name="me.ruyeo.kitobz.ui.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile">
-        <action
-            android:id="@+id/action_profileFragment2_to_orderHistoryFragment"
-            app:destination="@id/orderHistoryFragment" />
-        <action
-            android:id="@+id/action_profileFragment2_to_personalDataFragment"
-            app:destination="@id/personalDataFragment" />
-        <action
-            android:id="@+id/action_profileFragment2_to_notificationsFragment"
-            app:destination="@id/notificationsFragment" />
-        <action
-            android:id="@+id/action_profileFragment2_to_applicationFragment"
-            app:destination="@id/applicationFragment" />
-        <action
-            android:id="@+id/action_profileFragment2_to_favoriteFragment"
-            app:destination="@id/favoriteFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="me.ruyeo.kitobz.ui.home.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search">
-        <action
-            android:id="@+id/action_searchFragment_to_authorBooksFragment"
-            app:destination="@id/authorBooksFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/shawAllFragment"
-        android:name="me.ruyeo.kitobz.ui.home.ShawAllFragment"
-        android:label="fragment_shaw_all"
-        tools:layout="@layout/fragment_shaw_all">
-        <action
-            android:id="@+id/action_shawAllFragment_to_filterFragment"
-            app:destination="@id/filterFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/categoriesFragment"
-        android:name="me.ruyeo.kitobz.ui.home.CategoriesFragment"
-        android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
-    <fragment
-        android:id="@+id/authorBooksFragment"
-        android:name="me.ruyeo.kitobz.ui.home.AuthorBooksFragment"
-        android:label="fragment_author_books"
-        tools:layout="@layout/fragment_author_books" />
-    <fragment
-        android:id="@+id/detailsFragment"
-        android:name="me.ruyeo.kitobz.ui.details.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details">
-        <action
-            android:id="@+id/action_detailsFragment_to_audioPlayerFragment"
-            app:destination="@id/audioPlayerFragment" />
-        <action
-            android:id="@+id/action_detailsFragment_to_pdfViewFragment"
-            app:destination="@id/pdfViewFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/filterFragment"
-        android:name="me.ruyeo.kitobz.ui.home.FilterFragment"
-        android:label="fragment_filter"
-        tools:layout="@layout/fragment_filter">
-        <action
-            android:id="@+id/action_filterFragment_to_shawAllFragment"
-            app:destination="@id/shawAllFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/audioPlayerFragment"
-        android:name="me.ruyeo.kitobz.ui.audioplayer.AudioPlayerFragment"
-        android:label="AudioPlayerFragment" />
-    <fragment
-        android:id="@+id/pdfViewFragment"
-        android:name="me.ruyeo.kitobz.ui.pdfview.PdfViewFragment"
-        android:label="fragment_pdf_view"
-        tools:layout="@layout/fragment_pdf_view" />
-    tools:layout="@layout/fragment_details" />
-    <fragment
-        android:id="@+id/myLSearchFragment"
-        android:name="me.ruyeo.kitobz.ui.library.search.MyLSearchFragment"
-        android:label="MyLSearchFragment"
-        tools:layout="@layout/fragment_my_library_search" />
-    <fragment
-        android:id="@+id/informationFragment"
-        android:name="me.ruyeo.kitobz.ui.basket.information.InformationFragment"
-        android:label="InformationFragment"
-        tools:layout="@layout/fragment_basket_information" />
-    <fragment
-        android:id="@+id/basketOrderFragment"
-        android:name="me.ruyeo.kitobz.ui.basket.orders.BasketOrderFragment"
-        android:label="BasketOrderFragment"
-        tools:layout="@layout/fragment_basket_orders">
-        <action
-            android:id="@+id/action_basketOrderFragment_to_orderHistoryFragment"
-            app:destination="@id/orderHistoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/orderHistoryFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.orderhistory.OrderHistoryFragment"
-        android:label="fragment_orders_history"
-        tools:layout="@layout/fragment_orders_history" />
-    <fragment
-        android:id="@+id/personalDataFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.personaldata.PersonalDataFragment"
-        android:label="PersonalDataFragment"
-        tools:layout="@layout/fragment_personal_data">
-        <action
-            android:id="@+id/action_personalDataFragment_to_confirmNumberFragment"
-            app:destination="@id/confirmNumberFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/confirmNumberFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.personaldata.confirmpnumber.ConfirmNumberFragment"
-        android:label="ConfirmNumberFragment"
-        tools:layout="@layout/fragment_confirmation" />
-    <fragment
-        android:id="@+id/notificationsFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.notifications.NotificationsFragment"
-        android:label="NotificationsFragment"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/applicationFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.application.ApplicationFragment"
-        android:label="ApplicationFragment"
-        tools:layout="@layout/fragment_application">
-        <action
-            android:id="@+id/action_applicationFragment_to_memoryFragment"
-            app:destination="@id/memoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/memoryFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.application.memory.MemoryFragment"
-        android:label="MemoryFragment"
-        tools:layout="@layout/fragment_memory" />
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="me.ruyeo.kitobz.ui.profile.favorite.FavoriteFragment"
-        android:label="FavoriteFragment"
-        tools:layout="@layout/fragment_favorites" />
-    <fragment
-        android:id="@+id/detailDiscussionFragment"
-        android:name="me.ruyeo.kitobz.ui.discussions.DetailDiscussionFragment"
-        android:label="fragment_detail_discussion"
-        tools:layout="@layout/fragment_detail_discussion" />
+        android:id="@+id/splashFragment"
+        android:name="me.ruyeo.kitobz.ui.auth.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
 
+    </fragment>
 </navigation>

@@ -7,7 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.OrderHistoryAdapter
 import me.ruyeo.kitobz.databinding.FragmentBasketOrdersBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.basket.information.InfoModel
 import me.ruyeo.kitobz.ui.profile.orderhistory.OHistoryModel
 import viewBinding

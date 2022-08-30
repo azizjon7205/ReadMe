@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:title="Home"
+        android:title="@string/str_home"
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
         app:showAsAction="never" />
     <item
-        android:title="Basket"
+        android:title="@string/str_cart"
         android:id="@+id/basketFragment"
         android:icon="@drawable/ic_basket"
         app:showAsAction="never" />
     <item
-        android:title="Library"
+        android:title="@string/str_my_library"
         android:id="@+id/myLibraryFragment"
         android:icon="@drawable/ic_liblary"
         app:showAsAction="never"/>
 
     <item
-        android:title="Discuss"
+        android:title="@string/str_discussion"
         android:id="@+id/discussFragment"
         android:icon="@drawable/ic_chat"
         app:showAsAction="never"/>
 
     <item
-        android:title="Profile"
+        android:title="@string/str_profile"
         android:id="@+id/profileFragment2"
         android:icon="@drawable/ic_account"
         app:showAsAction="never"/>

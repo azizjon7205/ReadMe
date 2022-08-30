@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.ShawAllCategoryAdapter
 import me.ruyeo.kitobz.databinding.FragmentCategoriesBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.home.HomeViewModel
 import viewBinding
 
@@ -44,11 +44,10 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
             }
 
         with(binding){
-            ivBack.setOnClickListener {
+            llBack.setOnClickListener {
                 findNavController().navigateUp()
             }
 
-            rvAll.layoutManager = LinearLayoutManager(requireContext())
         }
 
       //  setupObservers()

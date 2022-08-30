@@ -13,7 +13,7 @@ import me.ruyeo.kitobz.adapter.BookAdapter
 import me.ruyeo.kitobz.databinding.FragmentShawAllBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Category
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.home.HomeViewModel
 import me.ruyeo.kitobz.utils.extensions.typeClicked
 import viewBinding

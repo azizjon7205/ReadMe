@@ -13,7 +13,7 @@ import me.ruyeo.kitobz.adapter.SearchAdapter
 import me.ruyeo.kitobz.databinding.FragmentSearchBinding
 import me.ruyeo.kitobz.model.Banner1
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.home.HomeViewModel
 import me.ruyeo.kitobz.utils.extensions.visible
 import viewBinding

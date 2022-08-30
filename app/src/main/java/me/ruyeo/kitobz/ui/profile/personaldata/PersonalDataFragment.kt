@@ -10,7 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentPersonalDataBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 
 class PersonalDataFragment : BaseFragment(R.layout.fragment_personal_data) {

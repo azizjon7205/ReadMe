@@ -5,7 +5,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentForgetpasswordBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 
 class ForgetPasswordFragment : BaseFragment(R.layout.fragment_forgetpassword) {

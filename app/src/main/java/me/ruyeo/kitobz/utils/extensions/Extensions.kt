@@ -11,6 +11,7 @@ import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.location.LocationManager
 import android.net.Uri
@@ -22,6 +23,7 @@ import android.util.DisplayMetrics
 import android.view.*
 import android.widget.*
 import androidx.annotation.ColorInt
+import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -30,12 +32,27 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
+import me.ruyeo.kitobz.R
+import me.ruyeo.kitobz.utils.bounce.BouncyNestedScrollView
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
+
+fun Fragment.activityNavController() = requireActivity().findNavController(R.id.nav_host_fragment)
+
+fun NavController.navigateSafely(@IdRes actionId: Int){
+    currentDestination?.getAction(actionId)?.let { navigate(actionId) }
+}
+
+fun NavController.navigateSafely(directions: NavDirections){
+    currentDestination?.getAction(directions.actionId)?.let { navigate(directions) }
+}
 
 fun NestedScrollView.scrollToBottomWithoutFocusChange() { // Kotlin extension to scrollView
     val lastChild = getChildAt(childCount - 1)
@@ -44,8 +61,19 @@ fun NestedScrollView.scrollToBottomWithoutFocusChange() { // Kotlin extension to
     smoothScrollBy(0, delta)
 }
 
+fun BouncyNestedScrollView.scrollToBottomWithoutFocusChange() { // Kotlin extension to scrollView
+    val lastChild = getChildAt(childCount - 1)
+    val bottom = lastChild.bottom + paddingBottom
+    val delta = bottom - (scrollY + height)
+    smoothScrollBy(0, delta)
+}
+
 fun Context.dpToPixel(dp: Float): Float {
     return dp * (resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+}
+
+fun TextView.strikeThrough(){
+    this.paintFlags = this.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 }
 
 fun TextView.typeClicked(){
@@ -60,13 +88,7 @@ fun TextView.typeClicked(){
 
 fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
 
-fun Fragment.isLocationEnabled(): Boolean {
-    val locationManager =
-        requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-    return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-        LocationManager.NETWORK_PROVIDER
-    )
-}
+
 
 fun Context.hasPermission(permission: String): Boolean {
 
@@ -89,10 +111,6 @@ fun Context.getTintDrawable(drawableRes: Int, colorRes: Int): Drawable {
     return wrapped
 }
 
-fun EditText.etCondition(condition: Boolean) {
-    this.isEnabled = condition
-}
-
 fun Context.getTintDrawable(
     drawableRes: Int,
     colorResources: IntArray,
@@ -108,6 +126,7 @@ fun Context.getTintDrawable(
 }
 
 fun ImageView.tint(colorRes: Int) = this.setColorFilter(this.context.color(colorRes))
+
 fun EditText.setTint(colorRes: Int) {
     val constantState = background.constantState ?: return
     val drwNewCopy = constantState.newDrawable().mutate()
@@ -167,71 +186,6 @@ fun Int.toBoolean() = this != 0
 fun String.textOrNull() = if (isEmpty()) null else this
 
 fun TextView.textOrNull(): Boolean = !this.text.isNullOrEmpty()
-
-fun View.slideDown(animationEnd: () -> Unit = {}) {
-    visibility = View.VISIBLE
-    val layoutParams = layoutParams
-    layoutParams.height = 1
-    this.layoutParams = layoutParams
-
-    measure(
-        View.MeasureSpec.makeMeasureSpec(
-            Resources.getSystem().displayMetrics.widthPixels,
-            View.MeasureSpec.EXACTLY
-        ),
-        View.MeasureSpec.makeMeasureSpec(
-            0,
-            View.MeasureSpec.UNSPECIFIED
-        )
-    )
-
-    val height = measuredHeight
-    val valueAnimator = ObjectAnimator.ofInt(1, height)
-    valueAnimator.addUpdateListener { animation ->
-        val value = animation.animatedValue as Int
-        if (height > value) {
-            layoutParams.height = value
-            this.layoutParams = layoutParams
-        } else {
-            layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
-            this.layoutParams = layoutParams
-            visibility = View.VISIBLE
-        }
-    }
-    valueAnimator.addListener(object : Animator.AnimatorListener {
-        override fun onAnimationRepeat(p0: Animator?) {
-        }
-
-        override fun onAnimationEnd(p0: Animator?) {
-            animationEnd.invoke()
-        }
-
-        override fun onAnimationCancel(p0: Animator?) {
-        }
-
-        override fun onAnimationStart(p0: Animator?) {
-        }
-
-    })
-    valueAnimator.start()
-}
-
-fun View.slideUp() {
-    post {
-        val valueAnimator = ObjectAnimator.ofInt(height, 0)
-        valueAnimator.addUpdateListener { animation ->
-            val value = animation.animatedValue as Int
-            if (value > 0) {
-                val layoutParams = layoutParams
-                layoutParams.height = value
-                this.layoutParams = layoutParams
-            } else {
-                this.visibility = View.GONE
-            }
-        }
-        valueAnimator.start()
-    }
-}
 
 
 private const val ANIMATION_DURATION = 300L

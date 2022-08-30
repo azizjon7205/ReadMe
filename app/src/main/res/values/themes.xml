@@ -19,6 +19,7 @@
         <!-- Customize your theme here. -->
 <!--        <item name="android:windowIsTranslucent">true</item>-->
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
 
         <item name="popupMenuStyle">@style/Widget.App.PopupMenu</item>
     </style>
@@ -96,14 +97,14 @@
 
     <style name="Widget.App.PopupMenu" parent="Widget.MaterialComponents.PopupMenu">
         <item name="android:popupBackground">@drawable/custom_popup_background</item>
+        <item name="android:dropDownHorizontalOffset">-4dp</item>
+        <item name="android:dropDownVerticalOffset">4dp</item>
     </style>
-
 
     <style name="AppModalStyle"
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/dialog_corner_rounded</item>
     </style>
-
 
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">
@@ -112,6 +113,16 @@
 
     <style name="Seekbar" parent="Widget.AppCompat.SeekBar">
         <item name="colorAccent">@color/orange_light</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/sf_pro_text_regular</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="fontFamily">@font/sf_pro_text_regular</item>
     </style>
 
 </resources>

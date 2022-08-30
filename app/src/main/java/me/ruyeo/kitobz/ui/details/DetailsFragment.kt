@@ -2,11 +2,13 @@ package me.ruyeo.kitobz.ui.details
 
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Html
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
+import android.view.Gravity
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.LinearLayout
@@ -18,6 +20,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.chip.Chip
+import com.google.android.material.slider.Slider
+import com.r0adkll.slidr.Slidr
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.blurry.Blurry
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -27,9 +31,10 @@ import me.ruyeo.kitobz.adapter.CommentAdapter
 import me.ruyeo.kitobz.databinding.FragmentDetailsBinding
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Feedback
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.ui.home.customs.MySpannable
+import me.ruyeo.kitobz.utils.bounce.BouncyNestedScrollView
 import me.ruyeo.kitobz.utils.extensions.*
 import viewBinding
 
@@ -70,24 +75,26 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         if (isAudioBook) llAudioBookClicked()
 
         with(binding) {
-//            root.fitSystemWindowsAndAdjustResize()
 
             ivBack.setOnClickListener {
                 findNavController().navigateUp()
             }
             flMore.setOnClickListener {
-                Blurry.with(requireContext()).radius(35).onto(root)
-                val popupMenu = PopupMenu(requireContext(), ivMore)
+//                Blurry.with(requireContext()).radius(35).onto(root)
+                clDetails.foreground = Drawable.createFromPath("#70000000")
+                flBack.visible(true)
+
+                val popupMenu = PopupMenu(requireContext(), ivMore, Gravity.END)
                 popupMenu.menuInflater.inflate(R.menu.popup_menu,  popupMenu.menu)
                 popupMenu.setForceShowIcon(true)
                 popupMenu.setOnMenuItemClickListener {
-                    Blurry.delete(root)
+                    flBack.visible(false)
                     showToast(it.title.toString())
                     true
                 }
                 popupMenu.show()
                 popupMenu.setOnDismissListener {
-                    Blurry.delete(root)
+                    flBack.visible(false)
                 }
             }
 
@@ -95,8 +102,10 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
             Glide.with(this@DetailsFragment)
                 .load(R.drawable.im_audio_book)
                 .fitCenter()
-                .apply(RequestOptions.bitmapTransform(BlurTransformation(55)))
+//                .apply(RequestOptions.bitmapTransform(BlurTransformation(55)))
                 .into(ivBackground)
+
+            tvBookPriceOld.strikeThrough()
 
             llPaperBook.setOnClickListener {
                 if (!isPaperBook && (isElectronicBook || isAudioBook)){
@@ -173,7 +182,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
             bAction.setOnClickListener {
                 if (isAudioBook){
-                    findNavController().navigate(R.id.audioPlayerFragment)
+//                    findNavController().navigate(R.id.audioPlayerFragment)
                 }
                 if (isElectronicBook){
                     findNavController().navigate(R.id.pdfViewFragment)
@@ -445,7 +454,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     }
 
     private fun onKeyboardShow(view: View) {
-        (view as NestedScrollView).scrollToBottomWithoutFocusChange()
+        (view as BouncyNestedScrollView).scrollToBottomWithoutFocusChange()
     }
 
 }

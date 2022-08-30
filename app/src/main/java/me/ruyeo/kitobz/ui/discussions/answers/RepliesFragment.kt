@@ -1,7 +1,9 @@
 package me.ruyeo.kitobz.ui.discussions.answers
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -12,8 +14,9 @@ import me.ruyeo.kitobz.databinding.FragmentRepliesBinding
 import me.ruyeo.kitobz.managers.PrefsManager
 import me.ruyeo.kitobz.model.Answer
 import me.ruyeo.kitobz.model.Reply
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.utils.extensions.visible
+import me.ruyeo.kitobz.utils.spannable.MyClickableSpans
 import viewBinding
 import javax.inject.Inject
 
@@ -63,8 +66,15 @@ class RepliesFragment : BaseFragment(R.layout.fragment_replies) {
                 showKeyboard(etAnswer)
             }
 
-            llUserAnswer.visible(prefsManager.getUser() == null)
-            tvNoteRegister.visible(prefsManager.getUser() != null)
+            llUserAnswer.visible(prefsManager.getUser() != null)
+            tvNoteRegister.visible(prefsManager.getUser() == null)
+
+            tvNoteRegister.text = MyClickableSpans.clickableSpan(
+                requireContext().getString(R.string.str_to_leave_reply_login),
+                "авторизуйтесь"){
+                Toast.makeText(requireContext(), "Log in to answer", Toast.LENGTH_SHORT).show()
+            }
+            tvNoteRegister.movementMethod = LinkMovementMethod.getInstance()
         }
     }
 

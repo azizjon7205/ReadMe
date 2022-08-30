@@ -19,6 +19,7 @@
 
     <color name="gray">#8A8A8F</color>
     <color name="gray_1">#D8D8D8</color>
+    <color name="gray_2">#DFDFDF</color>
     <color name="line">#EFEFF4</color>
     <color name="gray_light_1">#0000004D</color>
     <color name="gray_light_2">#C8C7CC</color>
@@ -34,6 +35,7 @@
 
     <color name="orange_light">#FF9500</color>
 
+    <color name="green_main">#14CB00</color>
     <color name="green">#5AC53A</color>
     <color name="green_1">#549D01</color>
     <color name="green_2">#4CD964</color>

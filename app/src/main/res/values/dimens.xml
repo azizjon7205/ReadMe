@@ -17,6 +17,8 @@
 
     <dimen name="keyboard_min_height">128dp</dimen>
 
+    <dimen name="slide_anim_duration">1000</dimen>
+
     <array name="initial_slider_values">
         <item>50</item>
         <item>150</item>

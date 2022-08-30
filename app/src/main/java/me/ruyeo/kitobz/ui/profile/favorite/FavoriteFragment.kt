@@ -7,7 +7,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.AllFavoriteAdapter
 import me.ruyeo.kitobz.databinding.FragmentFavoritesBinding
 import me.ruyeo.kitobz.model.Book
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.utils.extensions.typeClicked
 import viewBinding
 

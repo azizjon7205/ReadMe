@@ -1,16 +1,14 @@
 package me.ruyeo.kitobz.ui.auth
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import me.ruyeo.kitobz.MainActivity
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentIntroBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
+import me.ruyeo.kitobz.utils.extensions.activityNavController
+import me.ruyeo.kitobz.utils.extensions.navigateSafely
 import viewBinding
 
 @AndroidEntryPoint
@@ -30,7 +28,8 @@ class IntroFragment : BaseFragment(R.layout.fragment_intro) {
             }
 
             skipBtn.setOnClickListener {
-                callActivityMain()
+                activityNavController().navigateSafely(R.id.action_global_mainFlowFragment)
+
             }
         }
     }

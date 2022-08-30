@@ -8,7 +8,10 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentSplashBinding
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.managers.AuthManager
+import me.ruyeo.kitobz.ui.base.BaseFragment
+import me.ruyeo.kitobz.utils.extensions.activityNavController
+import me.ruyeo.kitobz.utils.extensions.navigateSafely
 import viewBinding
 
 @AndroidEntryPoint
@@ -26,7 +29,6 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
 
     private fun setupUI() {
 
-
         timer()
     }
 
@@ -37,7 +39,14 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
             }
 
             override fun onFinish() {
-                findNavController().navigate(R.id.action_splashFragment_to_introFragment)
+                when{
+                    AuthManager.isAuthorized -> {
+                        activityNavController().navigateSafely(R.id.action_global_mainFlowFragment)
+                    }
+                    !AuthManager.isAuthorized -> {
+                        activityNavController().navigateSafely(R.id.action_global_authFlowFragment)
+                    }
+                }
             }
         }
         timer!!.start()

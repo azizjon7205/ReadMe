@@ -1,19 +1,22 @@
 package me.ruyeo.kitobz.ui.home.home
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
-import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.card.MaterialCardView
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -21,15 +24,12 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.*
 import me.ruyeo.kitobz.databinding.FragmentHomeBinding
 import me.ruyeo.kitobz.model.*
-import me.ruyeo.kitobz.ui.BaseFragment
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
-import me.ruyeo.kitobz.ui.home.customs.BoundsOffsetDecoration
-import me.ruyeo.kitobz.ui.home.customs.LinearHorizontalSpacingDecoration
-import me.ruyeo.kitobz.ui.home.customs.ProminentLayoutManager
 import me.ruyeo.kitobz.utils.UiStateList
 import me.ruyeo.kitobz.utils.extensions.dpToPixel
 import viewBinding
-
+import kotlin.math.abs
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
@@ -47,6 +47,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private lateinit var layoutManager: LinearLayoutManager
 
     private var category: Category? = null
+    private val sliderHandler: Handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,9 +65,19 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setupBookObservers()
     }
 
+    override fun onPause() {
+        super.onPause()
+        sliderHandler.removeCallbacks(sliderRunnable)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sliderHandler.postDelayed(sliderRunnable, 2000)
+    }
+
     private fun setupUI() {
-        layoutManager = ProminentLayoutManager(requireContext())
-        snapHelper = PagerSnapHelper()
+//        layoutManager = ProminentLayoutManager(requireContext())
+//        snapHelper = PagerSnapHelper()
 
         adapterAudioBooks.submitList(loadAudioBooks())
         adapterEBooks.submitList(loadEBooks())
@@ -75,32 +86,78 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         adapterBanner.submitList(loadBanners())
         adapterAuthors.submitList(loadBanners())
 
+
         with(binding) {
 
-            rvBanner.apply {
-                setItemViewCacheSize(4)
-                layoutManager = this@HomeFragment.layoutManager
-                adapter = adapterBanner
+            nestedScrollHome.post {
+//                nestedScrollHome.fullScroll(View.FOCUS_DOWN)  // scroll to given direction
+            }
 
-                val spacing = resources.getDimensionPixelSize(R.dimen.carousel_spacing)
-                addItemDecoration(LinearHorizontalSpacingDecoration(spacing))
-                addItemDecoration(BoundsOffsetDecoration())
+            vpBanner.adapter = adapterBanner
+            vpBanner.currentItem = 1
+
+            vpBanner.clipToPadding = false
+            vpBanner.clipChildren = false
+            vpBanner.offscreenPageLimit = 3
+            vpBanner.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+            val compositePageTransformer = CompositePageTransformer()
+            compositePageTransformer.addTransformer(MarginPageTransformer(40))
+            compositePageTransformer.addTransformer(object : ViewPager2.PageTransformer {
+                override fun transformPage(page: View, position: Float) {
+                    val r = 1 - abs(position)
+                    page.scaleY = 0.75f + r * 0.25f
+                    if (position == 0f) {
+                        (page as MaterialCardView).cardElevation = page.context.dpToPixel(10f)
+                    } else {
+                        (page as MaterialCardView).cardElevation = page.context.dpToPixel(0f)
+
+                    }
+//                    Log.d("@@@", "$position -- ${(page as MaterialCardView).childCount}")
+                }
+            })
+
+            vpBanner.setPageTransformer(compositePageTransformer)
+
+            vpBanner.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+
+                    tvBookName.text = adapterBanner.currentList[position].name.toString()
+                    tvBookAuthor.text = adapterBanner.currentList[position].author ?: "Генри Марш $position"
+
+                    sliderHandler.removeCallbacks(sliderRunnable)
+                    sliderHandler.postDelayed(sliderRunnable, 2000)
+                }
+            })
+
+
+            /**
+            rvBanner.apply {
+            setItemViewCacheSize(4)
+            layoutManager = this@HomeFragment.layoutManager
+            adapter = adapterBanner
+
+            val spacing = resources.getDimensionPixelSize(R.dimen.carousel_spacing)
+            addItemDecoration(LinearHorizontalSpacingDecoration(spacing))
+            addItemDecoration(BoundsOffsetDecoration())
             }
             snapHelper.attachToRecyclerView(binding.rvBanner)
             initRecyclerViewPosition(2)
 
             rvBanner.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
 
-                    val pos = (layoutManager.findFirstVisibleItemPosition() + layoutManager.findLastVisibleItemPosition()) / 2
-                    tvBookName.text = adapterBanner.currentList[pos].name.toString()
-                    if (layoutManager.findFirstVisibleItemPosition() + 1 == layoutManager.findLastVisibleItemPosition() && layoutManager.findLastVisibleItemPosition() == adapterBanner.itemCount-1){
-                        tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].name.toString()
-                    }
+            val pos = (layoutManager.findFirstVisibleItemPosition() + layoutManager.findLastVisibleItemPosition()) / 2
+            tvBookName.text = adapterBanner.currentList[pos].name.toString()
+            if (layoutManager.findFirstVisibleItemPosition() + 1 == layoutManager.findLastVisibleItemPosition() && layoutManager.findLastVisibleItemPosition() == adapterBanner.itemCount-1){
+            tvBookName.text = adapterBanner.currentList[adapterBanner.itemCount-1].name.toString()
+            }
 
-               }
+            }
             })
+             */
 
             rvCats.apply {
                 layoutManager =
@@ -144,21 +201,21 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             }
 
             llSearch.setOnClickListener {
-                findNavController().navigate(R.id.searchFragment, bundleOf("to" to "search"))
+                findNavController().navigate(R.id.action_homeFragment_to_searchFragment, bundleOf("to" to "search"))
             }
 
             llShowAllCategories.setOnClickListener {
-                findNavController().navigate(R.id.categoriesFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_categoriesFragment)
             }
 
             llShowAllAuthors.setOnClickListener {
-                findNavController().navigate(R.id.searchFragment, bundleOf("to" to "authors"))
+                findNavController().navigate(R.id.action_homeFragment_to_searchFragment, bundleOf("to" to "authors"))
             }
 
             llShowAllAudioBooks.setOnClickListener {
                 if (category != null)
                     findNavController().navigate(
-                        R.id.shawAllFragment,
+                        R.id.action_homeFragment_to_shawAllFragment,
                         bundleOf("category" to Gson().toJson(category), "isAudioBook" to "true")
                     )
             }
@@ -166,7 +223,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             llShowAllElektronicBooks.setOnClickListener {
                 if (category != null)
                     findNavController().navigate(
-                        R.id.shawAllFragment,
+                        R.id.action_homeFragment_to_shawAllFragment,
                         bundleOf(
                             "category" to Gson().toJson(category),
                             "isElectronicBook" to "true"
@@ -177,7 +234,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             llShowAllNewArrivals.setOnClickListener {
                 if (category != null)
                     findNavController().navigate(
-                        R.id.shawAllFragment,
+                        R.id.action_homeFragment_to_shawAllFragment,
                         bundleOf("category" to Gson().toJson(category))
                     )
             }
@@ -186,9 +243,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         adapterCategory.onClick = { position, category ->
             when (position) {
-                0 -> findNavController().navigate(R.id.searchFragment, bundleOf("to" to "books"))
+                0 -> findNavController().navigate(R.id.action_homeFragment_to_searchFragment, bundleOf("to" to "books"))
                 else -> findNavController().navigate(
-                    R.id.shawAllFragment,
+                    R.id.action_homeFragment_to_shawAllFragment,
                     bundleOf("category" to Gson().toJson(category))
                 )
             }
@@ -196,26 +253,26 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
 
         adapterAuthors.onClick = {
-            findNavController().navigate(R.id.authorBooksFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_authorBooksFragment)
         }
 
         adapterAudioBooks.onClick = {
             findNavController().navigate(
-                R.id.detailsFragment,
+                R.id.action_homeFragment_to_detailsFragment,
                 bundleOf("isAudioBook" to "true")
             )
         }
 
         adapterEBooks.onClick = {
             findNavController().navigate(
-                R.id.detailsFragment,
+                R.id.action_homeFragment_to_detailsFragment,
                 bundleOf("isElectronicBook" to "true")
             )
         }
 
         adapterNewArrivals.onClick = {
             findNavController().navigate(
-                R.id.detailsFragment,
+                R.id.action_homeFragment_to_detailsFragment,
                 bundleOf("isPaperBook" to "true")
             )
         }
@@ -268,6 +325,16 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
     }
 
+    private val sliderRunnable =
+        Runnable {
+            if (binding.vpBanner.currentItem == adapterBanner.itemCount - 2) {
+                binding.vpBanner.setCurrentItem(1, false)
+            } else {
+                binding.vpBanner.currentItem = binding.vpBanner.currentItem + 1
+            }
+        }
+
+
     private fun loadAudioBooks(): List<AudioBook> {
         val items = ArrayList<AudioBook>()
 
@@ -301,12 +368,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private fun loadBanners(): List<Banner1> {
         val items = ArrayList<Banner1>()
 
-        items.add(Banner1(name = "Kitob 1"))
-        items.add(Banner1(name = "Kitob 2"))
-        items.add(Banner1(name = "Kitob 3"))
-        items.add(Banner1(name = "Kitob 4"))
-        items.add(Banner1(name = "Kitob 5"))
-        items.add(Banner1(name = "Kitob 6"))
+        items.add(Banner1(name = "Не навреди 6"))
+        items.add(Banner1(name = "Не навреди 1"))
+        items.add(Banner1(name = "Не навреди 2"))
+        items.add(Banner1(name = "Не навреди 3"))
+        items.add(Banner1(name = "Не навреди 4"))
+        items.add(Banner1(name = "Не навреди 5"))
+        items.add(Banner1(name = "Не навреди 6"))
+        items.add(Banner1(name = "Не навреди 1"))
 
         return items
     }
@@ -316,14 +385,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         // Do it anyway so that the target view is laid out, then adjust onPreDraw.
         layoutManager.scrollToPosition(position)
 
-        binding.rvBanner.doOnPreDraw {
-            val targetView = layoutManager.findViewByPosition(position) ?: return@doOnPreDraw
-            val distanceToFinalSnap =
-                snapHelper.calculateDistanceToFinalSnap(layoutManager, targetView)
-                    ?: return@doOnPreDraw
-
-            layoutManager.scrollToPositionWithOffset(position, -distanceToFinalSnap[0])
-        }
+//        binding.rvBanner.doOnPreDraw {
+//            val targetView = layoutManager.findViewByPosition(position) ?: return@doOnPreDraw
+//            val distanceToFinalSnap =
+//                snapHelper.calculateDistanceToFinalSnap(layoutManager, targetView)
+//                    ?: return@doOnPreDraw
+//
+//            layoutManager.scrollToPositionWithOffset(position, -distanceToFinalSnap[0])
+//        }
     }
 
 }

@@ -97,5 +97,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
     implementation 'com.google.firebase:firebase-messaging'
 
+    // FishBun for get photos in Gallery and Camera
+    implementation 'io.github.sangcomz:fishbun:1.0.0-beta01'
 
+    // Viewpager2 for auto sliding banner
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    // slide to finish
+    implementation 'com.r0adkll:slidableactivity:2.1.0'
 }

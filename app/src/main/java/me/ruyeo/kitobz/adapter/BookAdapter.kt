@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.ruyeo.kitobz.databinding.ItemBookBinding
 import me.ruyeo.kitobz.model.Book
+import me.ruyeo.kitobz.utils.extensions.strikeThrough
 import me.ruyeo.kitobz.utils.extensions.visible
 
 class BookAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -47,7 +48,8 @@ class BookAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
                 if (book.is_discount){
                     tvBookPriceOld.visible(true)
-                    tvBookPriceOld.paintFlags = tvBookPriceOld.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+//                    tvBookPriceOld.paintFlags = tvBookPriceOld.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    tvBookPriceOld.strikeThrough()
                     tvBookPriceOld.text = "${book.price.toString()} somoni"
                     tvBookPrice.text = "${book.discount_price.toString()} somoni"
                 } else{

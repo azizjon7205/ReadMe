@@ -25,8 +25,7 @@ import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.PopupAdapter
 import me.ruyeo.kitobz.databinding.FragmentAudioPlayerBinding
 import me.ruyeo.kitobz.model.Popup
-import me.ruyeo.kitobz.ui.BaseFragment
-import okhttp3.internal.wait
+import me.ruyeo.kitobz.ui.base.BaseFragment
 import viewBinding
 import java.util.concurrent.TimeUnit
 
