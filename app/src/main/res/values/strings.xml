@@ -219,5 +219,8 @@
     <string name="str_home">Главная</string>
     <string name="str_cart">Корзина</string>
     <string name="str_profile">Аккаунт</string>
+    <string name="back">Назад</string>
+    <string name="forward">Далее</string>
+    <string name="of">of</string>
 
 </resources>
