@@ -200,5 +200,8 @@
     <string name="content">Содержание</string>
     <string name="bookmarks">Закладки</string>
     <string name="find">Найти</string>
+    <string name="back">Назад</string>
+    <string name="forward">Далее</string>
+    <string name="of">of</string>
 
 </resources>

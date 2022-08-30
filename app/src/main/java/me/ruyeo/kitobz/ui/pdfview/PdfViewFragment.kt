@@ -1,11 +1,16 @@
 package me.ruyeo.kitobz.ui.pdfview
 
+import android.app.Activity
+import android.app.Application
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.PopupMenu
 import android.widget.SeekBar
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.databinding.FragmentPdfViewBinding
@@ -20,9 +25,14 @@ class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {
     private var currentPage: MutableLiveData<String> = MutableLiveData()
     private var allPages = 0
 
+    var isSaved = false
+
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
+
+        setupActivityListener()
     }
 
     private fun setupUI() {
@@ -48,14 +58,23 @@ class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {
         }
 
         binding.ivBack.setOnClickListener { }
-        binding.ivSave.setOnClickListener { }
-        binding.ivResize.setOnClickListener {
-            openResizeSettings()
-        }
-        binding.ivMore.setOnClickListener {
-            openSettings()
+
+        binding.ivSave.setOnClickListener {
+            binding.ivSaved.setOnClickListener {
+                setUpUnSaved()
+            }
+            binding.ivSave.setOnClickListener {
+                setUpSaved()
+            }
+            binding.ivResize.setOnClickListener {
+                openResizeSettings()
+            }
+            binding.ivMore.setOnClickListener {
+                openSettings()
+            }
         }
     }
+
 
     private fun openSettings() {
         val popupMenu = PopupMenu(requireContext(), binding.ivMore)
@@ -162,5 +181,63 @@ class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {
             pdfView.jumpTo(curP)
             seekBar.progress = curP
         }
+    }
+
+    private fun setUpSaved() {
+        binding.apply {
+            ivSave.setOnClickListener {
+                ivSave.visibility = View.GONE
+                ivSaved.visibility = View.VISIBLE
+                Toast.makeText(context, "saved", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setUpUnSaved() {
+        binding.apply {
+            ivSaved.setOnClickListener {
+                ivSaved.visibility = View.GONE
+                ivSave.visibility = View.VISIBLE
+                Toast.makeText(context, "saved", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun setupActivityListener() {
+        activity?.registerActivityLifecycleCallbacks(object :
+            Application.ActivityLifecycleCallbacks {
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+                activity.window.setFlags(
+                    WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE
+                )
+            }
+
+            override fun onActivityStarted(activity: Activity) {}
+            override fun onActivityResumed(activity: Activity) {}
+            override fun onActivityPaused(activity: Activity) {}
+            override fun onActivityStopped(activity: Activity) {}
+            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
+            override fun onActivityDestroyed(activity: Activity) {}
+        })
+
+        activity?.window?.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        );
+    }
+
+    override fun onResume() {
+        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        super.onResume()
+    }
+
+    override fun onPause() {
+        activity?.window?.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        );
+        super.onPause()
     }
 }
