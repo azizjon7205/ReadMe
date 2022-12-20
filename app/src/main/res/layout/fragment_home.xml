@@ -212,11 +212,13 @@
 
             <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
                 android:id="@+id/rv_authors"
-                android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_anchor="@+id/nested_scroll_home"
+                app:layout_anchorGravity="bottom|center"
                 tools:listitem="@layout/item_authors" />
 
             <LinearLayout
@@ -334,16 +336,20 @@
                 tools:listitem="@layout/item_ebook" />
 
             <me.ruyeo.kitobz.utils.bounce.BouncyRecyclerView
+                android:id="@+id/rv_banner2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingEnd="20dp"
+                android:layout_marginStart="11dp"
+                android:layout_height="200dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginTop="12dp" />
+                android:layout_marginTop="17dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="17dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:layout_marginStart="16dp">
@@ -425,6 +431,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </LinearLayout>
+
     </me.ruyeo.kitobz.utils.bounce.BouncyNestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

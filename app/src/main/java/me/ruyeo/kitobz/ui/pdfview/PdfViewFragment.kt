@@ -32,7 +32,7 @@ class PdfViewFragment : BaseFragment(R.layout.fragment_pdf_view) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
 
-        setupActivityListener()
+//        setupActivityListener()
     }
 
     private fun setupUI() {

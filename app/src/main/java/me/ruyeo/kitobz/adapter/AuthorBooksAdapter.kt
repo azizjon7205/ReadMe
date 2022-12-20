@@ -16,6 +16,7 @@ import me.ruyeo.kitobz.model.ElectronicBook
 class AuthorBooksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
+    var onClick: (() -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -39,7 +40,9 @@ class AuthorBooksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind() {
             val book = dif.currentList[adapterPosition]
             with(binding) {
-
+                root.setOnClickListener {
+                    onClick?.invoke()
+                }
             }
         }
     }

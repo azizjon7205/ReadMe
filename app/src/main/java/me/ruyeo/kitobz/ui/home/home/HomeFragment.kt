@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -27,6 +28,7 @@ import me.ruyeo.kitobz.model.*
 import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
 import me.ruyeo.kitobz.utils.UiStateList
+import me.ruyeo.kitobz.utils.UiStateObject
 import me.ruyeo.kitobz.utils.extensions.dpToPixel
 import viewBinding
 import kotlin.math.abs
@@ -38,6 +40,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val viewModel by viewModels<HomeViewModel>()
     private val adapterCategory by lazy { CategoryAdapter() }
     private val adapterBanner by lazy { BannerAdapter() }
+    private val adapterBanner2 by lazy { Banner2Adapter() }
     private val adapterAuthors by lazy { AuthorsAdapter() }
     private val adapterAudioBooks by lazy { AudioBookAdapter() }
     private val adapterEBooks by lazy { EBookAdapter() }
@@ -52,7 +55,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.getBooks()
+//        viewModel.getHome()
         viewModel.getCategories()
 
     }
@@ -62,7 +65,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         setupUI()
         setupObservers()
-        setupBookObservers()
+        setupHomePageObservers()
     }
 
     override fun onPause() {
@@ -85,16 +88,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         adapterNewArrivals.submitList(loadEBooks())
         adapterBanner.submitList(loadBanners())
         adapterAuthors.submitList(loadBanners())
-
+        adapterBanner2.submitList(loadBanners1())
 
         with(binding) {
 
-            nestedScrollHome.post {
-//                nestedScrollHome.fullScroll(View.FOCUS_DOWN)  // scroll to given direction
-            }
-
             vpBanner.adapter = adapterBanner
-            vpBanner.currentItem = 1
 
             vpBanner.clipToPadding = false
             vpBanner.clipChildren = false
@@ -192,6 +190,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
                 adapter = adapterNewArrivals
             }
+            rvBanner2.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//                addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(11f).toInt()))
+                adapter = adapterBanner2
+            }
+            val snapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(rvBanner2)
 
             rvNews.apply {
                 layoutManager =
@@ -304,18 +310,18 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
     }
 
-    private fun setupBookObservers() {
+    private fun setupHomePageObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.getBooksState.collect {
+                viewModel.getHomeState.collect {
                     when (it) {
-                        is UiStateList.LOADING -> {
+                        is UiStateObject.LOADING -> {
 
                         }
-                        is UiStateList.SUCCESS -> {
-                            Log.d("@@@", "Books ${it.data}")
+                        is UiStateObject.SUCCESS -> {
+                            Log.d("@@@", "Home ${it.data}")
                         }
-                        is UiStateList.ERROR -> {
+                        is UiStateObject.ERROR -> {
                             showMessage(it.message)
                         }
                         else -> Unit
@@ -376,6 +382,17 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         items.add(Banner1(name = "Не навреди 5"))
         items.add(Banner1(name = "Не навреди 6"))
         items.add(Banner1(name = "Не навреди 1"))
+
+        return items
+    }
+
+    private fun loadBanners1(): List<String> {
+        val items = ArrayList<String>()
+
+        items.add("https://kitobz.ru/image/cache/catalog/kitobz/banner/photo_2022-08-26_20-36-23-1500x500.jpg")
+        items.add("https://kitobz.ru/image/cache/catalog/kitobz/banner/photo_2022-08-26_20-36-23-1500x500.jpg")
+        items.add("https://kitobz.ru/image/cache/catalog/kitobz/banner/photo_2022-08-26_20-36-23-1500x500.jpg")
+        items.add("https://kitobz.ru/image/cache/catalog/kitobz/banner/photo_2022-08-26_20-36-23-1500x500.jpg")
 
         return items
     }

@@ -38,18 +38,21 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_create_discussion.xml" value="0.33" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_detail_discussion.xml" value="0.2" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_detail_discussion_demo.xml" value="0.357429718875502" />
-        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.25" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_details.xml" value="0.2707774798927614" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_discuss.xml" value="0.15" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_filter.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_forgetpassword.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_home.xml" value="0.24619640387275243" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_intro.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_login.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_main_flow.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_my_library_search.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_notifications.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_orders_history.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_pdf_view.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_registtration.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_replies.xml" value="0.16822916666666668" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_search.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/fragment_shaw_all.xml" value="0.18229166666666666" />
@@ -59,6 +62,7 @@
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_audio_book.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_audio_list.xml" value="0.18229166666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_authors.xml" value="0.18229166666666666" />
+        <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_banner_2.xml" value="0.14270833333333333" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_banner_main.xml" value="0.1" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_basket_book.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Development/RealProjects/Kitobz/app/src/main/res/layout/item_book.xml" value="0.18" />

@@ -1,5 +1,6 @@
 package me.ruyeo.kitobz.ui.mainflow
 
+import android.os.Handler
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,10 +21,15 @@ class MainFlowFragment: BaseFlowFragment(R.layout.fragment_main_flow, R.id.nav_h
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
                 R.id.homeFragment, R.id.basketFragment, R.id.myLibraryFragment, R.id.discussFragment, R.id.profileFragment2, R.id.basketOrderFragment -> {
+//                    Handler().postDelayed({
+//
+//                    }, 400)
                     binding.bnvMain.visible(true)
                 }
                 else -> {
-                    binding.bnvMain.visible(false)
+//                    Handler().postDelayed({
+                        binding.bnvMain.visible(false)
+//                    },400)
                 }
             }
         }

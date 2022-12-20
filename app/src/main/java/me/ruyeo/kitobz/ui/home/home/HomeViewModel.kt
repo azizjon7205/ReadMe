@@ -9,8 +9,10 @@ import kotlinx.coroutines.launch
 import me.ruyeo.kitobz.data.repository.HomeRepository
 import me.ruyeo.kitobz.model.Book
 import me.ruyeo.kitobz.model.Category
+import me.ruyeo.kitobz.model.Home
 import me.ruyeo.kitobz.utils.Constants.ERROR_MESSAGE
 import me.ruyeo.kitobz.utils.UiStateList
+import me.ruyeo.kitobz.utils.UiStateObject
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,23 +20,21 @@ class HomeViewModel @Inject constructor(
     private val homeRepository: HomeRepository
 ) : ViewModel() {
 
-    private val _getBooksState = MutableStateFlow<UiStateList<Book>>(UiStateList.EMPTY)
-    val getBooksState: StateFlow<UiStateList<Book>> = _getBooksState
+    private val _getHomeState = MutableStateFlow<UiStateObject<Home>>(UiStateObject.EMPTY)
+    val getHomeState: StateFlow<UiStateObject<Home>> = _getHomeState
 
-    fun getBooks() = viewModelScope.launch {
-        _getBooksState.value = UiStateList.LOADING
+    fun getHome() = viewModelScope.launch {
+        _getHomeState.value = UiStateObject.LOADING
         try {
-            val response = ArrayList<Book>()
-            homeRepository.getAllBook().addOnSuccessListener { result ->
-                for (document in result) {
-                    response.add(document.toObject(Book::class.java))
+            homeRepository.getHome().addOnSuccessListener { result ->
+                if (result.exists()){
+                    _getHomeState.value = UiStateObject.SUCCESS(result.toObject(Home::class.java)!!)
                 }
-                _getBooksState.value = UiStateList.SUCCESS(response)
             }.addOnFailureListener {
-                _getBooksState.value = UiStateList.ERROR(it.localizedMessage ?: ERROR_MESSAGE)
+                _getHomeState.value = UiStateObject.ERROR(it.localizedMessage ?: ERROR_MESSAGE)
             }
         } catch (e: Exception) {
-            _getBooksState.value = UiStateList.ERROR(e.localizedMessage ?: ERROR_MESSAGE)
+            _getHomeState.value = UiStateObject.ERROR(e.localizedMessage ?: ERROR_MESSAGE)
         }
     }
 

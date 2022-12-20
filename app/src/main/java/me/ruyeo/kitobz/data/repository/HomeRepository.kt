@@ -12,10 +12,10 @@ class HomeRepository @Inject constructor(
     private val fireStore: FirebaseFirestore
 ) {
 
-    private val booksCollection = fireStore.collection(Constants.BOOKS)
+    private val homeCollection = fireStore.collection(Constants.HOME_PATH)
     private val categoryCollection = fireStore.collection(Constants.CATEGORIES)
 
-    fun getAllBook() = booksCollection.get()
+    fun getHome() = homeCollection.document("home").get()
 
     fun getCategories() = categoryCollection.get()
 

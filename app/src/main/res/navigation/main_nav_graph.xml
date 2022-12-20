@@ -18,7 +18,6 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
@@ -31,7 +30,6 @@
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
-            app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
@@ -135,6 +133,15 @@
         <action
             android:id="@+id/action_detailsFragment_to_pdfViewFragment"
             app:destination="@id/pdfViewFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_audioPlayerFragment2"
+            app:destination="@id/audioPlayerFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_shawAllFragment"
+            app:destination="@id/shawAllFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_authorBooksFragment"
+            app:destination="@id/authorBooksFragment" />
     </fragment>
     <fragment
         android:id="@+id/filterFragment"

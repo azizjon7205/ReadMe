@@ -14,22 +14,19 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.widget.NestedScrollView
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.chip.Chip
-import com.google.android.material.slider.Slider
-import com.r0adkll.slidr.Slidr
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import jp.wasabeef.blurry.Blurry
-import jp.wasabeef.glide.transformations.BlurTransformation
 import me.ruyeo.kitobz.R
 import me.ruyeo.kitobz.adapter.AuthorBooksAdapter
 import me.ruyeo.kitobz.adapter.CommentAdapter
 import me.ruyeo.kitobz.databinding.FragmentDetailsBinding
 import me.ruyeo.kitobz.model.Book
+import me.ruyeo.kitobz.model.Category
 import me.ruyeo.kitobz.model.Feedback
 import me.ruyeo.kitobz.ui.base.BaseFragment
 import me.ruyeo.kitobz.ui.home.SpacesItemDecoration
@@ -69,7 +66,8 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
     private fun initViews() {
 
-        val description = "Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … "
+        val description =
+            "Это были люди, сформировавшие стандарты американской мечты. Люди провидческого, изобретательского ума, новаторы, подобных которым история еще не знала. В течение последующих 50-ти лет эт … "
         if (isPaperBook) llPaperClicked()
         if (isElectronicBook) llEbookClicked()
         if (isAudioBook) llAudioBookClicked()
@@ -85,7 +83,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 flBack.visible(true)
 
                 val popupMenu = PopupMenu(requireContext(), ivMore, Gravity.END)
-                popupMenu.menuInflater.inflate(R.menu.popup_menu,  popupMenu.menu)
+                popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
                 popupMenu.setForceShowIcon(true)
                 popupMenu.setOnMenuItemClickListener {
                     flBack.visible(false)
@@ -108,7 +106,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
             tvBookPriceOld.strikeThrough()
 
             llPaperBook.setOnClickListener {
-                if (!isPaperBook && (isElectronicBook || isAudioBook)){
+                if (!isPaperBook && (isElectronicBook || isAudioBook)) {
                     isPaperBook = true
 
                     if (isPaperBook) llPaperClicked()
@@ -122,7 +120,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
             }
 
             llEbook.setOnClickListener {
-                if (!isElectronicBook && (isPaperBook || isAudioBook)){
+                if (!isElectronicBook && (isPaperBook || isAudioBook)) {
                     isElectronicBook = true
 
                     if (isPaperBook) llPaperClicked()
@@ -136,7 +134,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
             }
 
             llAudioBook.setOnClickListener {
-                if (!isAudioBook && (isElectronicBook || isPaperBook)){
+                if (!isAudioBook && (isElectronicBook || isPaperBook)) {
                     isAudioBook = true
 
                     if (isPaperBook) llPaperClicked()
@@ -152,14 +150,28 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
             tvDescription.text = description
             makeTextViewResizable(tvDescription, 4, "показать больше", true)
 
+            chipGroup.setOnCheckedChangeListener { group, checkedId ->
+                findNavController().navigate(R.id.action_detailsFragment_to_shawAllFragment)
+            }
+
+//            chipGroup.setOnClickListener {
+//
+//            }
+
+            clShawAllAuthorBooks.setOnClickListener {
+                findNavController().navigate(R.id.action_detailsFragment_to_authorBooksFragment)
+            }
+
             rvAuthorBooks.apply {
-                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 adapter = authorBooksAdapter
                 addItemDecoration(SpacesItemDecoration(requireContext().dpToPixel(16f).toInt()))
             }
 
             rvComments.apply {
-                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
                 adapter = commentAdapter
             }
 
@@ -170,21 +182,27 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 showKeyboard(etComment)
             }
 
-            for (i in loadGenres()){
+            for (i in loadGenres()) {
                 val chip = Chip(requireContext())
                 chip.setTextColor(Color.parseColor("#6575A1"))
                 chip.setChipBackgroundColorResource(R.color.white)
                 chip.setChipStrokeColorResource(R.color.blue_light)
                 chip.chipStrokeWidth = requireContext().dpToPixel(1f)
-                chip.text = i
+                chip.text = i.name
+                chip.setOnClickListener {
+                    findNavController().navigate(
+                        R.id.action_detailsFragment_to_shawAllFragment,
+                        bundleOf("category" to Gson().toJson(i))
+                    )
+                }
                 binding.chipGroup.addView(chip)
             }
 
             bAction.setOnClickListener {
-                if (isAudioBook){
+                if (isAudioBook) {
 //                    findNavController().navigate(R.id.audioPlayerFragment)
                 }
-                if (isElectronicBook){
+                if (isElectronicBook) {
                     findNavController().navigate(R.id.pdfViewFragment)
                 }
             }
@@ -194,9 +212,9 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
     }
 
-    private fun llPaperClicked(){
-        with(binding){
-            if (!llPaperBook.isActivated){
+    private fun llPaperClicked() {
+        with(binding) {
+            if (!llPaperBook.isActivated) {
                 ivPaperBook.tint(R.color.white)
                 tvPaperBookPrice.setTextColor(Color.WHITE)
                 tvPaperBook.setTextColor(Color.WHITE)
@@ -215,7 +233,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 tvPaper.text = "Твёрдый"
                 tvPages.text = "274"
                 tvLanguage.text = "Русский"
-            }else{
+            } else {
                 ivPaperBook.tint(R.color.blue_light)
                 tvPaperBookPrice.setTextColor(Color.BLACK)
                 tvPaperBook.setTextColor(Color.BLACK)
@@ -224,11 +242,10 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         }
     }
 
-    private fun llEbookClicked(){
-        with(binding){
-            if (!llEbook.isActivated){
-                fEbook.setBackgroundColor(Color.WHITE)
-                ivEbook.tint(R.color.black)
+    private fun llEbookClicked() {
+        with(binding) {
+            if (!llEbook.isActivated) {
+                ivEbook.tint(R.color.white)
                 tvEbookPrice.setTextColor(Color.WHITE)
                 tvEbook.setTextColor(Color.WHITE)
                 llEbook.clicked()
@@ -244,9 +261,8 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 tvYear.text = "2010"
                 tvPages.text = "274"
                 tvLanguage.text = "Русский"
-            }else{
-                fEbook.setBackgroundColor(Color.parseColor("#6575A1"))
-                ivEbook.tint(R.color.white)
+            } else {
+                ivEbook.tint(R.color.blue_light)
                 tvEbookPrice.setTextColor(Color.BLACK)
                 tvEbook.setTextColor(Color.BLACK)
                 llEbook.clicked()
@@ -255,9 +271,9 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         }
     }
 
-    private fun llAudioBookClicked(){
-        with(binding){
-            if (!llAudioBook.isActivated){
+    private fun llAudioBookClicked() {
+        with(binding) {
+            if (!llAudioBook.isActivated) {
                 fAudioBook.setBackgroundTintByColor(Color.WHITE)
                 ivHeadphone.tint(R.color.black)
                 tvAudioBookPrice.setTextColor(Color.WHITE)
@@ -275,7 +291,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                 tvYear.text = "2010"
                 tvPages.text = "13 час. 42 мин."
                 tvLanguage.text = "Русский"
-            }else{
+            } else {
                 fAudioBook.setBackgroundTintByColor(Color.parseColor("#6575A1"))
                 ivHeadphone.tint(R.color.white)
                 tvAudioBookPrice.setTextColor(Color.BLACK)
@@ -289,17 +305,38 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         this.isActivated = !this.isActivated
     }
 
-    private fun loadComments(): ArrayList<Feedback>{
+    private fun loadComments(): ArrayList<Feedback> {
         var items = ArrayList<Feedback>()
 
-        items.add(Feedback(author = "Коля Абрамович", author_img = "", date = "07.03.2020", feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
-        items.add(Feedback(author = "Коля Абрамович", author_img = "", date = "07.03.2020", feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
-        items.add(Feedback(author = "Коля Абрамович", author_img = "", date = "07.03.2020", feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."))
+        items.add(
+            Feedback(
+                author = "Коля Абрамович",
+                author_img = "",
+                date = "07.03.2020",
+                feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."
+            )
+        )
+        items.add(
+            Feedback(
+                author = "Коля Абрамович",
+                author_img = "",
+                date = "07.03.2020",
+                feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."
+            )
+        )
+        items.add(
+            Feedback(
+                author = "Коля Абрамович",
+                author_img = "",
+                date = "07.03.2020",
+                feedback = "Это рассказ об успешном для главного героя танковом бое в Восточной Пруссии, а также о выборе который часто стоит перед каждым."
+            )
+        )
 
         return items
     }
 
-    private fun loadBooks(): ArrayList<Book>{
+    private fun loadBooks(): ArrayList<Book> {
         val items = ArrayList<Book>()
 
         items.add(
@@ -356,14 +393,45 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         return items
     }
 
-    private fun loadGenres(): ArrayList<String>{
-        val items = ArrayList<String>()
+    private fun loadGenres(): ArrayList<Category> {
+        val items = ArrayList<Category>()
 
-        items.add("Художественная литература")
-        items.add("Проза")
-        items.add("Романы")
-        items.add("Рассказы")
-        items.add("Фантастика")
+        items.add(
+            Category(
+                name = "Художественная литература",
+                count = 20,
+                children = arrayListOf(Category(name = "name1", count = 10))
+            )
+        )
+        items.add(
+            Category(
+                name = "Проза",
+                count = 20,
+                children = arrayListOf(Category(name = "name1", count = 10))
+            )
+        )
+        items.add(
+            Category(
+                name = "Романы",
+                count = 20,
+                children = arrayListOf(Category(name = "name1", count = 10))
+            )
+        )
+        items.add(
+            Category(
+                name = "Рассказы",
+                count = 20,
+                children = arrayListOf(Category(name = "name1", count = 10))
+            )
+        )
+        items.add(
+            Category(
+                name = "Фантастика",
+                count = 20,
+                children = arrayListOf(Category(name = "name1", count = 10))
+            )
+        )
+
 
         return items
     }
